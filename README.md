@@ -1,4 +1,4 @@
-# CS766_Project
+# CS766_Project (focus on CoAtNet and MobileNetV3 first)
 # review
 ## lightweight CNN structure: 
 SquezzeNet, MobileNets, MobileNetv2, MobileNetv3, ThunderNet, ShuffleNet, ShuffleNetv2, PeleeNet, MnasNet.
