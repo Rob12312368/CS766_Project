@@ -1,3 +1,26 @@
+# CS766_Project (focus on CoAtNet and MobileNetV3 first)
+# review
+## lightweight CNN structure: 
+SquezzeNet, MobileNets, MobileNetv2, MobileNetv3, ThunderNet, ShuffleNet, ShuffleNetv2, PeleeNet, MnasNet.
+
+## lightweight Transformer structure: 
+TinyViT (Wu et al. 2022a)
+https://github.com/microsoft/Cream/tree/main/TinyViT
+
+## lightweight hybrid structure: 
+Mobile-Former (Chen et al. 2022e)
+https://github.com/aaboys/mobileformer
+; To provide parallel interaction of MobileNet and transformer, allowing the model to achieve a good balance between efficiency and representation power.
+
+LocalViT (Li et al. 2021c)
+https://github.com/ofsoundof/LocalViT
+
+CoAtNet (Dai et al. 2021)
+https://github.com/chinhsuanwu/coatnet-pytorch
+
+
+
+
 # PyTorch Implementation of MobileNet V3
 Reproduction of MobileNet V3 architecture as described in [Searching for MobileNetV3](https://arxiv.org/abs/1905.02244) by Andrew Howard, Mark Sandler, Grace Chu, Liang-Chieh Chen, Bo Chen, Mingxing Tan, Weijun Wang, Yukun Zhu, Ruoming Pang, Vijay Vasudevan, Quoc V. Le, Hartwig Adam on ILSVRC2012 benchmark with [PyTorch](pytorch.org) framework.
 
