@@ -65,10 +65,10 @@ class Mbnet():
                 row += 1
         plt.show()
 
-
-model = Mbnet('small', 'pretrained/mobilenetv3-small-55df8e1f.pth')
-model.build_preprocessor()
-print(model.predict('./sample_images'))
+if __name__ == "__main__":
+    model = Mbnet('small', 'pretrained/mobilenetv3-small-55df8e1f.pth')
+    model.build_preprocessor()
+    print(model.predict('./sample_images'))
 
 
 '''
