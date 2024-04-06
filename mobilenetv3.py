@@ -128,7 +128,7 @@ class InvertedResidual(nn.Module):
 
 
 class MobileNetV3(nn.Module):
-    def __init__(self, cfgs, mode, num_classes=1000, width_mult=1.):
+    def __init__(self, cfgs, mode, num_classes=30, width_mult=1.):
         super(MobileNetV3, self).__init__()
         # setting of inverted residual blocks
         self.cfgs = cfgs
@@ -150,21 +150,33 @@ class MobileNetV3(nn.Module):
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
         output_channel = {'large': 1280, 'small': 1024}
         output_channel = _make_divisible(output_channel[mode] * width_mult, 8) if width_mult > 1.0 else output_channel[mode]
+        '''
         self.classifier = nn.Sequential(
             nn.Linear(exp_size, output_channel),
             h_swish(),
             nn.Dropout(0.2),
             nn.Linear(output_channel, num_classes),
         )
-
+        '''
+        # Modify the classifier to output segmentation masks with upsampling
+        self.classifier = nn.Sequential(
+            nn.Conv2d(exp_size, num_classes, kernel_size=1, stride=1, padding=0, bias=True),
+            nn.Upsample(scale_factor=4, mode='bilinear', align_corners=False)
+        )
         self._initialize_weights()
 
     def forward(self, x):
+        print(x.shape)
         x = self.features(x)
+        print(x.shape)
         x = self.conv(x)
+        print(x.shape)
         x = self.avgpool(x)
+        print(x.shape)
         x = x.view(x.size(0), -1)
+        print(x.shape)
         x = self.classifier(x)
+        print(x.shape)
         return x
 
     def _initialize_weights(self):

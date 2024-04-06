@@ -11,6 +11,11 @@ class Mbnet():
             self.model = mobilenetv3_large()
         elif choice == 'small':
             self.model = mobilenetv3_small()
+        # read current model structure
+        model_state_dict = self.model.state_dict()
+        # get those parameter in the existing layers (transfer learning)
+        pretrained_dict = {k: v for k, v in pretrained_dict.items() if k in model_state_dict}
+        # load only those parameter (still need to train the parameter in the new layers)
         self.model.load_state_dict(torch.load(pretrained))
         self.preprocessor = self.build_preprocessor()
         self.get_img_num_to_label()
@@ -47,7 +52,7 @@ class Mbnet():
             probabilities = torch.nn.functional.softmax(output[0], dim=0)
             predicted_classes[image_path] = self.labels_list[torch.argmax(probabilities).item()]
             images[image_path] = image
-        self.draw_graph(predicted_classes, images)
+        #self.draw_graph(predicted_classes, images)
         return predicted_classes
 
     def draw_graph(self, predicted_classes, images):
