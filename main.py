@@ -5,6 +5,8 @@ from PIL import Image
 import os
 import matplotlib.pyplot as plt
 import urllib.request
+
+
 class Mbnet():
     def __init__(self,choice,pretrained) -> None:
         if choice == 'large':
@@ -12,15 +14,18 @@ class Mbnet():
         elif choice == 'small':
             self.model = mobilenetv3_small()
         self.model.load_state_dict(torch.load(pretrained))
+        # Load pretrained weights
+        # stat
         self.preprocessor = self.build_preprocessor()
         self.get_img_num_to_label()
+
     def get_img_num_to_label(self):
-        # URL to the ImageNet labels file
-        url = "https://raw.githubusercontent.com/anishathalye/imagenet-simple-labels/master/imagenet-simple-labels.json"
-        response = urllib.request.urlopen(url)
-        labels_bytes = response.read()
-        labels_text = labels_bytes.decode('utf-8')
+        # Path to the ImageNet labels file
+        file_path = "imagenet_classes.txt"
+        with open(file_path, 'r') as file:
+            labels_text = file.read()
         self.labels_list = labels_text.split('\n')
+
     def build_preprocessor(self):
         return transforms.Compose([
             transforms.Resize((224, 224)),  # Resize image to 224x224 (input size for MobileNetV3)
@@ -35,6 +40,7 @@ class Mbnet():
         predicted_classes = {}
         self.model.eval()
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
         image_paths = os.listdir(dir_path)
         for image_path in image_paths:
             image = Image.open(os.path.join(dir_path, image_path))
@@ -45,6 +51,7 @@ class Mbnet():
             with torch.no_grad():
                 output = self.model(input_batch)
             probabilities = torch.nn.functional.softmax(output[0], dim=0)
+
             predicted_classes[image_path] = self.labels_list[torch.argmax(probabilities).item()]
             images[image_path] = image
         self.draw_graph(predicted_classes, images)
@@ -64,7 +71,6 @@ class Mbnet():
             if col % 3 == 0:
                 row += 1
         plt.show()
-
 
 model = Mbnet('small', 'pretrained/mobilenetv3-small-55df8e1f.pth')
 model.build_preprocessor()
