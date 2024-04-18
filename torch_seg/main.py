@@ -184,7 +184,6 @@ duration = end_time - start_time
 print(f"Test Accuracy: {100 * correct / total}%", "Test Duration: {duration} s")
 
 # show segmentation example
-model.load_state_dict(torch.load('model_weights.pth'))
 import matplotlib.pyplot as plt
 model.eval()
 with torch.no_grad():
