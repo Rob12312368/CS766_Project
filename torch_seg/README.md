@@ -20,4 +20,7 @@ command: !python3 ~/CS766_Project/torch_seg/main.py
 
 resources:
 use the following link to check the label of cityscapes dataset, the total number of labels is 34, we need to map the labels to 19 classes.
-1.label of cityscapes https://github.com/mcordts/cityscapesScripts/blob/master/cityscapesscripts/helpers/labels.py
+1.label of cityscapes: https://github.com/mcordts/cityscapesScripts/blob/master/cityscapesscripts/helpers/labels.py
+2.what is mIOU: https://towardsdatascience.com/metrics-to-evaluate-your-semantic-segmentation-model-6bcb99639aa2
+3.state of the art models: https://paperswithcode.com/sota/semantic-segmentation-on-cityscapes
+

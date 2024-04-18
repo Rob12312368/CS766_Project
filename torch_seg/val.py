@@ -91,72 +91,10 @@ val_loader = DataLoader(val_dataset, batch_size=4, shuffle=False)
 
 # Training setup
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print("training on", device)
 model.to(device)
 criterion = torch.nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 scheduler = StepLR(optimizer, step_size=7, gamma=0.1)
-
-# Training loop
-num_epochs = 100 # 100-200 epochs typically
-loss_values = [] # total loss
-best_val_loss = float('inf')
-for epoch in range(num_epochs):
-    start_time = time.time()  # Start time measurement
-    model.train()
-    counter = 0
-    running_loss = 0.0
-
-    print(f"Epoch {epoch + 1}, Training...")
-    for images, targets in train_loader:
-        images = images.to(device)
-        targets = targets.to(device)
-
-        optimizer.zero_grad()
-        outputs = model(images)['out']
-
-        loss = criterion(outputs, targets)
-        loss.backward()
-        optimizer.step()
-        running_loss += loss.item()
-        # print loss every 10 batches
-        if counter % 10 == 0:
-            end_time = time.time()
-            duration = end_time - start_time
-            # epoch i / num_epochs, loss should only have 2 decimal places
-            print(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Train Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
-        counter += 1
-    train_loss = running_loss / len(train_loader)
-
-    # Validation phase
-    model.eval()
-    val_loss = 0.0
-    counter = 0
-    print(f"Epoch {epoch + 1}, Validating...")
-    with torch.no_grad():
-        for images, targets in val_loader:
-            images = images.to(device)
-            targets = targets.to(device)
-            outputs = model(images)['out']
-            loss = criterion(outputs, targets)
-            val_loss += loss.item()
-            if counter % 10 == 0:
-                end_time = time.time()
-                duration = end_time - start_time
-                print(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Validation Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
-            counter += 1
-    val_loss /= len(val_loader)
-    loss_values.append(val_loss)
-
-    end_time = time.time()  # End time measurement
-    epoch_duration = end_time - start_time
-
-    print(f"Epoch {epoch + 1}, Training Loss: {train_loss}, Validation Loss: {val_loss}, Epoch Duration: {epoch_duration} s")
-
-    if val_loss < best_val_loss:
-        best_val_loss = val_loss
-        torch.save(model.state_dict(), 'best_model_weights.pth')
-torch.save(model.state_dict(), 'last_model_weights.pth')
 
 # Validation phase
 model.load_state_dict(torch.load('best_model_weights.pth'))
@@ -168,7 +106,6 @@ iou_per_class = []
 
 print("Testing... ") #use the val set
 start_time = time.time()
-
 with torch.no_grad():
     for images, targets in val_loader:
         images = images.to(device)
@@ -231,12 +168,3 @@ with torch.no_grad():
     axs[2].imshow(preds[0])
     axs[2].set_title('Predicted Mask')
     plt.savefig('segmentation.png')
-
-
-# show val loss in plt
-plt.figure()
-plt.plot(loss_values)
-plt.title('Validation Loss')
-plt.xlabel('images')
-plt.ylabel('Loss')
-plt.savefig('loss.png')
