@@ -106,6 +106,8 @@ for epoch in range(num_epochs):
     model.train()
     counter = 0
     running_loss = 0.0
+
+    print(f"Epoch {epoch + 1}, Training...")
     for images, targets in train_loader:
         images = images.to(device)
         targets = targets.to(device)
@@ -121,17 +123,15 @@ for epoch in range(num_epochs):
         if counter % 10 == 0:
             end_time = time.time()
             duration = end_time - start_time
-            print(f"Epoch {epoch + 1}, Batch {counter}, Loss: {loss.item()}, Epoch Time: {duration} s")
+            print(f"Epoch {epoch + 1}, Batch {counter}, Train Loss: {loss.item()}, Epoch Time: {duration} s")
         counter += 1
-
-
-
-    total_loss = running_loss / len(train_loader)
-    loss_values.append(total_loss)
+    train_loss = running_loss / len(train_loader)
 
     # Validation phase
     model.eval()
     val_loss = 0.0
+    counter = 0
+    print(f"Epoch {epoch + 1}, Validating...")
     with torch.no_grad():
         for images, targets in val_loader:
             images = images.to(device)
@@ -139,12 +139,18 @@ for epoch in range(num_epochs):
             outputs = model(images)['out']
             loss = criterion(outputs, targets)
             val_loss += loss.item()
+            if counter % 10 == 0:
+                end_time = time.time()
+                duration = end_time - start_time
+                print(f"Epoch {epoch + 1}, Batch {counter}, Validation Loss: {loss.item()}, Epoch Time: {duration} s")
+            counter += 1
     val_loss /= len(val_loader)
+    loss_values.append(val_loss)
 
     end_time = time.time()  # End time measurement
     epoch_duration = end_time - start_time
 
-    print(f"Epoch {epoch + 1}, Training Loss: {total_loss}, Validation Loss: {val_loss}, Epoch Duration: {epoch_duration} s")
+    print(f"Epoch {epoch + 1}, Training Loss: {train_loss}, Validation Loss: {val_loss}, Epoch Duration: {epoch_duration} s")
 
     if val_loss < best_val_loss:
         best_val_loss = val_loss
@@ -196,10 +202,10 @@ with torch.no_grad():
     plt.savefig('segmentation.png')
 
 
-# show loss in plt
+# show val loss in plt
 plt.figure()
 plt.plot(loss_values)
-plt.title('Training Loss')
+plt.title('Validation Loss')
 plt.xlabel('images')
 plt.ylabel('Loss')
 plt.savefig('loss.png')
