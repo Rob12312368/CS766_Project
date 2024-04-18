@@ -1,23 +1,49 @@
 '''
-backbone: resnet50(pretrained: COCO segmentation)
+backbone: resnet50(pretrained: ImageNet)
 segmentation_head: DeepLabV3Head
 '''
+
 import torch
 import torchvision
 from torchvision import models, datasets, transforms
+from torchvision.models.segmentation import deeplabv3_resnet50
+from torchvision.models.segmentation.deeplabv3 import DeepLabHead
 from torch.utils.data import DataLoader
 import torch.optim as optim
 from torch.optim.lr_scheduler import StepLR
 import numpy as np
 
-# Load the pretrained DeepLabV3 model with a ResNet50 backbone
-model = models.segmentation.deeplabv3_resnet50(weights=models.segmentation.DeepLabV3_ResNet50_Weights.DEFAULT)
+class CustomDeepLabV3(torch.nn.Module):
+    def __init__(self, backbone, classifier):
+        super().__init__()
+        self.backbone = backbone
+        self.classifier = classifier
+
+    def forward(self, x):
+        input_shape = x.shape[-2:]
+        features = self.backbone(x)
+        x = self.classifier(features)
+        # spatial dimensions of this map are smaller than the original input image due to the downsampling operations in the backbone.
+        # We can upsample the output to the size of the input image using interpolation
+        x = torch.nn.functional.interpolate(x, size=input_shape, mode='bilinear', align_corners=False)
+        return {'out': x}
+
+backbone = models.resnet50(pretrained=True)
+backbone = torch.nn.Sequential(*(list(backbone.children())[:-2]))
+# backbone.add_module('avgpool', torch.nn.AdaptiveAvgPool2d(output_size=(1, 1)))
+
+num_classes = 20
+# the segmentation head is responsible for making the final pixel-wise predictions
+segmentation_head = DeepLabHead(2048, num_classes)
+
+# Then use your custom model instead of the original one
+model = CustomDeepLabV3(backbone, segmentation_head)
+
+
 
 # Number of effective classes after mapping (19 classes + 1 background)
-num_classes = 20
 
 # Replace the classifier of the model
-model.classifier[4] = torch.nn.Conv2d(256, num_classes, kernel_size=(1, 1), stride=(1, 1))
 
 # Mapping for reducing classes to 20 including background
 mapping_20 = {
@@ -63,7 +89,9 @@ optimizer = optim.Adam(model.parameters(), lr=0.001)
 scheduler = StepLR(optimizer, step_size=7, gamma=0.1)
 
 # Training loop
-num_epochs = 2
+num_epochs = 1
+loss_values = [] # per image loss
+
 for epoch in range(num_epochs):
     model.train()
     running_loss = 0.0
@@ -71,8 +99,7 @@ for epoch in range(num_epochs):
         images = images.to(device)
         targets = targets.to(device)
 
-        print("label_max:", targets.max(), " label_min:", targets.min(), " label_median:", torch.median(targets),
-              "label_shape:", targets.shape)
+        #print("label_max:", targets.max(), " label_min:", targets.min(), " label_median:", torch.median(targets),"label_shape:", targets.shape)
 
         optimizer.zero_grad()
         outputs = model(images)['out']
@@ -81,6 +108,8 @@ for epoch in range(num_epochs):
         loss.backward()
         optimizer.step()
         running_loss += loss.item()
+        # print iamges i loss
+        loss_values.append(loss.item())
         print("loss:", loss.item())
 
     scheduler.step()
@@ -94,9 +123,47 @@ with torch.no_grad():
     for images, targets in val_loader:
         images = images.to(device)
         targets = targets.to(device)
-        outputs = model(images)['out']
+        model(images)['out']
         _, predicted = torch.max(outputs, 1)
         total += targets.nelement()
         correct += (predicted == targets).sum().item()
-
 print(f"Accuracy: {100 * correct / total}%")
+torch.save(model.state_dict(), 'model_weights.pth')
+
+
+# show segmentation example
+model.load_state_dict(torch.load('model_weights.pth'))
+import matplotlib.pyplot as plt
+model.eval()
+with torch.no_grad():
+    # Get a batch from the validation loader
+    images, targets = next(iter(val_loader))
+    images = images.to(device)
+    targets = targets.to(device)
+
+    # Get the model's prediction
+    outputs = model(images)['out']
+    _, preds = torch.max(outputs, 1)
+
+    # Move images, targets and preds to cpu for visualization
+    images = images.cpu().numpy()
+    targets = targets.cpu().numpy()
+    preds = preds.cpu().numpy()
+
+    # Plot original image, true mask, and predicted mask
+    fig, axs = plt.subplots(1, 3, figsize=(15, 5))
+    axs[0].imshow(np.transpose(images[0], (1, 2, 0)))
+    axs[0].set_title('Original Image')
+    axs[1].imshow(targets[0])
+    axs[1].set_title('True Mask')
+    axs[2].imshow(preds[0])
+    axs[2].set_title('Predicted Mask')
+    plt.show()
+
+# show loss in plt
+plt.figure()
+plt.plot(loss_values)
+plt.title('Training Loss')
+plt.xlabel('images')
+plt.ylabel('Loss')
+plt.show()
