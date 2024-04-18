@@ -171,7 +171,7 @@ with torch.no_grad():
         images = images.to(device)
         targets = targets.to(device)
         outputs = model(images)['out']
-        _, predicted = torch.max(outputs, 1)
+        _, predicted = torch.max(outputs, 1) # max is used to get the index of the class with the highest probability
         total += targets.nelement()
         correct += (predicted == targets).sum().item()
         if counter % 10 == 0:
@@ -187,8 +187,8 @@ print(f"Test Accuracy: {100 * correct / total}%", "Test Duration: {duration} s")
 import matplotlib.pyplot as plt
 model.eval()
 with torch.no_grad():
-    # Get a batch from the validation loader
-    images, targets = next(iter(val_loader))
+    # Get a batch from the test loader
+    images, targets = next(iter(test_loader))
     images = images.to(device)
     targets = targets.to(device)
 
