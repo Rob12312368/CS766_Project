@@ -1,8 +1,8 @@
 '''
 backbone: resnet50(pretrained: ImageNet)
 segmentation_head: DeepLabV3Head
-datapath: './small_gtFine_trainvaltest'(35 training images, 5 validation images, 10 test images)
-num_epochs: 10
+datapath: './gtFine_trainvaltest'(2975 training images, 500 validation images, 1525 test images)
+num_epochs: 100
 batch_size: 4
 '''
 
@@ -77,13 +77,16 @@ target_transform = transforms.Compose([
 ])
 
 # Define the dataset with appropriate transforms for both images and targets
-dataset_path = './small_gtFine_trainvaltest'
+dataset_path = './gtFine_trainvaltest'
 train_dataset = datasets.Cityscapes(root=dataset_path, split='train', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
 val_dataset = datasets.Cityscapes(root=dataset_path, split='val', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
+test_dataset = datasets.Cityscapes(root=dataset_path, split='test', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
 
+# batch size should be set to 4 or more on GPU for training
 train_loader = DataLoader(train_dataset, batch_size=4, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=4, shuffle=False)
-# batch size should be set to 4 on GPU for training
+test_loader = DataLoader(test_dataset, batch_size=4, shuffle=False)
+
 
 # Training setup
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -94,9 +97,9 @@ optimizer = optim.Adam(model.parameters(), lr=0.001)
 scheduler = StepLR(optimizer, step_size=7, gamma=0.1)
 
 # Training loop
-num_epochs = 10
+num_epochs = 100 # 100-200 epochs typically
 loss_values = [] # total loss
-counter = 0
+best_val_loss = float('inf')
 
 for epoch in range(num_epochs):
     model.train()
@@ -105,8 +108,6 @@ for epoch in range(num_epochs):
         images = images.to(device)
         targets = targets.to(device)
 
-        #print("label_max:", targets.max(), " label_min:", targets.min(), " label_median:", torch.median(targets),"label_shape:", targets.shape)
-
         optimizer.zero_grad()
         outputs = model(images)['out']
 
@@ -114,31 +115,43 @@ for epoch in range(num_epochs):
         loss.backward()
         optimizer.step()
         running_loss += loss.item()
-        # print iamges i loss
 
-        print("loss", counter, ":", loss.item())
-        counter += 1
-
-    scheduler.step()
     total_loss = running_loss / len(train_loader)
     loss_values.append(total_loss)
-    print(f"Epoch {epoch + 1}, Loss: {total_loss}")
 
-# Evaluation
+    # Validation phase
+    model.eval()
+    val_loss = 0.0
+    with torch.no_grad():
+        for images, targets in val_loader:
+            images = images.to(device)
+            targets = targets.to(device)
+            outputs = model(images)['out']
+            loss = criterion(outputs, targets)
+            val_loss += loss.item()
+    val_loss /= len(val_loader)
+
+    print(f"Epoch {epoch + 1}, Training Loss: {total_loss}, Validation Loss: {val_loss}")
+
+    if val_loss < best_val_loss:
+        best_val_loss = val_loss
+        torch.save(model.state_dict(), 'best_model_weights.pth')
+
+
+model.load_state_dict(torch.load('best_model_weights.pth'))
+# Testing phase
 model.eval()
 total = 0
 correct = 0
 with torch.no_grad():
-    for images, targets in val_loader:
+    for images, targets in test_loader:
         images = images.to(device)
         targets = targets.to(device)
         outputs = model(images)['out']
         _, predicted = torch.max(outputs, 1)
         total += targets.nelement()
         correct += (predicted == targets).sum().item()
-print(f"Accuracy: {100 * correct / total}%")
-torch.save(model.state_dict(), 'model_weights.pth')
-
+print(f"Test Accuracy: {100 * correct / total}%")
 
 # show segmentation example
 model.load_state_dict(torch.load('model_weights.pth'))
