@@ -162,6 +162,10 @@ model.load_state_dict(torch.load('best_model_weights.pth'))
 model.eval()
 total = 0
 correct = 0
+counter = 0
+
+print("Testing...")
+start_time = time.time()
 with torch.no_grad():
     for images, targets in test_loader:
         images = images.to(device)
@@ -170,7 +174,14 @@ with torch.no_grad():
         _, predicted = torch.max(outputs, 1)
         total += targets.nelement()
         correct += (predicted == targets).sum().item()
-print(f"Test Accuracy: {100 * correct / total}%")
+        if counter % 10 == 0:
+            end_time = time.time()
+            duration = end_time - start_time
+            print(f"Epoch {epoch + 1}, Batch {counter}, Test Accuracy: {100 * correct / total}%, Test time: {duration} s")
+        counter += 1
+end_time = time.time()
+duration = end_time - start_time
+print(f"Test Accuracy: {100 * correct / total}%", "Test Duration: {duration} s")
 
 # show segmentation example
 model.load_state_dict(torch.load('model_weights.pth'))
