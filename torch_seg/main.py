@@ -123,7 +123,8 @@ for epoch in range(num_epochs):
         if counter % 10 == 0:
             end_time = time.time()
             duration = end_time - start_time
-            print(f"Epoch {epoch + 1}, Batch {counter}, Train Loss: {loss.item()}, Epoch Time: {duration} s")
+            # epoch i / num_epochs, loss should only have 2 decimal places
+            print(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Train Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
         counter += 1
     train_loss = running_loss / len(train_loader)
 
@@ -142,7 +143,7 @@ for epoch in range(num_epochs):
             if counter % 10 == 0:
                 end_time = time.time()
                 duration = end_time - start_time
-                print(f"Epoch {epoch + 1}, Batch {counter}, Validation Loss: {loss.item()}, Epoch Time: {duration} s")
+                print(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Validation Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
             counter += 1
     val_loss /= len(val_loader)
     loss_values.append(val_loss)
@@ -177,11 +178,11 @@ with torch.no_grad():
         if counter % 10 == 0:
             end_time = time.time()
             duration = end_time - start_time
-            print(f"Epoch {epoch + 1}, Batch {counter}, Test Accuracy: {100 * correct / total}%, Test time: {duration} s")
+            print(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Test Accuracy: {100 * correct / total:.2f}%, Test time: {duration:.2f} s")
         counter += 1
 end_time = time.time()
 duration = end_time - start_time
-print(f"Test Accuracy: {100 * correct / total}%", "Test Duration: {duration} s")
+print(f"Test Accuracy: {100 * correct / total}%, Test Duration: {duration} s")
 
 # show segmentation example
 import matplotlib.pyplot as plt
