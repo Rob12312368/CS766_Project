@@ -101,10 +101,10 @@ scheduler = StepLR(optimizer, step_size=7, gamma=0.1)
 num_epochs = 100 # 100-200 epochs typically
 loss_values = [] # total loss
 best_val_loss = float('inf')
-
 for epoch in range(num_epochs):
     start_time = time.time()  # Start time measurement
     model.train()
+    counter = 0
     running_loss = 0.0
     for images, targets in train_loader:
         images = images.to(device)
@@ -117,6 +117,12 @@ for epoch in range(num_epochs):
         loss.backward()
         optimizer.step()
         running_loss += loss.item()
+        # print loss every 10 batches
+        if counter % 10 == 0:
+            end_time = time.time()
+            duration = end_time - start_time
+            print(f"Epoch {epoch + 1}, Batch {counter}, Loss: {loss.item()}, Epoch Time: {duration} s")
+        counter += 1
 
 
 
@@ -138,7 +144,7 @@ for epoch in range(num_epochs):
     end_time = time.time()  # End time measurement
     epoch_duration = end_time - start_time
 
-    print(f"Epoch {epoch + 1}, Training Loss: {total_loss}, Validation Loss: {val_loss},Time: {epoch_duration} s")
+    print(f"Epoch {epoch + 1}, Training Loss: {total_loss}, Validation Loss: {val_loss}, Epoch Duration: {epoch_duration} s")
 
     if val_loss < best_val_loss:
         best_val_loss = val_loss
