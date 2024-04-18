@@ -15,6 +15,7 @@ from torch.utils.data import DataLoader
 import torch.optim as optim
 from torch.optim.lr_scheduler import StepLR
 import numpy as np
+import time
 
 class CustomDeepLabV3(torch.nn.Module):
     def __init__(self, backbone, classifier):
@@ -102,6 +103,7 @@ loss_values = [] # total loss
 best_val_loss = float('inf')
 
 for epoch in range(num_epochs):
+    start_time = time.time()  # Start time measurement
     model.train()
     running_loss = 0.0
     for images, targets in train_loader:
@@ -115,6 +117,8 @@ for epoch in range(num_epochs):
         loss.backward()
         optimizer.step()
         running_loss += loss.item()
+
+
 
     total_loss = running_loss / len(train_loader)
     loss_values.append(total_loss)
@@ -131,7 +135,10 @@ for epoch in range(num_epochs):
             val_loss += loss.item()
     val_loss /= len(val_loader)
 
-    print(f"Epoch {epoch + 1}, Training Loss: {total_loss}, Validation Loss: {val_loss}")
+    end_time = time.time()  # End time measurement
+    epoch_duration = end_time - start_time
+
+    print(f"Epoch {epoch + 1}, Training Loss: {total_loss}, Validation Loss: {val_loss},Time: {epoch_duration} s")
 
     if val_loss < best_val_loss:
         best_val_loss = val_loss

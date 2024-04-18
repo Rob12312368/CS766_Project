@@ -11,7 +11,7 @@ The first run will download the pretrained model from the internet. The second r
 command: !python3 ~/CS766_Project/torch_seg/try_resnet50_imagenet_deeplabv3.py
 
 4. run the training code
-make sure the dataset is downloaded and the path is correct in the code. 
+make sure the dataset is downloaded and the path is correct in the code. (Or you can change the dataset path in the code)
 The file structure should looks like the follwing:
 CS766_Project/torch_seg/gtFine_trainvaltest/gtFine
 CS766_Project/torch_seg/gtFine_trainvaltest/leftImg8bit
