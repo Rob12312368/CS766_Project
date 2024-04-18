@@ -1,9 +1,10 @@
 '''
 backbone: resnet50(pretrained: ImageNet)
 segmentation_head: DeepLabV3Head
+batch_size: 4
+
 datapath: './gtFine_trainvaltest'(2975 training images, 500 validation images, 1525 test images)
 num_epochs: 100
-batch_size: 4
 '''
 
 import torch
@@ -16,6 +17,14 @@ import torch.optim as optim
 from torch.optim.lr_scheduler import StepLR
 import numpy as np
 import time
+import json
+
+with open('config.json') as config_file:
+    config = json.load(config_file)
+
+# Use the values from the configuration file
+dataset_path = config['datapath']
+num_epochs = config['num_epochs']
 
 class CustomDeepLabV3(torch.nn.Module):
     def __init__(self, backbone, classifier):
@@ -78,7 +87,6 @@ target_transform = transforms.Compose([
 ])
 
 # Define the dataset with appropriate transforms for both images and targets
-dataset_path = './gtFine_trainvaltest'
 train_dataset = datasets.Cityscapes(root=dataset_path, split='train', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
 val_dataset = datasets.Cityscapes(root=dataset_path, split='val', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
 #test_dataset = datasets.Cityscapes(root=dataset_path, split='test', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
@@ -98,7 +106,6 @@ optimizer = optim.Adam(model.parameters(), lr=0.001)
 scheduler = StepLR(optimizer, step_size=7, gamma=0.1)
 
 # Training loop
-num_epochs = 100 # 100-200 epochs typically
 loss_values = [] # total loss
 best_val_loss = float('inf')
 for epoch in range(num_epochs):

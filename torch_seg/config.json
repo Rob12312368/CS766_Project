@@ -1,0 +1,4 @@
+{
+    "datapath": "~/gtFine_trainvaltest",
+    "num_epochs": 100
+}

@@ -18,6 +18,9 @@ CS766_Project/torch_seg/gtFine_trainvaltest/leftImg8bit
 both gtFine and leftImg8bit should have the same subfolders including train, val, and test.
 command: !python3 ~/CS766_Project/torch_seg/main.py
 
+dependencies:
+!pip install torch torchvision numpy
+
 resources:
 use the following link to check the label of cityscapes dataset, the total number of labels is 34, we need to map the labels to 19 classes.
 1.label of cityscapes: https://github.com/mcordts/cityscapesScripts/blob/master/cityscapesscripts/helpers/labels.py
