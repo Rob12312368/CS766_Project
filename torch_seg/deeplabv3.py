@@ -190,6 +190,7 @@ for epoch in range(num_epochs):
         counter += 1
     scheduler.step()
     train_loss = running_loss / len(train_loader)
+    train_loss_list.append(train_loss)
     print(f"Epoch {epoch + 1}, Training Loss: {train_loss},Epoch Duration: {duration} s")
 
     # Validation phase
@@ -301,10 +302,18 @@ with torch.no_grad():
     plt.savefig(save_dir + '/segmentation.png')
 
 
+# show train loss in plt
+plt.figure()
+plt.plot(train_loss_list)
+plt.title('Training Loss')
+plt.xlabel('epochs')
+plt.ylabel('Loss')
+plt.savefig(save_dir + '/train_loss.png')
+
 # show val loss in plt
 plt.figure()
 plt.plot(val_loss_list)
 plt.title('Validation Loss')
-plt.xlabel('images')
+plt.xlabel('epochs')
 plt.ylabel('Loss')
-plt.savefig(save_dir + '/loss.png')
+plt.savefig(save_dir + '/val_loss.png')
