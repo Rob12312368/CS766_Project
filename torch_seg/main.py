@@ -111,7 +111,7 @@ print("training on", device)
 model.to(device)
 criterion = torch.nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
-scheduler = StepLR(optimizer, step_size=7, gamma=0.1)
+scheduler = StepLR(optimizer, step_size=7, gamma=0.1) # learning rate decay，reduce the learning rate by a factor of 0.1 every 7 epochs
 
 # Training loop
 loss_values = [] # total loss

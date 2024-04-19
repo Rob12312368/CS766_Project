@@ -7,11 +7,19 @@ datapath: './gtFine_trainvaltest'(2975 training images, 500 validation images, 1
 num_epochs: 100
 
 model structure: Resnet50 + Atrous Spatial Pyramid Pooling(ASPP)
+
 learning rate: (1 - iter/total_iter) ** 0.9, which is rather high
+
 crop size: 769, this helps the ASPP kernel to focus on image instead of padding
+
 batch normalization: use imageNet mean and std instead of cityscapes
-upsampling logits: upsampling the output of model to the size of the input image using interpolation.
-# see if it can outcome the original image without upsampling
+
+upsampling logits: upsampling the output of model instead of downsampling the target.
+the downsampling is done through the backbone(size: 100 -> 4 or 769 -> 25)
+
+modify the resnet model to reduce the downsample rate(typical 32 stride, H/32, W/32)
+unable to modify the stride to a lower value(32 to 8)
+
 No Data Augmentation
 '''
 
@@ -34,7 +42,7 @@ with open('config.json') as config_file:
 dataset_path = config['datapath']
 num_epochs = config['num_epochs']
 save_dir = config['save_dir']
-
+continue_training = config['continue_training']
 
 class PolyLearningRateScheduler(optim.lr_scheduler._LRScheduler):
     def __init__(self, optimizer, max_iter, power=0.9, last_epoch=-1):
@@ -51,6 +59,17 @@ class CustomDeepLabV3(torch.nn.Module):
         super().__init__()
         self.backbone = backbone
         self.classifier = classifier
+        # the classifier is responsible for making the final pixel-wise predictions
+
+        self.deconv = torch.nn.ConvTranspose2d(
+            in_channels=num_classes,  # Match the number of output classes
+            out_channels=num_classes,  # Same as in_channels, since we're upsampling the segmentation map
+            kernel_size=32,  # Kernel size
+            stride=32,  # Stride
+            padding=0,  # Padding
+            output_padding=0  # Sometimes needed to match the output size exactly
+        )
+        self.downsample = None
 
     def forward(self, x):
         input_shape = x.shape[-2:]
@@ -59,6 +78,11 @@ class CustomDeepLabV3(torch.nn.Module):
         # spatial dimensions of this map are smaller than the original input image due to the downsampling operations in the backbone.
         # We can upsample the output to the size of the input image using interpolation
         # x = torch.nn.functional.interpolate(x, size=input_shape, mode='bilinear', align_corners=False)
+        x = self.deconv(x)
+        if self.downsample is None or self.downsample.output_size != input_shape:
+            self.downsample = torch.nn.AdaptiveAvgPool2d(input_shape)
+
+        x = self.downsample(x)
         return {'out': x}
 
 backbone = models.resnet50(pretrained=True)
@@ -93,24 +117,29 @@ def transform_target(target):
         label_mask[target == k] = v
     return torch.as_tensor(label_mask, dtype=torch.int64)
 
-transform = transforms.Compose([
-    transforms.Resize((769,769)),
-    transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-    # use mean and std of ImageNet, assume the cityscpes dataset is similar to ImageNet, the deviation is small.
-])
-# todo: check the transform is is OK
+def random_crop(img, target, crop_size=(769, 769)):
+    i, j, h, w = transforms.RandomCrop.get_params(img, output_size=crop_size)
+    img_cropped = transforms.functional.crop(img, i, j, h, w)
+    target_cropped = transforms.functional.crop(target, i, j, h, w)
+    return img_cropped, target_cropped
 
-target_transform = transforms.Compose([
-    transform_target
-])
+def joint_transform(img, target):
+    img, target = random_crop(img, target)
+    img = transforms.ToTensor()(img)
+    img = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])(img)
+    target = transform_target(target)
+    return img, target
+
+class CityscapesDataset(datasets.Cityscapes):
+    def __getitem__(self, index):
+        img, target = super().__getitem__(index)
+        return joint_transform(img, target)
 
 # Define the dataset with appropriate transforms for both images and targets
-train_dataset = datasets.Cityscapes(root=dataset_path, split='train', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
-val_dataset = datasets.Cityscapes(root=dataset_path, split='val', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
-#test_dataset = datasets.Cityscapes(root=dataset_path, split='test', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
+train_dataset = CityscapesDataset(root=dataset_path, split='train', mode='fine', target_type='semantic')
+val_dataset = CityscapesDataset(root=dataset_path, split='val', mode='fine', target_type='semantic')
 
-# batch size should be set to 4 or more on GPU for training
+
 train_loader = DataLoader(train_dataset, batch_size=4, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=4, shuffle=False)
 #test_loader = DataLoader(test_dataset, batch_size=4, shuffle=False)
@@ -123,10 +152,13 @@ model.to(device)
 criterion = torch.nn.CrossEntropyLoss()
 
 max_iter = num_epochs * len(train_loader)
-learning_rate = 0.007  # Initial learning rate
+learning_rate = 0.001  # Initial learning rate
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
-scheduler = PolyLearningRateScheduler(optimizer, max_iter=max_iter)
+# scheduler = PolyLearningRateScheduler(optimizer, max_iter=max_iter)
+scheduler = StepLR(optimizer, step_size=7, gamma=0.1) # learning rate decay，reduce the learning rate by a factor of 0.1 every 7 epochs
 
+if continue_training:
+    model.load_state_dict(torch.load(save_dir +'/best_model_weights.pth'))
 # Training loop
 train_loss_list = [] # total loss
 val_loss_list = [] # total loss
@@ -189,7 +221,6 @@ for epoch in range(num_epochs):
     if val_loss < best_val_loss:
         best_val_loss = val_loss
         torch.save(model.state_dict(), save_dir + '/best_model_weights.pth')
-torch.save(model.state_dict(), save_dir + '/last_model_weights.pth')
 
 # Validation phase
 model.load_state_dict(torch.load(save_dir +'/best_model_weights.pth'))
@@ -207,7 +238,7 @@ with torch.no_grad():
         images = images.to(device)
         targets = targets.to(device)
         outputs = model(images)['out']
-        #outputs = torch.nn.functional.interpolate(outputs, size=targets.shape[-2:], mode='bilinear', align_corners=False)
+        outputs = torch.nn.functional.interpolate(outputs, size=targets.shape[-2:], mode='bilinear', align_corners=False)
         #maybe can delete the above line
 
         _, predicted = torch.max(outputs, 1) # max is used to get the index of the class with the highest probability
