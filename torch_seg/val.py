@@ -2,7 +2,6 @@
 backbone: resnet50(pretrained: ImageNet)
 segmentation_head: DeepLabV3Head
 datapath: './gtFine_trainvaltest'(2975 training images, 500 validation images, 1525 test images)
-num_epochs: 100
 batch_size: 4
 '''
 
@@ -16,6 +15,15 @@ import torch.optim as optim
 from torch.optim.lr_scheduler import StepLR
 import numpy as np
 import time
+import json
+
+with open('config.json') as config_file:
+    config = json.load(config_file)
+
+# Use the values from the configuration file
+dataset_path = config['datapath']
+save_dir = config['save_dir']
+model_dir = config['save_dir']
 
 class CustomDeepLabV3(torch.nn.Module):
     def __init__(self, backbone, classifier):
@@ -32,6 +40,7 @@ class CustomDeepLabV3(torch.nn.Module):
         x = torch.nn.functional.interpolate(x, size=input_shape, mode='bilinear', align_corners=False)
         return {'out': x}
 
+
 backbone = models.resnet50(pretrained=True)
 backbone = torch.nn.Sequential(*(list(backbone.children())[:-2]))
 # backbone.add_module('avgpool', torch.nn.AdaptiveAvgPool2d(output_size=(1, 1)))
@@ -42,8 +51,6 @@ segmentation_head = DeepLabHead(2048, num_classes)
 
 # Then use your custom model instead of the original one
 model = CustomDeepLabV3(backbone, segmentation_head)
-
-
 
 # Number of effective classes after mapping (19 classes + 1 background)
 
@@ -57,16 +64,19 @@ mapping_20 = {
     27: 15, 28: 16, 29: 0, 30: 0, 31: 17, 32: 18, 33: 19, -1: 0
 }
 
+
 def encode_labels(mask):
     label_mask = np.zeros_like(mask)
     for k in mapping_20:
         label_mask[mask == k] = mapping_20[k]
     return label_mask
 
+
 def transform_target(target):
     target = np.array(target)  # Convert PIL Image to numpy array
     target = encode_labels(target)  # Remap labels
     return torch.as_tensor(target, dtype=torch.int64)  # Convert numpy array to tensor
+
 
 transform = transforms.Compose([
     transforms.ToTensor(),
@@ -78,15 +88,16 @@ target_transform = transforms.Compose([
 ])
 
 # Define the dataset with appropriate transforms for both images and targets
-dataset_path = './gtFine_trainvaltest'
-train_dataset = datasets.Cityscapes(root=dataset_path, split='train', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
-val_dataset = datasets.Cityscapes(root=dataset_path, split='val', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
-#test_dataset = datasets.Cityscapes(root=dataset_path, split='test', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
+train_dataset = datasets.Cityscapes(root=dataset_path, split='train', mode='fine', target_type='semantic',
+                                    transform=transform, target_transform=target_transform)
+val_dataset = datasets.Cityscapes(root=dataset_path, split='val', mode='fine', target_type='semantic',
+                                  transform=transform, target_transform=target_transform)
+# test_dataset = datasets.Cityscapes(root=dataset_path, split='test', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
 
 # batch size should be set to 4 or more on GPU for training
 train_loader = DataLoader(train_dataset, batch_size=4, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=4, shuffle=False)
-#test_loader = DataLoader(test_dataset, batch_size=4, shuffle=False)
+# test_loader = DataLoader(test_dataset, batch_size=4, shuffle=False)
 
 
 # Training setup
@@ -96,15 +107,20 @@ criterion = torch.nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 scheduler = StepLR(optimizer, step_size=7, gamma=0.1)
 
-# Validation phase
-model.load_state_dict(torch.load('best_model_weights.pth'))
+model.load_state_dict(torch.load(model_dir + '/best_model_weights.pth'))
 model.eval()
 total = 0
 correct = 0
 counter = 0
-iou_per_class = []
+avg_mIou = []
 
-print("Testing... ") #use the val set
+best_accuracy = 0
+best_iou = 0
+best_images = None
+best_targets = None
+best_preds = None
+
+print("Generating... ")  # use the val set
 start_time = time.time()
 with torch.no_grad():
     for images, targets in val_loader:
@@ -112,11 +128,13 @@ with torch.no_grad():
         targets = targets.to(device)
         outputs = model(images)['out']
 
-        _, predicted = torch.max(outputs, 1) # max is used to get the index of the class with the highest probability
+        _, predicted = torch.max(outputs, 1)  # max is used to get the index of the class with the highest probability
         # evaluate the mIOU in the validation set
-        total += targets.nelement() #
+        total += targets.nelement()  #
         correct += (predicted == targets).sum().item()
+        accuracy = correct / total
 
+        iou_per_class = []
         # calculate MIoU here:
         for cls in range(num_classes):
             predicted_cls = predicted == cls
@@ -129,42 +147,68 @@ with torch.no_grad():
                 iou_per_class.append(intersection / union)
 
         mean_iou = np.nanmean(iou_per_class)
+        avg_mIou.append(mean_iou)
+
+        if accuracy > best_accuracy:
+            best_accuracy = accuracy
+            acu_images = images
+            acu_targets = targets.cpu().numpy()
+            acu_preds = predicted.cpu().numpy()
+
+        if mean_iou > best_iou:
+            best_iou = mean_iou
+            mIou_images = images
+            mIou_targets = targets.cpu().numpy()
+            mIou_preds = predicted.cpu().numpy()
 
         if counter % 10 == 0:
             end_time = time.time()
             duration = end_time - start_time
-            print(f"Batch {counter}, Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
+            print(
+                f"Batch {counter}, Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
         counter += 1
 end_time = time.time()
 duration = end_time - start_time
-print(f"Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * mean_iou:.2f}%, Test Duration: {duration:.2f} s")
+avg_mIou = np.nanmean(avg_mIou)
+print(f"Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * avg_mIou:.2f}%, Test Duration: {duration:.2f} s")
+print(f"Best Accuracy: {100 * best_accuracy:.2f}%, Best Mean IoU: {100 * best_iou:.2f}%")
 
 
 
-# show segmentation example
+normalization = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+def denormalize(tensor):
+    tensor = tensor.clone()  # Clone the tensor so as not to make changes to the original
+    for t, m, s in zip(tensor, normalization.mean, normalization.std):
+        t.mul_(s).add_(m)  # Multiply by std and add mean
+    tensor = torch.clamp(tensor, 0, 1)  # Clamp values to the range [0, 1]
+    return tensor
+
 import matplotlib.pyplot as plt
-model.eval()
-with torch.no_grad():
-    # Get a batch from the val loader
-    images, targets = next(iter(val_loader))
-    images = images.to(device)
-    targets = targets.to(device)
 
-    # Get the model's prediction
-    outputs = model(images)['out']
-    _, preds = torch.max(outputs, 1)
+fig, axs = plt.subplots(1, 3, figsize=(15, 5))
+axs[0].imshow(np.transpose(denormalize(acu_images[0]).cpu().numpy(), (1, 2, 0)))
+axs[0].set_title('Original Image')
+axs[1].imshow(acu_targets[0])
+axs[1].set_title('True Mask')
+axs[2].imshow(acu_preds[0])
+axs[2].set_title('Predicted Mask')
+plt.savefig(save_dir + '/segmentation_0.png')
 
-    # Move images, targets and preds to cpu for visualization
-    images = images.cpu().numpy()
-    targets = targets.cpu().numpy()
-    preds = preds.cpu().numpy()
+fig, axs = plt.subplots(1, 3, figsize=(15, 5))
+axs[0].imshow(np.transpose(denormalize(mIou_images[0]).cpu().numpy(), (1, 2, 0)))
+axs[0].set_title('Original Image')
+axs[1].imshow(mIou_targets[0])
+axs[1].set_title('True Mask')
+axs[2].imshow(mIou_preds[0])
+axs[2].set_title('Predicted Mask')
+plt.savefig(save_dir + '/segmentation_1.png')
 
-    # Plot original image, true mask, and predicted mask
-    fig, axs = plt.subplots(1, 3, figsize=(15, 5))
-    axs[0].imshow(np.transpose(images[0], (1, 2, 0)))
-    axs[0].set_title('Original Image')
-    axs[1].imshow(targets[0])
-    axs[1].set_title('True Mask')
-    axs[2].imshow(preds[0])
-    axs[2].set_title('Predicted Mask')
-    plt.savefig('segmentation.png')
+# Plot original image, true mask, and predicted mask for the last batch
+fig, axs = plt.subplots(1, 3, figsize=(15, 5))
+axs[0].imshow(np.transpose(denormalize(images[0]).cpu().numpy(), (1, 2, 0)))
+axs[0].set_title('Original Image')
+axs[1].imshow(targets.cpu().numpy()[0])
+axs[1].set_title('True Mask')
+axs[2].imshow(predicted.cpu().numpy()[0])
+axs[2].set_title('Predicted Mask')
+plt.savefig(save_dir + '/segmentation_2.png')

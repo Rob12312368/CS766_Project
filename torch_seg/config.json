@@ -1,4 +1,5 @@
 {
     "datapath": "~/gtFine_trainvaltest",
-    "num_epochs": 100
+    "save_dir": "~",
+    "num_epochs": 10
 }

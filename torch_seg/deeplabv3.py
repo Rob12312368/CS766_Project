@@ -9,8 +9,9 @@ num_epochs: 100
 model structure: Resnet50 + Atrous Spatial Pyramid Pooling(ASPP)
 learning rate: (1 - iter/total_iter) ** 0.9, which is rather high
 crop size: 769, this helps the ASPP kernel to focus on image instead of padding
-batch normalization: True
-upsampling logits: keep the groundtruths intact
+batch normalization: use imageNet mean and std instead of cityscapes
+upsampling logits: upsampling the output of model to the size of the input image using interpolation.
+# see if it can outcome the original image without upsampling
 No Data Augmentation
 '''
 
@@ -34,6 +35,17 @@ dataset_path = config['datapath']
 num_epochs = config['num_epochs']
 save_dir = config['save_dir']
 
+
+class PolyLearningRateScheduler(optim.lr_scheduler._LRScheduler):
+    def __init__(self, optimizer, max_iter, power=0.9, last_epoch=-1):
+        self.max_iter = max_iter
+        self.power = power
+        super().__init__(optimizer, last_epoch)
+
+    def get_lr(self):
+        factor = (1 - self.last_epoch / float(self.max_iter)) ** self.power
+        return [base_lr * factor for base_lr in self.base_lrs]
+
 class CustomDeepLabV3(torch.nn.Module):
     def __init__(self, backbone, classifier):
         super().__init__()
@@ -46,7 +58,7 @@ class CustomDeepLabV3(torch.nn.Module):
         x = self.classifier(features)
         # spatial dimensions of this map are smaller than the original input image due to the downsampling operations in the backbone.
         # We can upsample the output to the size of the input image using interpolation
-        x = torch.nn.functional.interpolate(x, size=input_shape, mode='bilinear', align_corners=False)
+        # x = torch.nn.functional.interpolate(x, size=input_shape, mode='bilinear', align_corners=False)
         return {'out': x}
 
 backbone = models.resnet50(pretrained=True)
@@ -74,21 +86,20 @@ mapping_20 = {
     27: 15, 28: 16, 29: 0, 30: 0, 31: 17, 32: 18, 33: 19, -1: 0
 }
 
-def encode_labels(mask):
-    label_mask = np.zeros_like(mask)
-    for k in mapping_20:
-        label_mask[mask == k] = mapping_20[k]
-    return label_mask
-
 def transform_target(target):
     target = np.array(target)  # Convert PIL Image to numpy array
-    target = encode_labels(target)  # Remap labels
-    return torch.as_tensor(target, dtype=torch.int64)  # Convert numpy array to tensor
+    label_mask = np.zeros_like(target)
+    for k, v in mapping_20.items():
+        label_mask[target == k] = v
+    return torch.as_tensor(label_mask, dtype=torch.int64)
 
 transform = transforms.Compose([
+    transforms.Resize((769,769)),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+    # use mean and std of ImageNet, assume the cityscpes dataset is similar to ImageNet, the deviation is small.
 ])
+# todo: check the transform is is OK
 
 target_transform = transforms.Compose([
     transform_target
@@ -110,11 +121,15 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("training on", device)
 model.to(device)
 criterion = torch.nn.CrossEntropyLoss()
-optimizer = optim.Adam(model.parameters(), lr=0.001)
-scheduler = StepLR(optimizer, step_size=7, gamma=0.1)
+
+max_iter = num_epochs * len(train_loader)
+learning_rate = 0.007  # Initial learning rate
+optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+scheduler = PolyLearningRateScheduler(optimizer, max_iter=max_iter)
 
 # Training loop
-loss_values = [] # total loss
+train_loss_list = [] # total loss
+val_loss_list = [] # total loss
 best_val_loss = float('inf')
 for epoch in range(num_epochs):
     start_time = time.time()  # Start time measurement
@@ -141,7 +156,9 @@ for epoch in range(num_epochs):
             # epoch i / num_epochs, loss should only have 2 decimal places
             print(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Train Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
         counter += 1
+    scheduler.step()
     train_loss = running_loss / len(train_loader)
+    print(f"Epoch {epoch + 1}, Training Loss: {train_loss},Epoch Duration: {duration} s")
 
     # Validation phase
     model.eval()
@@ -161,7 +178,8 @@ for epoch in range(num_epochs):
                 print(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Validation Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
             counter += 1
     val_loss /= len(val_loader)
-    loss_values.append(val_loss)
+    val_loss_list.append(val_loss)
+    print(f"Epoch {epoch + 1}, Validation Loss: {val_loss}, Epoch Duration: {duration} s")
 
     end_time = time.time()  # End time measurement
     epoch_duration = end_time - start_time
@@ -189,6 +207,8 @@ with torch.no_grad():
         images = images.to(device)
         targets = targets.to(device)
         outputs = model(images)['out']
+        #outputs = torch.nn.functional.interpolate(outputs, size=targets.shape[-2:], mode='bilinear', align_corners=False)
+        #maybe can delete the above line
 
         _, predicted = torch.max(outputs, 1) # max is used to get the index of the class with the highest probability
         # evaluate the mIOU in the validation set
@@ -215,12 +235,11 @@ with torch.no_grad():
             duration = end_time - start_time
             print(f"Batch {counter}, Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
         counter += 1
+
 end_time = time.time()
 duration = end_time - start_time
 avg_mIou = np.nanmean(total_mIou)
 print(f"Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * avg_mIou:.2f}%, Test Duration: {duration:.2f} s")
-
-
 
 # show segmentation example
 import matplotlib.pyplot as plt
@@ -253,7 +272,7 @@ with torch.no_grad():
 
 # show val loss in plt
 plt.figure()
-plt.plot(loss_values)
+plt.plot(val_loss_list)
 plt.title('Validation Loss')
 plt.xlabel('images')
 plt.ylabel('Loss')
