@@ -6,12 +6,27 @@ batch_size: 4
 datapath: './gtFine_trainvaltest'(2975 training images, 500 validation images, 1525 test images)
 num_epochs: 100
 
-deeplabv3_2.2: No crop, use FCN + bilinear upsampling
+model structure: Resnet50 + Atrous Spatial Pyramid Pooling(ASPP)
+
+learning rate: (1 - iter/total_iter) ** 0.9, which is rather high
+
+crop size: 769, this helps the ASPP kernel to focus on image instead of padding
+
+batch normalization: use imageNet mean and std instead of cityscapes
+
+upsampling logits: upsampling the output of model instead of downsampling the target.
+the downsampling is done through the backbone(size: 100 -> 4 or 769 -> 25)
+
+modify the resnet model to reduce the downsample rate(typical 32 stride, H/32, W/32)
+unable to modify the stride to a lower value(32 to 8)
+
+No Data Augmentation
 '''
 
 import torch
 import torchvision
 from torchvision import models, datasets, transforms
+from torchvision.models.segmentation import deeplabv3_resnet50
 from torchvision.models.segmentation.deeplabv3 import DeepLabHead
 from torch.utils.data import DataLoader
 import torch.optim as optim
@@ -19,22 +34,101 @@ from torch.optim.lr_scheduler import StepLR
 import numpy as np
 import time
 import json
-# import deeplabv3_resnet50
-from torchvision.models.segmentation import deeplabv3_resnet50
 
 with open('config.json') as config_file:
     config = json.load(config_file)
 
 # Use the values from the configuration file
-dataset_path = config['data_path']
+dataset_path = config['datapath']
 num_epochs = config['num_epochs']
 save_dir = config['save_dir']
 continue_training = config['continue_training']
 
-torch.cuda.empty_cache()
+class PolyLearningRateScheduler(optim.lr_scheduler._LRScheduler):
+    def __init__(self, optimizer, max_iter, power=0.9, last_epoch=-1):
+        self.max_iter = max_iter
+        self.power = power
+        super().__init__(optimizer, last_epoch)
+
+    def get_lr(self):
+        factor = (1 - self.last_epoch / float(self.max_iter)) ** self.power
+        return [base_lr * factor for base_lr in self.base_lrs]
+
+class CustomDeepLabV3(torch.nn.Module):
+    def __init__(self, backbone, classifier):
+        super().__init__()
+        self.backbone = backbone
+        self.classifier = classifier
+        # the classifier is responsible for making the final pixel-wise predictions
+
+        self.deconv1 = torch.nn.ConvTranspose2d(
+            in_channels=num_classes,
+            out_channels=num_classes,
+            kernel_size=3,
+            stride=4,  # First stride of 4
+            padding=1,
+            output_padding=0  # Adjust if necessary
+        )
+        self.deconv2 =  torch.nn.ConvTranspose2d(
+            in_channels=num_classes,
+            out_channels=num_classes,
+            kernel_size=3,
+            stride=4,  # Second stride of 4
+            padding=1,
+            output_padding=0  # Adjust if necessary
+        )
+        self.deconv3 = torch.nn.ConvTranspose2d(
+            in_channels=num_classes,
+            out_channels=num_classes,
+            kernel_size=3,
+            stride=2,  # Third stride of 2
+            padding=1,
+            output_padding=0  # Adjust if necessary
+        )
+
+        self.refine_conv = torch.nn.Conv2d(
+            in_channels=num_classes,
+            out_channels=num_classes,
+            kernel_size=3,
+            stride=1,
+            padding=1
+        )
+
+        self.downsample = None
+        # modify the kernel size to a larger one to make the output looks smoother?
+
+    def forward(self, x):
+        input_shape = x.shape[-2:]
+        features = self.backbone(x)
+        x = self.classifier(features)
+        # spatial dimensions of this map are smaller than the original input image due to the downsampling operations in the backbone.
+        # We can upsample the output to the size of the input image using interpolation
+        # x = torch.nn.functional.interpolate(x, size=input_shape, mode='bilinear', align_corners=False)
+        x = self.deconv1(x)
+        x = self.refine_conv(x)  # Refine features
+        x = self.deconv2(x)
+        x = self.refine_conv(x)  # Refine features
+        x = self.deconv3(x)
+        x = self.refine_conv(x) # exactly happens to be 769x769
+
+        if self.downsample is None or self.downsample.output_size != input_shape:
+            self.downsample = torch.nn.AdaptiveAvgPool2d(input_shape)
+
+        # x = self.downsample(x)
+        # why I dont need to downsample the output? isn't is should be 800x800?
+        return {'out': x}
+
+backbone = models.resnet50(pretrained=True)
+backbone = torch.nn.Sequential(*(list(backbone.children())[:-2]))
+# backbone.add_module('avgpool', torch.nn.AdaptiveAvgPool2d(output_size=(1, 1)))
 
 num_classes = 20
-model = deeplabv3_resnet50(weights=None, num_classes=20, aux_loss=True)
+# the segmentation head is responsible for making the final pixel-wise predictions
+segmentation_head = DeepLabHead(2048, num_classes)
+
+# Then use your custom model instead of the original one
+model = CustomDeepLabV3(backbone, segmentation_head)
+
 # Number of effective classes after mapping (19 classes + 1 background)
 
 # Replace the classifier of the model
@@ -47,37 +141,40 @@ mapping_20 = {
     27: 15, 28: 16, 29: 0, 30: 0, 31: 17, 32: 18, 33: 19, -1: 0
 }
 
-def encode_labels(mask):
-    label_mask = np.zeros_like(mask)
-    for k in mapping_20:
-        label_mask[mask == k] = mapping_20[k]
-    return label_mask
-
 def transform_target(target):
     target = np.array(target)  # Convert PIL Image to numpy array
-    target = encode_labels(target)  # Remap labels
-    return torch.as_tensor(target, dtype=torch.int64)  # Convert numpy array to tensor
+    label_mask = np.zeros_like(target)
+    for k, v in mapping_20.items():
+        label_mask[target == k] = v
+    return torch.as_tensor(label_mask, dtype=torch.int64)
 
-target_transform = transforms.Compose([
-    transform_target
-])
+def random_crop(img, target, crop_size=(769, 769)):
+    i, j, h, w = transforms.RandomCrop.get_params(img, output_size=crop_size)
+    img_cropped = transforms.functional.crop(img, i, j, h, w)
+    target_cropped = transforms.functional.crop(target, i, j, h, w)
+    return img_cropped, target_cropped
 
-transform = transforms.Compose([
-    transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-])
+def joint_transform(img, target):
+    img, target = random_crop(img, target)
+    img = transforms.ToTensor()(img)
+    img = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])(img)
+    target = transform_target(target)
+    return img, target
+
+class CityscapesDataset(datasets.Cityscapes):
+    def __getitem__(self, index):
+        img, target = super().__getitem__(index)
+        return joint_transform(img, target)
 
 # Define the dataset with appropriate transforms for both images and targets
-train_dataset = datasets.Cityscapes(root=dataset_path, split='train', mode='fine', target_type='semantic',
-                                    transform=transform, target_transform=target_transform)
-val_dataset = datasets.Cityscapes(root=dataset_path, split='val', mode='fine', target_type='semantic',
-                                  transform=transform, target_transform=target_transform)
-# test_dataset = datasets.Cityscapes(root=dataset_path, split='test', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
+train_dataset = CityscapesDataset(root=dataset_path, split='train', mode='fine', target_type='semantic')
+val_dataset = CityscapesDataset(root=dataset_path, split='val', mode='fine', target_type='semantic')
 
-# batch size should be set to 4 or more on GPU for training
-train_loader = DataLoader(train_dataset, batch_size=4, shuffle=True, drop_last=True)
-val_loader = DataLoader(val_dataset, batch_size=4, shuffle=False, drop_last=True)
-# test_loader = DataLoader(test_dataset, batch_size=4, shuffle=False)
+
+train_loader = DataLoader(train_dataset, batch_size=4, shuffle=True)
+val_loader = DataLoader(val_dataset, batch_size=4, shuffle=False)
+#test_loader = DataLoader(test_dataset, batch_size=4, shuffle=False)
+
 
 # Training setup
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -88,16 +185,15 @@ criterion = torch.nn.CrossEntropyLoss()
 max_iter = num_epochs * len(train_loader)
 learning_rate = 0.001  # Initial learning rate
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+# scheduler = PolyLearningRateScheduler(optimizer, max_iter=max_iter)
 scheduler = StepLR(optimizer, step_size=7, gamma=0.1) # learning rate decay，reduce the learning rate by a factor of 0.1 every 7 epochs
 
 if continue_training:
     model.load_state_dict(torch.load(save_dir +'/best_model_weights.pth'))
-
 # Training loop
 train_loss_list = [] # total loss
 val_loss_list = [] # total loss
 best_val_loss = float('inf')
-
 for epoch in range(num_epochs):
     start_time = time.time()  # Start time measurement
     model.train()
@@ -110,18 +206,11 @@ for epoch in range(num_epochs):
         targets = targets.to(device)
 
         optimizer.zero_grad()
+        outputs = model(images)['out']
 
-        outputs = model(images)
-        main_output = outputs['out']
-        aux_output = outputs['aux']
-
-        main_loss = criterion(main_output, targets)
-        aux_loss = criterion(aux_output, targets)
-        loss = main_loss + 0.4 * aux_loss  # 0.4 is a common weight for the auxiliary loss
-
+        loss = criterion(outputs, targets)
         loss.backward()
         optimizer.step()
-        torch.cuda.empty_cache()  # Add this line
         running_loss += loss.item()
         # print loss every 10 batches
         if counter % 10 == 0:

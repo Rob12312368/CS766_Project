@@ -1,6 +1,6 @@
 {
-    "datapath": "~/gtFine_trainvaltest",
+    "data_path": "~/gtFine_trainvaltest",
     "save_dir": "~",
-    "num_epochs": 20,
-    "continue_training": true
+    "num_epochs": 100,
+    "continue_training": false
 }

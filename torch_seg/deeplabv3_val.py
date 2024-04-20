@@ -8,7 +8,6 @@ batch_size: 4
 import torch
 import torchvision
 from torchvision import models, datasets, transforms
-from torchvision.models.segmentation import deeplabv3_resnet50
 from torchvision.models.segmentation.deeplabv3 import DeepLabHead
 from torch.utils.data import DataLoader
 import torch.optim as optim
@@ -16,6 +15,8 @@ from torch.optim.lr_scheduler import StepLR
 import numpy as np
 import time
 import json
+# import deeplabv3_resnet50
+from torchvision.models.segmentation import deeplabv3_resnet50
 
 with open('config.json') as config_file:
     config = json.load(config_file)
@@ -24,48 +25,9 @@ with open('config.json') as config_file:
 dataset_path = config['datapath']
 save_dir = config['save_dir']
 model_dir = config['save_dir']
-class CustomDeepLabV3(torch.nn.Module):
-    def __init__(self, backbone, classifier):
-        super().__init__()
-        self.backbone = backbone
-        self.classifier = classifier
-        # the classifier is responsible for making the final pixel-wise predictions
-
-        self.deconv = torch.nn.ConvTranspose2d(
-            in_channels=num_classes,  # Match the number of output classes
-            out_channels=num_classes,  # Same as in_channels, since we're upsampling the segmentation map
-            kernel_size=32,  # Kernel size
-            stride=32,  # Stride
-            padding=0,  # Padding
-            output_padding=0  # Sometimes needed to match the output size exactly
-        )
-        self.downsample = None
-
-    def forward(self, x):
-        input_shape = x.shape[-2:]
-        features = self.backbone(x)
-        x = self.classifier(features)
-        # spatial dimensions of this map are smaller than the original input image due to the downsampling operations in the backbone.
-        # We can upsample the output to the size of the input image using interpolation
-        # x = torch.nn.functional.interpolate(x, size=input_shape, mode='bilinear', align_corners=False)
-        x = self.deconv(x)
-        if self.downsample is None or self.downsample.output_size != input_shape:
-            self.downsample = torch.nn.AdaptiveAvgPool2d(input_shape)
-
-        x = self.downsample(x)
-        return {'out': x}
-
-backbone = models.resnet50(pretrained=True)
-backbone = torch.nn.Sequential(*(list(backbone.children())[:-2]))
-# backbone.add_module('avgpool', torch.nn.AdaptiveAvgPool2d(output_size=(1, 1)))
 
 num_classes = 20
-# the segmentation head is responsible for making the final pixel-wise predictions
-segmentation_head = DeepLabHead(2048, num_classes)
-
-# Then use your custom model instead of the original one
-model = CustomDeepLabV3(backbone, segmentation_head)
-
+model = deeplabv3_resnet50(weights=None, num_classes=20, aux_loss=True)
 # Number of effective classes after mapping (19 classes + 1 background)
 
 # Replace the classifier of the model
@@ -78,13 +40,11 @@ mapping_20 = {
     27: 15, 28: 16, 29: 0, 30: 0, 31: 17, 32: 18, 33: 19, -1: 0
 }
 
-
 def encode_labels(mask):
     label_mask = np.zeros_like(mask)
     for k in mapping_20:
         label_mask[mask == k] = mapping_20[k]
     return label_mask
-
 
 def transform_target(target):
     target = np.array(target)  # Convert PIL Image to numpy array
@@ -125,7 +85,8 @@ model.eval()
 total = 0
 correct = 0
 counter = 0
-avg_mIou = []
+mIou_list = []
+accuracy_list = []
 
 best_accuracy = 0
 best_iou = 0
@@ -143,9 +104,10 @@ with torch.no_grad():
 
         _, predicted = torch.max(outputs, 1)  # max is used to get the index of the class with the highest probability
         # evaluate the mIOU in the validation set
-        total += targets.nelement()  #
-        correct += (predicted == targets).sum().item()
+        total = targets.nelement()  #
+        correct = (predicted == targets).sum().item()
         accuracy = correct / total
+        accuracy_list.append(accuracy)
 
         iou_per_class = []
         # calculate MIoU here:
@@ -160,7 +122,7 @@ with torch.no_grad():
                 iou_per_class.append(intersection / union)
 
         mean_iou = np.nanmean(iou_per_class)
-        avg_mIou.append(mean_iou)
+        mIou_list.append(mean_iou)
 
         if accuracy > best_accuracy:
             best_accuracy = accuracy
@@ -178,12 +140,14 @@ with torch.no_grad():
             end_time = time.time()
             duration = end_time - start_time
             print(
-                f"Batch {counter}, Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
+                f"Batch {counter}, Test Accuracy: {100 * accuracy:.2f}%, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
         counter += 1
 end_time = time.time()
 duration = end_time - start_time
-avg_mIou = np.nanmean(avg_mIou)
-print(f"Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * avg_mIou:.2f}%, Test Duration: {duration:.2f} s")
+avg_mIou = np.nanmean(mIou_list)
+avg_accuracy = np.mean(accuracy_list)
+
+print(f"Test Accuracy: {100 * avg_accuracy:.2f}%, Mean IoU: {100 * avg_mIou:.2f}%, Test Duration: {duration:.2f} s")
 print(f"Best Accuracy: {100 * best_accuracy:.2f}%, Best Mean IoU: {100 * best_iou:.2f}%")
 
 
