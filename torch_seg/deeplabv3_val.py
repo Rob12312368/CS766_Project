@@ -22,7 +22,7 @@ with open('config.json') as config_file:
     config = json.load(config_file)
 
 # Use the values from the configuration file
-dataset_path = config['datapath']
+dataset_path = config['data_path']
 save_dir = config['save_dir']
 model_dir = config['save_dir']
 
@@ -60,17 +60,11 @@ transform = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 
-# Define the dataset with appropriate transforms for both images and targets
-train_dataset = datasets.Cityscapes(root=dataset_path, split='train', mode='fine', target_type='semantic',
-                                    transform=transform, target_transform=target_transform)
 val_dataset = datasets.Cityscapes(root=dataset_path, split='val', mode='fine', target_type='semantic',
                                   transform=transform, target_transform=target_transform)
-# test_dataset = datasets.Cityscapes(root=dataset_path, split='test', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
 
 # batch size should be set to 4 or more on GPU for training
-train_loader = DataLoader(train_dataset, batch_size=4, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=4, shuffle=False)
-# test_loader = DataLoader(test_dataset, batch_size=4, shuffle=False)
 
 
 # Training setup
@@ -153,6 +147,7 @@ print(f"Best Accuracy: {100 * best_accuracy:.2f}%, Best Mean IoU: {100 * best_io
 
 
 normalization = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+
 def denormalize(tensor):
     tensor = tensor.clone()  # Clone the tensor so as not to make changes to the original
     for t, m, s in zip(tensor, normalization.mean, normalization.std):

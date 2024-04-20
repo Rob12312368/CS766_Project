@@ -181,8 +181,6 @@ with torch.no_grad():
         images = images.to(device)
         targets = targets.to(device)
         outputs = model(images)['out']
-        outputs = torch.nn.functional.interpolate(outputs, size=targets.shape[-2:], mode='bilinear', align_corners=False)
-        #maybe can delete the above line
 
         _, predicted = torch.max(outputs, 1) # max is used to get the index of the class with the highest probability
         # evaluate the mIOU in the validation set

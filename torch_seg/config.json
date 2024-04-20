@@ -1,5 +1,5 @@
 {
-    "datapath": "/UserData/data/temp/datasets/gtFine_trainvaltest",
+    "data_path": "/UserData/data/temp/datasets/gtFine_trainvaltest",
     "save_dir": "/UserData/data/temp/CS766_Project/torch_seg/results/",
     "num_epochs": 100,
     "batch_size": 6,
