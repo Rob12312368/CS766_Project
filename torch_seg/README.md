@@ -10,13 +10,28 @@ It should run using the sample dataset that included in the repository.
 The first run will download the pretrained model from the internet. The second run expects no error.
 command: !python3 ~/CS766_Project/torch_seg/try_resnet50_imagenet_deeplabv3.py
 
-4. run the training code
+4. run the training code v1 main.py
 make sure the dataset is downloaded and the path is correct in the code. (Or you can change the dataset path in the code)
 The file structure should looks like the follwing:
 CS766_Project/torch_seg/gtFine_trainvaltest/gtFine
 CS766_Project/torch_seg/gtFine_trainvaltest/leftImg8bit
 both gtFine and leftImg8bit should have the same subfolders including train, val, and test.
 command: !python3 ~/CS766_Project/torch_seg/main.py
+
+5. run the training code deeplabv3.py
+output: 
+train_loss.png, 
+val_loss.png, 
+segmentation.png, (sample)
+best_model_weights.pth(min loss on validation set)
+log:
+accuracy, mIOU
+
+6. run the evaluation code deeplabv3_val.py
+output:
+segmentation_0.png, (sample with best accuracy)
+segmentation_1.png, (sample with best mIOU)
+segmentation_2.png, (random sample)
 
 dependencies:
 !pip install torch torchvision numpy
