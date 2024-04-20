@@ -25,6 +25,10 @@ from torch.optim.lr_scheduler import StepLR
 import numpy as np
 import time
 import json
+import os
+from datetime import datetime
+import logging
+from tqdm import tqdm
 
 with open('config.json') as config_file:
     config = json.load(config_file)
@@ -33,6 +37,13 @@ with open('config.json') as config_file:
 dataset_path = config['datapath']
 num_epochs = config['num_epochs']
 save_dir = config['save_dir']
+batch_size = config['batch_size']
+num_workers = config['num_workers']
+
+save_dir = save_dir + datetime.now().strftime('%Y-%m-%d-%H%M')
+os.mkdir(save_dir)
+logger = logging.getLogger()
+logging.basicConfig(filename=f'{save_dir}/run.log', encoding='utf-8', level=logging.INFO)
 
 class CustomDeepLabV3(torch.nn.Module):
     def __init__(self, backbone, classifier):
@@ -100,14 +111,15 @@ val_dataset = datasets.Cityscapes(root=dataset_path, split='val', mode='fine', t
 #test_dataset = datasets.Cityscapes(root=dataset_path, split='test', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
 
 # batch size should be set to 4 or more on GPU for training
-train_loader = DataLoader(train_dataset, batch_size=4, shuffle=True)
-val_loader = DataLoader(val_dataset, batch_size=4, shuffle=False)
+train_loader = DataLoader(train_dataset, batch_size=batch_size, num_workers=num_workers, shuffle=True)
+val_loader = DataLoader(val_dataset, batch_size=batch_size, num_workers=num_workers, shuffle=False)
 #test_loader = DataLoader(test_dataset, batch_size=4, shuffle=False)
 
 
 # Training setup
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print("training on", device)
+print(f"training on {device}")
+logger.info(f"training on {device}")
 model.to(device)
 criterion = torch.nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
@@ -123,7 +135,8 @@ for epoch in range(num_epochs):
     running_loss = 0.0
 
     print(f"Epoch {epoch + 1}, Training...")
-    for images, targets in train_loader:
+    logger.info(f"Epoch {epoch + 1}, Training...") 
+    for images, targets in tqdm(train_loader, dynamic_ncols=True):
         images = images.to(device)
         targets = targets.to(device)
 
@@ -139,7 +152,8 @@ for epoch in range(num_epochs):
             end_time = time.time()
             duration = end_time - start_time
             # epoch i / num_epochs, loss should only have 2 decimal places
-            print(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Train Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
+            #print(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Train Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
+            logger.info(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Train Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
         counter += 1
     train_loss = running_loss / len(train_loader)
 
@@ -148,8 +162,9 @@ for epoch in range(num_epochs):
     val_loss = 0.0
     counter = 0
     print(f"Epoch {epoch + 1}, Validating...")
+    logger.info(f"Epoch {epoch + 1}, Validating...")
     with torch.no_grad():
-        for images, targets in val_loader:
+        for images, targets in tqdm(val_loader, dynamic_ncols=True):
             images = images.to(device)
             targets = targets.to(device)
             outputs = model(images)['out']
@@ -158,7 +173,8 @@ for epoch in range(num_epochs):
             if counter % 10 == 0:
                 end_time = time.time()
                 duration = end_time - start_time
-                print(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Validation Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
+                #print(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Validation Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
+                logger.info(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Validation Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
             counter += 1
     val_loss /= len(val_loader)
     loss_values.append(val_loss)
@@ -167,8 +183,9 @@ for epoch in range(num_epochs):
     epoch_duration = end_time - start_time
 
     print(f"Epoch {epoch + 1}, Training Loss: {train_loss}, Validation Loss: {val_loss}, Epoch Duration: {epoch_duration} s")
-
+    logger.info(f"Epoch {epoch + 1}, Training Loss: {train_loss}, Validation Loss: {val_loss}, Epoch Duration: {epoch_duration} s")
     if val_loss < best_val_loss:
+        logger.info(f"Current best val loss: Epoch {epoch + 1}")
         best_val_loss = val_loss
         torch.save(model.state_dict(), save_dir + '/best_model_weights.pth')
 torch.save(model.state_dict(), save_dir + '/last_model_weights.pth')
@@ -182,10 +199,11 @@ counter = 0
 total_mIou = []
 
 print("Testing... ") #use the val set
+logger.info("Testing...")
 start_time = time.time()
 
 with torch.no_grad():
-    for images, targets in val_loader:
+    for images, targets in tqdm(val_loader, dynamic_ncols=True):
         images = images.to(device)
         targets = targets.to(device)
         outputs = model(images)['out']
@@ -213,13 +231,14 @@ with torch.no_grad():
         if counter % 10 == 0:
             end_time = time.time()
             duration = end_time - start_time
-            print(f"Batch {counter}, Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
+            #print(f"Batch {counter}, Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
+            logger.info(f"Batch {counter}, Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
         counter += 1
 end_time = time.time()
 duration = end_time - start_time
 avg_mIou = np.nanmean(total_mIou)
 print(f"Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * avg_mIou:.2f}%, Test Duration: {duration:.2f} s")
-
+logger.info(f"Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * avg_mIou:.2f}%, Test Duration: {duration:.2f} s")
 
 
 # show segmentation example
