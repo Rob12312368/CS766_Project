@@ -34,7 +34,7 @@ with open('config.json') as config_file:
     config = json.load(config_file)
 
 # Use the values from the configuration file
-dataset_path = config['datapath']
+dataset_path = config['data_path']
 num_epochs = config['num_epochs']
 save_dir = config['save_dir']
 batch_size = config['batch_size']
@@ -113,7 +113,7 @@ val_dataset = datasets.Cityscapes(root=dataset_path, split='val', mode='fine', t
 # batch size should be set to 4 or more on GPU for training
 train_loader = DataLoader(train_dataset, batch_size=batch_size, num_workers=num_workers, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=batch_size, num_workers=num_workers, shuffle=False)
-#test_loader = DataLoader(test_dataset, batch_size=4, shuffle=False)
+#test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
 
 # Training setup
@@ -126,6 +126,7 @@ optimizer = optim.Adam(model.parameters(), lr=0.001)
 scheduler = StepLR(optimizer, step_size=7, gamma=0.1) # learning rate decay，reduce the learning rate by a factor of 0.1 every 7 epochs
 
 # Training loop
+train_loss_values = []
 loss_values = [] # total loss
 best_val_loss = float('inf')
 for epoch in range(num_epochs):
@@ -156,6 +157,7 @@ for epoch in range(num_epochs):
             logger.info(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Train Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
         counter += 1
     train_loss = running_loss / len(train_loader)
+    train_loss_values.append(train_loss)
 
     # Validation phase
     model.eval()
@@ -269,6 +271,12 @@ with torch.no_grad():
     axs[2].set_title('Predicted Mask')
     plt.savefig(save_dir + '/segmentation.png')
 
+plt.figure()
+plt.plot(train_loss_values)
+plt.title('Training Loss')
+plt.xlabel('images')
+plt.ylabel('Loss')
+plt.savefig(save_dir + '/train_loss.png')
 
 # show val loss in plt
 plt.figure()

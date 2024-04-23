@@ -15,6 +15,7 @@ from torch.optim.lr_scheduler import StepLR
 import numpy as np
 import time
 import json
+from tqdm import tqdm
 # import deeplabv3_resnet50
 from torchvision.models.segmentation import deeplabv3_resnet50
 
@@ -23,8 +24,13 @@ with open('config.json') as config_file:
 
 # Use the values from the configuration file
 dataset_path = config['data_path']
-save_dir = config['save_dir']
+save_dir = input("Enter save folder: ")
 model_dir = config['save_dir']
+batch_size = config['batch_size']
+num_workers = config['num_workers']
+
+logger = logging.getLogger()
+logging.basicConfig(filename=f'{save_dir}/val.log', encoding='utf-8', level=logging.INFO)
 
 num_classes = 20
 model = deeplabv3_resnet50(weights=None, num_classes=20, aux_loss=True)
@@ -89,9 +95,10 @@ best_targets = None
 best_preds = None
 
 print("Validating... ")  # use the val set
+logger.info("Validating... ")
 start_time = time.time()
 with torch.no_grad():
-    for images, targets in val_loader:
+    for images, targets in tqdm(val_loader, dynamic_ncols=True):
         images = images.to(device)
         targets = targets.to(device)
         outputs = model(images)['out']
@@ -133,8 +140,7 @@ with torch.no_grad():
         if counter % 10 == 0:
             end_time = time.time()
             duration = end_time - start_time
-            print(
-                f"Batch {counter}, Test Accuracy: {100 * accuracy:.2f}%, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
+            logger.info(f"Batch {counter}, Test Accuracy: {100 * accuracy:.2f}%, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
         counter += 1
 end_time = time.time()
 duration = end_time - start_time
@@ -143,6 +149,8 @@ avg_accuracy = np.mean(accuracy_list)
 
 print(f"Test Accuracy: {100 * avg_accuracy:.2f}%, Mean IoU: {100 * avg_mIou:.2f}%, Test Duration: {duration:.2f} s")
 print(f"Best Accuracy: {100 * best_accuracy:.2f}%, Best Mean IoU: {100 * best_iou:.2f}%")
+logger.info(f"Test Accuracy: {100 * avg_accuracy:.2f}%, Mean IoU: {100 * avg_mIou:.2f}%, Test Duration: {duration:.2f} s")
+logger.info(f"Best Accuracy: {100 * best_accuracy:.2f}%, Best Mean IoU: {100 * best_iou:.2f}%")
 
 
 

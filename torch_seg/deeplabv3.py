@@ -19,6 +19,10 @@ from torch.optim.lr_scheduler import StepLR
 import numpy as np
 import time
 import json
+import os
+from datetime import datetime
+import logging
+from tqdm import tqdm
 # import deeplabv3_resnet50
 from torchvision.models.segmentation import deeplabv3_resnet50
 
@@ -30,6 +34,14 @@ dataset_path = config['data_path']
 num_epochs = config['num_epochs']
 save_dir = config['save_dir']
 continue_training = config['continue_training']
+batch_size = config['batch_size']
+num_workers = config['num_workers']
+
+save_dir = save_dir + datetime.now().strftime('%Y-%m-%d-%H%M')
+os.mkdir(save_dir)
+logger = logging.getLogger()
+logging.basicConfig(filename=f'{save_dir}/run.log', encoding='utf-8', level=logging.INFO)
+
 
 torch.cuda.empty_cache()
 
@@ -75,13 +87,21 @@ val_dataset = datasets.Cityscapes(root=dataset_path, split='val', mode='fine', t
 # test_dataset = datasets.Cityscapes(root=dataset_path, split='test', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
 
 # batch size should be set to 4 or more on GPU for training
-train_loader = DataLoader(train_dataset, batch_size=4, shuffle=True, drop_last=True)
-val_loader = DataLoader(val_dataset, batch_size=4, shuffle=False, drop_last=True)
+train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
+val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, drop_last=True)
 # test_loader = DataLoader(test_dataset, batch_size=4, shuffle=False)
 
 # Training setup
+# gpus = [0]
+gpus = [0,1] # for multiple gpus
+device = torch.device("cuda:" + str(gpus[0]) if torch.cuda.is_available() else "cpu")
+#torch.backends.cudnn.benchmark = True
+if torch.cuda.device_count()>1 and len(gpus)>1:
+    model = torch.nn.DataParallel(model, device_ids=gpus)
+    
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print("training on", device)
+print(f"training on {device}")
+logger.info(f"training on {device}")
 model.to(device)
 criterion = torch.nn.CrossEntropyLoss()
 
@@ -105,7 +125,8 @@ for epoch in range(num_epochs):
     running_loss = 0.0
 
     print(f"Epoch {epoch + 1}, Training...")
-    for images, targets in train_loader:
+    logger.info(f"Epoch {epoch + 1}, Training...")
+    for images, targets in tqdm(train_loader, dynamic_ncols=True):
         images = images.to(device)
         targets = targets.to(device)
 
@@ -128,20 +149,21 @@ for epoch in range(num_epochs):
             end_time = time.time()
             duration = end_time - start_time
             # epoch i / num_epochs, loss should only have 2 decimal places
-            print(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Train Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
+            logger.info(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Train Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
         counter += 1
     scheduler.step()
     train_loss = running_loss / len(train_loader)
     train_loss_list.append(train_loss)
     print(f"Epoch {epoch + 1}, Training Loss: {train_loss},Epoch Duration: {duration} s")
-
+    logger.info(f"Epoch {epoch + 1}, Training Loss: {train_loss},Epoch Duration: {duration} s")
     # Validation phase
     model.eval()
     val_loss = 0.0
     counter = 0
     print(f"Epoch {epoch + 1}, Validating...")
+    logger.info(f"Epoch {epoch + 1}, Validating...")
     with torch.no_grad():
-        for images, targets in val_loader:
+        for images, targets in tqdm(val_loader, dynamic_ncols=True):
             images = images.to(device)
             targets = targets.to(device)
             outputs = model(images)['out']
@@ -150,18 +172,19 @@ for epoch in range(num_epochs):
             if counter % 10 == 0:
                 end_time = time.time()
                 duration = end_time - start_time
-                print(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Validation Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
+                logger.info(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Validation Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
             counter += 1
     val_loss /= len(val_loader)
     val_loss_list.append(val_loss)
     print(f"Epoch {epoch + 1}, Validation Loss: {val_loss}, Epoch Duration: {duration} s")
-
+    logger.info(f"Epoch {epoch + 1}, Validation Loss: {val_loss}, Epoch Duration: {duration} s")
     end_time = time.time()  # End time measurement
     epoch_duration = end_time - start_time
 
     print(f"Epoch {epoch + 1}, Training Loss: {train_loss}, Validation Loss: {val_loss}, Epoch Duration: {epoch_duration} s")
-
+    logger.info(f"Epoch {epoch + 1}, Training Loss: {train_loss}, Validation Loss: {val_loss}, Epoch Duration: {epoch_duration} s")
     if val_loss < best_val_loss:
+        logger.info(f"Current best val loss: Epoch {epoch + 1}")
         best_val_loss = val_loss
         torch.save(model.state_dict(), save_dir + '/best_model_weights.pth')
 
@@ -174,10 +197,11 @@ counter = 0
 total_mIou = []
 
 print("Testing... ") #use the val set
+logger.info("Testing...")
 start_time = time.time()
 
 with torch.no_grad():
-    for images, targets in val_loader:
+    for images, targets in tqdm(val_loader, dynamic_ncols=True):
         images = images.to(device)
         targets = targets.to(device)
         outputs = model(images)['out']
@@ -205,13 +229,14 @@ with torch.no_grad():
         if counter % 10 == 0:
             end_time = time.time()
             duration = end_time - start_time
-            print(f"Batch {counter}, Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
+            logger.info(f"Batch {counter}, Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
         counter += 1
 
 end_time = time.time()
 duration = end_time - start_time
 avg_mIou = np.nanmean(total_mIou)
 print(f"Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * avg_mIou:.2f}%, Test Duration: {duration:.2f} s")
+logger.info(f"Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * avg_mIou:.2f}%, Test Duration: {duration:.2f} s")
 
 # show segmentation example
 import matplotlib.pyplot as plt
