@@ -54,10 +54,13 @@ class CustomDeepLabV3(torch.nn.Module):
     def forward(self, x):
         input_shape = x.shape[-2:]
         features = self.backbone(x)
+        print("size after downsampling", features.shape)
         x = self.classifier(features)
+        print("size after segmentation head", x.shape)
         # spatial dimensions of this map are smaller than the original input image due to the downsampling operations in the backbone.
         # We can upsample the output to the size of the input image using interpolation
         x = torch.nn.functional.interpolate(x, size=input_shape, mode='bilinear', align_corners=False)
+        print("size after upsampling", x.shape)
         return {'out': x}
 
 backbone = models.resnet50(pretrained=True)
@@ -67,6 +70,7 @@ backbone = torch.nn.Sequential(*(list(backbone.children())[:-2]))
 num_classes = 20
 # the segmentation head is responsible for making the final pixel-wise predictions
 segmentation_head = DeepLabHead(2048, num_classes)
+# 2048 is the number of output channels in the resnet50 backbone
 
 # Then use your custom model instead of the original one
 model = CustomDeepLabV3(backbone, segmentation_head)

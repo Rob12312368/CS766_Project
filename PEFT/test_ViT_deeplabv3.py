@@ -49,6 +49,23 @@ lora_config = LoraConfig(
 )
 lora_model = get_peft_model(vit_model, lora_config)
 
+class CustomDeepLabV3(torch.nn.Module):
+    def __init__(self, backbone, classifier):
+        super().__init__()
+        self.backbone = backbone
+        self.classifier = classifier
+
+    def forward(self, x):
+        input_shape = x.shape[-2:]
+        features = self.backbone(x)
+        print("size after downsampling", features.shape)
+        x = self.classifier(features)
+        print("size after segmentation head", x.shape)
+        # spatial dimensions of this map are smaller than the original input image due to the downsampling operations in the backbone.
+        # We can upsample the output to the size of the input image using interpolation
+        x = torch.nn.functional.interpolate(x, size=input_shape, mode='bilinear', align_corners=False)
+        print("size after upsampling", x.shape)
+        return {'out': x}
 
 class ViTBackbone(torch.nn.Module):
     def __init__(self, vit_model):
@@ -57,15 +74,19 @@ class ViTBackbone(torch.nn.Module):
 
     def forward(self, x):
         outputs = self.vit(x)
-        # Assume the output is a tuple (last_hidden_state, ...)
-        return outputs.last_hidden_state  # Returning the feature map
+        # Extract the feature map from the tuple output
+        feature_map = outputs.last_hidden_state  # Assuming the feature map is the last element of the tuple
+        # Return the feature map as a dictionary with the key "out"
+        return {"out": feature_map}
+
+# Update your model instantiation
 
 
 # Replace the backbone in DeepLabV3
-model = deeplabv3_resnet50(weights=None, num_classes=20, aux_loss=True)
-model.backbone = ViTBackbone(lora_model)
-# Assuming ViT outputs 768-dimensional features
-model.classifier = DeepLabHead(768, 20)
+
+vit_backbone = ViTBackbone(lora_model)  # lora_model is your LoRA-enhanced ViT model
+deeplab_head = DeepLabHead(768, 20)  # Number of classes is 20
+model = CustomDeepLabV3(backbone=vit_backbone, classifier=deeplab_head)
 
 # Number of effective classes after mapping (19 classes + 1 background)
 
@@ -78,7 +99,7 @@ mapping_20 = {
     19: 7, 20: 8, 21: 9, 22: 10, 23: 11, 24: 12, 25: 13, 26: 14,
     27: 15, 28: 16, 29: 0, 30: 0, 31: 17, 32: 18, 33: 19, -1: 0
 }
-
+num_classes = 20
 def encode_labels(mask):
     label_mask = np.zeros_like(mask)
     for k in mapping_20:
@@ -99,17 +120,58 @@ transform = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 
-# Define the dataset with appropriate transforms for both images and targets
-train_dataset = datasets.Cityscapes(root=dataset_path, split='train', mode='fine', target_type='semantic',
-                                    transform=transform, target_transform=target_transform)
-val_dataset = datasets.Cityscapes(root=dataset_path, split='val', mode='fine', target_type='semantic',
-                                  transform=transform, target_transform=target_transform)
-# test_dataset = datasets.Cityscapes(root=dataset_path, split='test', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
 
-# batch size should be set to 4 or more on GPU for training
+
+from torch.utils.data import Dataset
+import torchvision.transforms.functional as TF
+
+from torch.utils.data import Dataset
+import torchvision.transforms.functional as TF
+
+
+class CityscapesPatched(Dataset):
+    def __init__(self, root, split, mode='fine', target_type='semantic', transform=None, target_transform=None):
+        super().__init__()
+        self.dataset = datasets.Cityscapes(root=root, split=split, mode=mode, target_type=target_type)
+        self.transform = transform
+        self.target_transform = target_transform
+        self.patch_size = 224
+
+    def __len__(self):
+        num_images = len(self.dataset)
+        return num_images * ((2048 // self.patch_size) * (1024 // self.patch_size))
+
+    def __getitem__(self, idx):
+        # Calculate which image and which patch this index corresponds to
+        num_patches_per_image = (2048 // self.patch_size) * (1024 // self.patch_size)
+        image_index = idx // num_patches_per_image
+        patch_index = idx % num_patches_per_image
+
+        image, target = self.dataset[image_index]
+        row = (patch_index // (2048 // self.patch_size)) * self.patch_size
+        col = (patch_index % (2048 // self.patch_size)) * self.patch_size
+
+        image_patch = TF.crop(image, row, col, self.patch_size, self.patch_size)
+        target_patch = TF.crop(target, row, col, self.patch_size, self.patch_size)
+
+        if self.transform:
+            image_patch = self.transform(image_patch)
+        if self.target_transform:
+            target_patch = self.target_transform(target_patch)
+
+        return image_patch, target_patch
+
+
+# Instantiate the training and validation datasets
+train_dataset = CityscapesPatched(root=dataset_path, split='train', mode='fine', target_type='semantic',
+                                  transform=transform, target_transform=target_transform)
+val_dataset = CityscapesPatched(root=dataset_path, split='val', mode='fine', target_type='semantic',
+                                transform=transform, target_transform=target_transform)
+
+# Use DataLoader to load batches of data
 train_loader = DataLoader(train_dataset, batch_size=4, shuffle=True, drop_last=True)
 val_loader = DataLoader(val_dataset, batch_size=4, shuffle=False, drop_last=True)
-# test_loader = DataLoader(test_dataset, batch_size=4, shuffle=False)
+
 
 # Training setup
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -144,12 +206,10 @@ for epoch in range(num_epochs):
         optimizer.zero_grad()
 
         outputs = model(images)
-        main_output = outputs['out']
-        aux_output = outputs['aux']
 
-        main_loss = criterion(main_output, targets)
-        aux_loss = criterion(aux_output, targets)
-        loss = main_loss + 0.4 * aux_loss  # 0.4 is a common weight for the auxiliary loss
+        main_output = outputs['out']
+
+        loss = criterion(main_output, targets)
 
         loss.backward()
         optimizer.step()
