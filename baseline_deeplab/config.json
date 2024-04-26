@@ -3,6 +3,6 @@
     "save_dir": "/UserData/data/temp/CS766_Project/torch_seg/results/",
     "num_epochs": 100,
     "batch_size": 6,
-    "num_workers": 4,
-    "continue_training": true
+    "num_workers": 8,
+    "continue_training": false
 }
