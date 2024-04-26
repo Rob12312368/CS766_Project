@@ -2,4 +2,4 @@
 2. No pretrained model
 3. upsampling: interpolation
 4. num_epches: 5
-Test Accuracy: 89.31%, Mean IoU: 48.82%, Test Duration: 187.48 s
+Test Accuracy: 89.31%, Mean IoU: 49.09%, Test Duration: 183.92 s

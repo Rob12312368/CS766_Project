@@ -1,0 +1,8 @@
+{
+    "data_path": "../baseline_deeplab/small_gtFine_trainvaltest",
+    "save_dir": "../baseline_deeplab/results/",
+    "num_epochs": 100,
+    "batch_size": 2,
+    "num_workers": 4,
+    "continue_training": false
+}
