@@ -1,0 +1,1780 @@
+INFO:root:training on cuda
+INFO:root:Epoch 1, Training...
+INFO:root:Epoch 1/10, Batch 0, Train Loss: 3.23, Epoch Time: 1.39 s
+INFO:root:Epoch 1/10, Batch 10, Train Loss: 3.14, Epoch Time: 9.75 s
+INFO:root:Epoch 1/10, Batch 20, Train Loss: 2.92, Epoch Time: 18.08 s
+INFO:root:Epoch 1/10, Batch 30, Train Loss: 2.71, Epoch Time: 26.43 s
+INFO:root:Epoch 1/10, Batch 40, Train Loss: 2.60, Epoch Time: 34.65 s
+INFO:root:Epoch 1/10, Batch 50, Train Loss: 2.45, Epoch Time: 43.06 s
+INFO:root:Epoch 1/10, Batch 60, Train Loss: 2.42, Epoch Time: 51.39 s
+INFO:root:Epoch 1/10, Batch 70, Train Loss: 2.27, Epoch Time: 59.67 s
+INFO:root:Epoch 1/10, Batch 80, Train Loss: 2.26, Epoch Time: 67.99 s
+INFO:root:Epoch 1/10, Batch 90, Train Loss: 2.25, Epoch Time: 76.23 s
+INFO:root:Epoch 1/10, Batch 100, Train Loss: 2.38, Epoch Time: 84.48 s
+INFO:root:Epoch 1/10, Batch 110, Train Loss: 2.20, Epoch Time: 92.80 s
+INFO:root:Epoch 1/10, Batch 120, Train Loss: 2.18, Epoch Time: 101.15 s
+INFO:root:Epoch 1/10, Batch 130, Train Loss: 2.09, Epoch Time: 109.54 s
+INFO:root:Epoch 1/10, Batch 140, Train Loss: 2.30, Epoch Time: 117.75 s
+INFO:root:Epoch 1/10, Batch 150, Train Loss: 2.23, Epoch Time: 126.13 s
+INFO:root:Epoch 1/10, Batch 160, Train Loss: 2.13, Epoch Time: 134.45 s
+INFO:root:Epoch 1/10, Batch 170, Train Loss: 2.02, Epoch Time: 142.77 s
+INFO:root:Epoch 1/10, Batch 180, Train Loss: 1.93, Epoch Time: 151.13 s
+INFO:root:Epoch 1/10, Batch 190, Train Loss: 2.21, Epoch Time: 159.63 s
+INFO:root:Epoch 1/10, Batch 200, Train Loss: 2.14, Epoch Time: 167.94 s
+INFO:root:Epoch 1/10, Batch 210, Train Loss: 2.17, Epoch Time: 176.20 s
+INFO:root:Epoch 1/10, Batch 220, Train Loss: 2.18, Epoch Time: 184.49 s
+INFO:root:Epoch 1/10, Batch 230, Train Loss: 2.08, Epoch Time: 192.75 s
+INFO:root:Epoch 1/10, Batch 240, Train Loss: 2.44, Epoch Time: 200.97 s
+INFO:root:Epoch 1/10, Batch 250, Train Loss: 2.02, Epoch Time: 209.28 s
+INFO:root:Epoch 1/10, Batch 260, Train Loss: 2.01, Epoch Time: 217.57 s
+INFO:root:Epoch 1/10, Batch 270, Train Loss: 1.98, Epoch Time: 225.79 s
+INFO:root:Epoch 1/10, Batch 280, Train Loss: 1.91, Epoch Time: 234.10 s
+INFO:root:Epoch 1/10, Batch 290, Train Loss: 2.03, Epoch Time: 242.50 s
+INFO:root:Epoch 1/10, Batch 300, Train Loss: 2.01, Epoch Time: 250.82 s
+INFO:root:Epoch 1/10, Batch 310, Train Loss: 1.97, Epoch Time: 259.09 s
+INFO:root:Epoch 1/10, Batch 320, Train Loss: 2.10, Epoch Time: 267.32 s
+INFO:root:Epoch 1/10, Batch 330, Train Loss: 2.01, Epoch Time: 275.69 s
+INFO:root:Epoch 1/10, Batch 340, Train Loss: 1.95, Epoch Time: 284.01 s
+INFO:root:Epoch 1/10, Batch 350, Train Loss: 2.04, Epoch Time: 292.34 s
+INFO:root:Epoch 1/10, Batch 360, Train Loss: 2.07, Epoch Time: 300.67 s
+INFO:root:Epoch 1/10, Batch 370, Train Loss: 2.09, Epoch Time: 309.00 s
+INFO:root:Epoch 1/10, Batch 380, Train Loss: 1.97, Epoch Time: 317.28 s
+INFO:root:Epoch 1/10, Batch 390, Train Loss: 2.17, Epoch Time: 325.53 s
+INFO:root:Epoch 1/10, Batch 400, Train Loss: 1.99, Epoch Time: 333.73 s
+INFO:root:Epoch 1/10, Batch 410, Train Loss: 1.93, Epoch Time: 342.08 s
+INFO:root:Epoch 1/10, Batch 420, Train Loss: 2.03, Epoch Time: 350.38 s
+INFO:root:Epoch 1/10, Batch 430, Train Loss: 2.14, Epoch Time: 358.68 s
+INFO:root:Epoch 1/10, Batch 440, Train Loss: 1.96, Epoch Time: 367.04 s
+INFO:root:Epoch 1/10, Batch 450, Train Loss: 1.94, Epoch Time: 375.28 s
+INFO:root:Epoch 1/10, Batch 460, Train Loss: 2.08, Epoch Time: 383.69 s
+INFO:root:Epoch 1/10, Batch 470, Train Loss: 1.97, Epoch Time: 391.89 s
+INFO:root:Epoch 1/10, Batch 480, Train Loss: 1.88, Epoch Time: 400.16 s
+INFO:root:Epoch 1/10, Batch 490, Train Loss: 1.98, Epoch Time: 408.59 s
+INFO:root:Epoch 1/10, Batch 500, Train Loss: 1.99, Epoch Time: 416.86 s
+INFO:root:Epoch 1/10, Batch 510, Train Loss: 2.10, Epoch Time: 425.18 s
+INFO:root:Epoch 1/10, Batch 520, Train Loss: 2.21, Epoch Time: 433.46 s
+INFO:root:Epoch 1/10, Batch 530, Train Loss: 1.94, Epoch Time: 441.69 s
+INFO:root:Epoch 1/10, Batch 540, Train Loss: 2.38, Epoch Time: 449.91 s
+INFO:root:Epoch 1/10, Batch 550, Train Loss: 2.07, Epoch Time: 458.33 s
+INFO:root:Epoch 1/10, Batch 560, Train Loss: 2.00, Epoch Time: 466.67 s
+INFO:root:Epoch 1/10, Batch 570, Train Loss: 2.09, Epoch Time: 474.96 s
+INFO:root:Epoch 1/10, Batch 580, Train Loss: 1.90, Epoch Time: 483.31 s
+INFO:root:Epoch 1/10, Batch 590, Train Loss: 2.34, Epoch Time: 491.66 s
+INFO:root:Epoch 1/10, Batch 600, Train Loss: 1.90, Epoch Time: 500.00 s
+INFO:root:Epoch 1/10, Batch 610, Train Loss: 2.05, Epoch Time: 508.26 s
+INFO:root:Epoch 1/10, Batch 620, Train Loss: 2.02, Epoch Time: 516.56 s
+INFO:root:Epoch 1/10, Batch 630, Train Loss: 1.89, Epoch Time: 524.93 s
+INFO:root:Epoch 1/10, Batch 640, Train Loss: 1.97, Epoch Time: 533.19 s
+INFO:root:Epoch 1/10, Batch 650, Train Loss: 2.04, Epoch Time: 541.47 s
+INFO:root:Epoch 1/10, Batch 660, Train Loss: 1.95, Epoch Time: 549.79 s
+INFO:root:Epoch 1/10, Batch 670, Train Loss: 1.88, Epoch Time: 557.99 s
+INFO:root:Epoch 1/10, Batch 680, Train Loss: 2.25, Epoch Time: 566.41 s
+INFO:root:Epoch 1/10, Batch 690, Train Loss: 1.93, Epoch Time: 574.77 s
+INFO:root:Epoch 1/10, Batch 700, Train Loss: 1.99, Epoch Time: 583.15 s
+INFO:root:Epoch 1/10, Batch 710, Train Loss: 2.03, Epoch Time: 591.41 s
+INFO:root:Epoch 1/10, Batch 720, Train Loss: 1.89, Epoch Time: 599.74 s
+INFO:root:Epoch 1/10, Batch 730, Train Loss: 2.04, Epoch Time: 608.11 s
+INFO:root:Epoch 1/10, Batch 740, Train Loss: 1.95, Epoch Time: 616.52 s
+INFO:root:Epoch 1/10, Batch 750, Train Loss: 2.09, Epoch Time: 624.78 s
+INFO:root:Epoch 1/10, Batch 760, Train Loss: 1.96, Epoch Time: 633.13 s
+INFO:root:Epoch 1/10, Batch 770, Train Loss: 1.87, Epoch Time: 641.49 s
+INFO:root:Epoch 1/10, Batch 780, Train Loss: 1.99, Epoch Time: 649.88 s
+INFO:root:Epoch 1/10, Batch 790, Train Loss: 1.87, Epoch Time: 658.06 s
+INFO:root:Epoch 1/10, Batch 800, Train Loss: 1.90, Epoch Time: 666.33 s
+INFO:root:Epoch 1/10, Batch 810, Train Loss: 1.95, Epoch Time: 674.67 s
+INFO:root:Epoch 1/10, Batch 820, Train Loss: 1.83, Epoch Time: 682.87 s
+INFO:root:Epoch 1/10, Batch 830, Train Loss: 1.87, Epoch Time: 691.10 s
+INFO:root:Epoch 1/10, Batch 840, Train Loss: 2.02, Epoch Time: 699.47 s
+INFO:root:Epoch 1/10, Batch 850, Train Loss: 1.89, Epoch Time: 707.76 s
+INFO:root:Epoch 1/10, Batch 860, Train Loss: 2.00, Epoch Time: 716.02 s
+INFO:root:Epoch 1/10, Batch 870, Train Loss: 1.95, Epoch Time: 724.31 s
+INFO:root:Epoch 1/10, Batch 880, Train Loss: 1.93, Epoch Time: 732.56 s
+INFO:root:Epoch 1/10, Batch 890, Train Loss: 1.89, Epoch Time: 740.94 s
+INFO:root:Epoch 1/10, Batch 900, Train Loss: 1.98, Epoch Time: 749.26 s
+INFO:root:Epoch 1/10, Batch 910, Train Loss: 2.08, Epoch Time: 757.54 s
+INFO:root:Epoch 1/10, Batch 920, Train Loss: 1.84, Epoch Time: 765.88 s
+INFO:root:Epoch 1/10, Batch 930, Train Loss: 1.87, Epoch Time: 774.27 s
+INFO:root:Epoch 1/10, Batch 940, Train Loss: 1.82, Epoch Time: 782.60 s
+INFO:root:Epoch 1/10, Batch 950, Train Loss: 1.88, Epoch Time: 790.94 s
+INFO:root:Epoch 1/10, Batch 960, Train Loss: 2.00, Epoch Time: 799.19 s
+INFO:root:Epoch 1/10, Batch 970, Train Loss: 2.01, Epoch Time: 807.53 s
+INFO:root:Epoch 1/10, Batch 980, Train Loss: 1.92, Epoch Time: 815.79 s
+INFO:root:Epoch 1/10, Batch 990, Train Loss: 1.97, Epoch Time: 824.03 s
+INFO:root:Epoch 1/10, Batch 1000, Train Loss: 1.98, Epoch Time: 832.42 s
+INFO:root:Epoch 1/10, Batch 1010, Train Loss: 1.95, Epoch Time: 840.63 s
+INFO:root:Epoch 1/10, Batch 1020, Train Loss: 1.94, Epoch Time: 848.93 s
+INFO:root:Epoch 1/10, Batch 1030, Train Loss: 2.01, Epoch Time: 857.33 s
+INFO:root:Epoch 1/10, Batch 1040, Train Loss: 2.07, Epoch Time: 865.60 s
+INFO:root:Epoch 1/10, Batch 1050, Train Loss: 2.06, Epoch Time: 874.00 s
+INFO:root:Epoch 1/10, Batch 1060, Train Loss: 1.94, Epoch Time: 882.35 s
+INFO:root:Epoch 1/10, Batch 1070, Train Loss: 1.90, Epoch Time: 890.67 s
+INFO:root:Epoch 1/10, Batch 1080, Train Loss: 1.84, Epoch Time: 898.98 s
+INFO:root:Epoch 1/10, Batch 1090, Train Loss: 1.95, Epoch Time: 907.30 s
+INFO:root:Epoch 1/10, Batch 1100, Train Loss: 1.93, Epoch Time: 915.64 s
+INFO:root:Epoch 1/10, Batch 1110, Train Loss: 1.96, Epoch Time: 923.88 s
+INFO:root:Epoch 1/10, Batch 1120, Train Loss: 1.94, Epoch Time: 932.22 s
+INFO:root:Epoch 1/10, Batch 1130, Train Loss: 1.86, Epoch Time: 940.56 s
+INFO:root:Epoch 1/10, Batch 1140, Train Loss: 1.86, Epoch Time: 948.94 s
+INFO:root:Epoch 1/10, Batch 1150, Train Loss: 1.96, Epoch Time: 957.15 s
+INFO:root:Epoch 1/10, Batch 1160, Train Loss: 1.85, Epoch Time: 965.44 s
+INFO:root:Epoch 1/10, Batch 1170, Train Loss: 1.79, Epoch Time: 973.87 s
+INFO:root:Epoch 1/10, Batch 1180, Train Loss: 1.92, Epoch Time: 982.07 s
+INFO:root:Epoch 1/10, Batch 1190, Train Loss: 1.95, Epoch Time: 990.56 s
+INFO:root:Epoch 1/10, Batch 1200, Train Loss: 1.98, Epoch Time: 999.02 s
+INFO:root:Epoch 1/10, Batch 1210, Train Loss: 1.82, Epoch Time: 1007.36 s
+INFO:root:Epoch 1/10, Batch 1220, Train Loss: 1.85, Epoch Time: 1015.48 s
+INFO:root:Epoch 1/10, Batch 1230, Train Loss: 1.90, Epoch Time: 1023.79 s
+INFO:root:Epoch 1/10, Batch 1240, Train Loss: 2.02, Epoch Time: 1032.12 s
+INFO:root:Epoch 1/10, Batch 1250, Train Loss: 1.84, Epoch Time: 1040.51 s
+INFO:root:Epoch 1/10, Batch 1260, Train Loss: 1.91, Epoch Time: 1048.75 s
+INFO:root:Epoch 1/10, Batch 1270, Train Loss: 1.92, Epoch Time: 1057.06 s
+INFO:root:Epoch 1/10, Batch 1280, Train Loss: 1.76, Epoch Time: 1065.40 s
+INFO:root:Epoch 1/10, Batch 1290, Train Loss: 1.90, Epoch Time: 1073.80 s
+INFO:root:Epoch 1/10, Batch 1300, Train Loss: 1.88, Epoch Time: 1082.12 s
+INFO:root:Epoch 1/10, Batch 1310, Train Loss: 1.84, Epoch Time: 1090.43 s
+INFO:root:Epoch 1/10, Batch 1320, Train Loss: 1.91, Epoch Time: 1098.83 s
+INFO:root:Epoch 1/10, Batch 1330, Train Loss: 1.91, Epoch Time: 1107.09 s
+INFO:root:Epoch 1/10, Batch 1340, Train Loss: 1.93, Epoch Time: 1115.36 s
+INFO:root:Epoch 1/10, Batch 1350, Train Loss: 1.85, Epoch Time: 1123.71 s
+INFO:root:Epoch 1/10, Batch 1360, Train Loss: 1.99, Epoch Time: 1132.04 s
+INFO:root:Epoch 1/10, Batch 1370, Train Loss: 1.88, Epoch Time: 1140.27 s
+INFO:root:Epoch 1/10, Batch 1380, Train Loss: 2.02, Epoch Time: 1148.48 s
+INFO:root:Epoch 1/10, Batch 1390, Train Loss: 1.86, Epoch Time: 1156.83 s
+INFO:root:Epoch 1/10, Batch 1400, Train Loss: 1.91, Epoch Time: 1165.15 s
+INFO:root:Epoch 1/10, Batch 1410, Train Loss: 1.84, Epoch Time: 1173.43 s
+INFO:root:Epoch 1/10, Batch 1420, Train Loss: 1.90, Epoch Time: 1181.69 s
+INFO:root:Epoch 1/10, Batch 1430, Train Loss: 1.86, Epoch Time: 1189.96 s
+INFO:root:Epoch 1/10, Batch 1440, Train Loss: 1.79, Epoch Time: 1198.26 s
+INFO:root:Epoch 1/10, Batch 1450, Train Loss: 1.99, Epoch Time: 1206.64 s
+INFO:root:Epoch 1/10, Batch 1460, Train Loss: 2.04, Epoch Time: 1214.89 s
+INFO:root:Epoch 1/10, Batch 1470, Train Loss: 1.89, Epoch Time: 1223.16 s
+INFO:root:Epoch 1/10, Batch 1480, Train Loss: 2.01, Epoch Time: 1231.40 s
+INFO:root:Epoch 1, Validating...
+INFO:root:Batch 0, Mean IoU: 24.41%, Test time: 1236.88 s
+INFO:root:Batch 10, Mean IoU: 16.45%, Test time: 1241.98 s
+INFO:root:Batch 20, Mean IoU: 24.60%, Test time: 1246.98 s
+INFO:root:Batch 30, Mean IoU: 24.33%, Test time: 1252.01 s
+INFO:root:Batch 40, Mean IoU: 32.13%, Test time: 1256.99 s
+INFO:root:Batch 50, Mean IoU: 30.47%, Test time: 1261.96 s
+INFO:root:Batch 60, Mean IoU: 27.62%, Test time: 1266.99 s
+INFO:root:Batch 70, Mean IoU: 19.37%, Test time: 1271.93 s
+INFO:root:Batch 80, Mean IoU: 30.21%, Test time: 1276.88 s
+INFO:root:Batch 90, Mean IoU: 26.79%, Test time: 1281.83 s
+INFO:root:Batch 100, Mean IoU: 24.27%, Test time: 1286.80 s
+INFO:root:Batch 110, Mean IoU: 17.70%, Test time: 1291.85 s
+INFO:root:Batch 120, Mean IoU: 24.32%, Test time: 1296.82 s
+INFO:root:Batch 130, Mean IoU: 29.89%, Test time: 1302.01 s
+INFO:root:Batch 140, Mean IoU: 26.38%, Test time: 1307.09 s
+INFO:root:Batch 150, Mean IoU: 28.21%, Test time: 1312.17 s
+INFO:root:Batch 160, Mean IoU: 27.35%, Test time: 1317.24 s
+INFO:root:Batch 170, Mean IoU: 27.91%, Test time: 1322.22 s
+INFO:root:Batch 180, Mean IoU: 27.51%, Test time: 1327.14 s
+INFO:root:Batch 190, Mean IoU: 30.75%, Test time: 1332.19 s
+INFO:root:Batch 200, Mean IoU: 25.55%, Test time: 1337.22 s
+INFO:root:Batch 210, Mean IoU: 22.95%, Test time: 1342.22 s
+INFO:root:Batch 220, Mean IoU: 25.97%, Test time: 1347.23 s
+INFO:root:Batch 230, Mean IoU: 30.11%, Test time: 1352.31 s
+INFO:root:Batch 240, Mean IoU: 27.85%, Test time: 1357.30 s
+INFO:root:Epoch 1, Training Loss: 2.0352225160951494, Validation Loss: 1.706901671886444, mIOU: 26.23%, Epoch Duration: 1361.8396170139313 s
+INFO:root:Current best val loss: Epoch 1
+INFO:root:Epoch 2, Training...
+INFO:root:Epoch 2/10, Batch 0, Train Loss: 1.90, Epoch Time: 0.82 s
+INFO:root:Epoch 2/10, Batch 10, Train Loss: 2.16, Epoch Time: 9.18 s
+INFO:root:Epoch 2/10, Batch 20, Train Loss: 1.89, Epoch Time: 17.59 s
+INFO:root:Epoch 2/10, Batch 30, Train Loss: 1.79, Epoch Time: 26.11 s
+INFO:root:Epoch 2/10, Batch 40, Train Loss: 1.85, Epoch Time: 34.62 s
+INFO:root:Epoch 2/10, Batch 50, Train Loss: 2.00, Epoch Time: 42.78 s
+INFO:root:Epoch 2/10, Batch 60, Train Loss: 1.88, Epoch Time: 51.10 s
+INFO:root:Epoch 2/10, Batch 70, Train Loss: 1.97, Epoch Time: 59.41 s
+INFO:root:Epoch 2/10, Batch 80, Train Loss: 2.03, Epoch Time: 67.76 s
+INFO:root:Epoch 2/10, Batch 90, Train Loss: 1.94, Epoch Time: 76.08 s
+INFO:root:Epoch 2/10, Batch 100, Train Loss: 1.81, Epoch Time: 84.57 s
+INFO:root:Epoch 2/10, Batch 110, Train Loss: 1.92, Epoch Time: 92.79 s
+INFO:root:Epoch 2/10, Batch 120, Train Loss: 1.82, Epoch Time: 101.07 s
+INFO:root:Epoch 2/10, Batch 130, Train Loss: 1.84, Epoch Time: 109.43 s
+INFO:root:Epoch 2/10, Batch 140, Train Loss: 2.01, Epoch Time: 117.82 s
+INFO:root:Epoch 2/10, Batch 150, Train Loss: 2.22, Epoch Time: 126.29 s
+INFO:root:Epoch 2/10, Batch 160, Train Loss: 2.03, Epoch Time: 134.64 s
+INFO:root:Epoch 2/10, Batch 170, Train Loss: 1.88, Epoch Time: 142.87 s
+INFO:root:Epoch 2/10, Batch 180, Train Loss: 1.98, Epoch Time: 151.30 s
+INFO:root:Epoch 2/10, Batch 190, Train Loss: 1.89, Epoch Time: 159.62 s
+INFO:root:Epoch 2/10, Batch 200, Train Loss: 1.97, Epoch Time: 167.94 s
+INFO:root:Epoch 2/10, Batch 210, Train Loss: 1.89, Epoch Time: 176.38 s
+INFO:root:Epoch 2/10, Batch 220, Train Loss: 1.79, Epoch Time: 184.83 s
+INFO:root:Epoch 2/10, Batch 230, Train Loss: 1.76, Epoch Time: 193.03 s
+INFO:root:Epoch 2/10, Batch 240, Train Loss: 1.68, Epoch Time: 201.24 s
+INFO:root:Epoch 2/10, Batch 250, Train Loss: 1.94, Epoch Time: 209.62 s
+INFO:root:Epoch 2/10, Batch 260, Train Loss: 1.94, Epoch Time: 218.04 s
+INFO:root:Epoch 2/10, Batch 270, Train Loss: 1.87, Epoch Time: 226.35 s
+INFO:root:Epoch 2/10, Batch 280, Train Loss: 1.88, Epoch Time: 234.69 s
+INFO:root:Epoch 2/10, Batch 290, Train Loss: 1.89, Epoch Time: 243.11 s
+INFO:root:Epoch 2/10, Batch 300, Train Loss: 2.00, Epoch Time: 251.38 s
+INFO:root:Epoch 2/10, Batch 310, Train Loss: 1.81, Epoch Time: 259.69 s
+INFO:root:Epoch 2/10, Batch 320, Train Loss: 1.94, Epoch Time: 268.08 s
+INFO:root:Epoch 2/10, Batch 330, Train Loss: 1.89, Epoch Time: 276.38 s
+INFO:root:Epoch 2/10, Batch 340, Train Loss: 2.13, Epoch Time: 284.72 s
+INFO:root:Epoch 2/10, Batch 350, Train Loss: 2.14, Epoch Time: 293.14 s
+INFO:root:Epoch 2/10, Batch 360, Train Loss: 1.82, Epoch Time: 301.51 s
+INFO:root:Epoch 2/10, Batch 370, Train Loss: 1.90, Epoch Time: 309.86 s
+INFO:root:Epoch 2/10, Batch 380, Train Loss: 1.96, Epoch Time: 318.17 s
+INFO:root:Epoch 2/10, Batch 390, Train Loss: 1.91, Epoch Time: 326.49 s
+INFO:root:Epoch 2/10, Batch 400, Train Loss: 2.03, Epoch Time: 334.87 s
+INFO:root:Epoch 2/10, Batch 410, Train Loss: 1.94, Epoch Time: 343.23 s
+INFO:root:Epoch 2/10, Batch 420, Train Loss: 2.00, Epoch Time: 351.55 s
+INFO:root:Epoch 2/10, Batch 430, Train Loss: 1.85, Epoch Time: 359.93 s
+INFO:root:Epoch 2/10, Batch 440, Train Loss: 1.87, Epoch Time: 368.29 s
+INFO:root:Epoch 2/10, Batch 450, Train Loss: 1.84, Epoch Time: 376.63 s
+INFO:root:Epoch 2/10, Batch 460, Train Loss: 1.78, Epoch Time: 384.97 s
+INFO:root:Epoch 2/10, Batch 470, Train Loss: 1.91, Epoch Time: 393.28 s
+INFO:root:Epoch 2/10, Batch 480, Train Loss: 2.07, Epoch Time: 401.71 s
+INFO:root:Epoch 2/10, Batch 490, Train Loss: 1.83, Epoch Time: 410.08 s
+INFO:root:Epoch 2/10, Batch 500, Train Loss: 1.79, Epoch Time: 418.34 s
+INFO:root:Epoch 2/10, Batch 510, Train Loss: 1.89, Epoch Time: 426.76 s
+INFO:root:Epoch 2/10, Batch 520, Train Loss: 1.73, Epoch Time: 435.07 s
+INFO:root:Epoch 2/10, Batch 530, Train Loss: 1.96, Epoch Time: 443.47 s
+INFO:root:Epoch 2/10, Batch 540, Train Loss: 1.79, Epoch Time: 451.82 s
+INFO:root:Epoch 2/10, Batch 550, Train Loss: 2.12, Epoch Time: 460.12 s
+INFO:root:Epoch 2/10, Batch 560, Train Loss: 1.89, Epoch Time: 468.39 s
+INFO:root:Epoch 2/10, Batch 570, Train Loss: 1.94, Epoch Time: 476.73 s
+INFO:root:Epoch 2/10, Batch 580, Train Loss: 2.02, Epoch Time: 485.07 s
+INFO:root:Epoch 2/10, Batch 590, Train Loss: 1.88, Epoch Time: 493.52 s
+INFO:root:Epoch 2/10, Batch 600, Train Loss: 1.98, Epoch Time: 501.98 s
+INFO:root:Epoch 2/10, Batch 610, Train Loss: 1.78, Epoch Time: 510.42 s
+INFO:root:Epoch 2/10, Batch 620, Train Loss: 1.92, Epoch Time: 518.79 s
+INFO:root:Epoch 2/10, Batch 630, Train Loss: 1.74, Epoch Time: 527.17 s
+INFO:root:Epoch 2/10, Batch 640, Train Loss: 1.84, Epoch Time: 535.50 s
+INFO:root:Epoch 2/10, Batch 650, Train Loss: 1.87, Epoch Time: 543.82 s
+INFO:root:Epoch 2/10, Batch 660, Train Loss: 1.82, Epoch Time: 552.04 s
+INFO:root:Epoch 2/10, Batch 670, Train Loss: 2.01, Epoch Time: 560.32 s
+INFO:root:Epoch 2/10, Batch 680, Train Loss: 1.82, Epoch Time: 568.69 s
+INFO:root:Epoch 2/10, Batch 690, Train Loss: 1.89, Epoch Time: 576.97 s
+INFO:root:Epoch 2/10, Batch 700, Train Loss: 1.95, Epoch Time: 585.33 s
+INFO:root:Epoch 2/10, Batch 710, Train Loss: 1.91, Epoch Time: 593.60 s
+INFO:root:Epoch 2/10, Batch 720, Train Loss: 1.76, Epoch Time: 602.01 s
+INFO:root:Epoch 2/10, Batch 730, Train Loss: 1.90, Epoch Time: 610.47 s
+INFO:root:Epoch 2/10, Batch 740, Train Loss: 1.91, Epoch Time: 618.82 s
+INFO:root:Epoch 2/10, Batch 750, Train Loss: 1.91, Epoch Time: 627.16 s
+INFO:root:Epoch 2/10, Batch 760, Train Loss: 1.88, Epoch Time: 635.47 s
+INFO:root:Epoch 2/10, Batch 770, Train Loss: 1.83, Epoch Time: 643.74 s
+INFO:root:Epoch 2/10, Batch 780, Train Loss: 2.10, Epoch Time: 652.12 s
+INFO:root:Epoch 2/10, Batch 790, Train Loss: 2.13, Epoch Time: 660.45 s
+INFO:root:Epoch 2/10, Batch 800, Train Loss: 1.87, Epoch Time: 668.77 s
+INFO:root:Epoch 2/10, Batch 810, Train Loss: 1.94, Epoch Time: 677.11 s
+INFO:root:Epoch 2/10, Batch 820, Train Loss: 1.82, Epoch Time: 685.49 s
+INFO:root:Epoch 2/10, Batch 830, Train Loss: 2.02, Epoch Time: 693.86 s
+INFO:root:Epoch 2/10, Batch 840, Train Loss: 2.05, Epoch Time: 702.15 s
+INFO:root:Epoch 2/10, Batch 850, Train Loss: 1.93, Epoch Time: 710.43 s
+INFO:root:Epoch 2/10, Batch 860, Train Loss: 1.92, Epoch Time: 718.85 s
+INFO:root:Epoch 2/10, Batch 870, Train Loss: 1.84, Epoch Time: 727.25 s
+INFO:root:Epoch 2/10, Batch 880, Train Loss: 1.81, Epoch Time: 735.62 s
+INFO:root:Epoch 2/10, Batch 890, Train Loss: 1.80, Epoch Time: 743.97 s
+INFO:root:Epoch 2/10, Batch 900, Train Loss: 2.07, Epoch Time: 752.31 s
+INFO:root:Epoch 2/10, Batch 910, Train Loss: 1.75, Epoch Time: 760.67 s
+INFO:root:Epoch 2/10, Batch 920, Train Loss: 1.80, Epoch Time: 768.95 s
+INFO:root:Epoch 2/10, Batch 930, Train Loss: 2.02, Epoch Time: 777.32 s
+INFO:root:Epoch 2/10, Batch 940, Train Loss: 1.78, Epoch Time: 785.64 s
+INFO:root:Epoch 2/10, Batch 950, Train Loss: 1.85, Epoch Time: 794.01 s
+INFO:root:Epoch 2/10, Batch 960, Train Loss: 1.77, Epoch Time: 802.39 s
+INFO:root:Epoch 2/10, Batch 970, Train Loss: 1.85, Epoch Time: 810.67 s
+INFO:root:Epoch 2/10, Batch 980, Train Loss: 1.75, Epoch Time: 819.11 s
+INFO:root:Epoch 2/10, Batch 990, Train Loss: 1.73, Epoch Time: 827.48 s
+INFO:root:Epoch 2/10, Batch 1000, Train Loss: 1.86, Epoch Time: 835.95 s
+INFO:root:Epoch 2/10, Batch 1010, Train Loss: 1.85, Epoch Time: 844.30 s
+INFO:root:Epoch 2/10, Batch 1020, Train Loss: 1.81, Epoch Time: 852.66 s
+INFO:root:Epoch 2/10, Batch 1030, Train Loss: 1.84, Epoch Time: 860.84 s
+INFO:root:Epoch 2/10, Batch 1040, Train Loss: 1.95, Epoch Time: 869.15 s
+INFO:root:Epoch 2/10, Batch 1050, Train Loss: 1.82, Epoch Time: 877.54 s
+INFO:root:Epoch 2/10, Batch 1060, Train Loss: 1.91, Epoch Time: 885.91 s
+INFO:root:Epoch 2/10, Batch 1070, Train Loss: 1.88, Epoch Time: 894.18 s
+INFO:root:Epoch 2/10, Batch 1080, Train Loss: 1.88, Epoch Time: 902.69 s
+INFO:root:Epoch 2/10, Batch 1090, Train Loss: 1.80, Epoch Time: 911.07 s
+INFO:root:Epoch 2/10, Batch 1100, Train Loss: 1.92, Epoch Time: 919.41 s
+INFO:root:Epoch 2/10, Batch 1110, Train Loss: 1.75, Epoch Time: 927.64 s
+INFO:root:Epoch 2/10, Batch 1120, Train Loss: 1.70, Epoch Time: 935.90 s
+INFO:root:Epoch 2/10, Batch 1130, Train Loss: 1.80, Epoch Time: 944.19 s
+INFO:root:Epoch 2/10, Batch 1140, Train Loss: 1.78, Epoch Time: 952.48 s
+INFO:root:Epoch 2/10, Batch 1150, Train Loss: 1.87, Epoch Time: 960.91 s
+INFO:root:Epoch 2/10, Batch 1160, Train Loss: 1.82, Epoch Time: 969.28 s
+INFO:root:Epoch 2/10, Batch 1170, Train Loss: 1.74, Epoch Time: 977.53 s
+INFO:root:Epoch 2/10, Batch 1180, Train Loss: 1.79, Epoch Time: 985.89 s
+INFO:root:Epoch 2/10, Batch 1190, Train Loss: 1.92, Epoch Time: 994.40 s
+INFO:root:Epoch 2/10, Batch 1200, Train Loss: 1.93, Epoch Time: 1002.72 s
+INFO:root:Epoch 2/10, Batch 1210, Train Loss: 1.86, Epoch Time: 1011.13 s
+INFO:root:Epoch 2/10, Batch 1220, Train Loss: 1.74, Epoch Time: 1019.50 s
+INFO:root:Epoch 2/10, Batch 1230, Train Loss: 1.85, Epoch Time: 1027.73 s
+INFO:root:Epoch 2/10, Batch 1240, Train Loss: 2.16, Epoch Time: 1035.98 s
+INFO:root:Epoch 2/10, Batch 1250, Train Loss: 1.82, Epoch Time: 1044.26 s
+INFO:root:Epoch 2/10, Batch 1260, Train Loss: 1.95, Epoch Time: 1052.57 s
+INFO:root:Epoch 2/10, Batch 1270, Train Loss: 1.97, Epoch Time: 1060.88 s
+INFO:root:Epoch 2/10, Batch 1280, Train Loss: 1.92, Epoch Time: 1069.23 s
+INFO:root:Epoch 2/10, Batch 1290, Train Loss: 1.76, Epoch Time: 1077.53 s
+INFO:root:Epoch 2/10, Batch 1300, Train Loss: 1.96, Epoch Time: 1085.89 s
+INFO:root:Epoch 2/10, Batch 1310, Train Loss: 1.82, Epoch Time: 1094.26 s
+INFO:root:Epoch 2/10, Batch 1320, Train Loss: 1.74, Epoch Time: 1102.48 s
+INFO:root:Epoch 2/10, Batch 1330, Train Loss: 1.88, Epoch Time: 1110.86 s
+INFO:root:Epoch 2/10, Batch 1340, Train Loss: 1.85, Epoch Time: 1119.21 s
+INFO:root:Epoch 2/10, Batch 1350, Train Loss: 1.92, Epoch Time: 1127.60 s
+INFO:root:Epoch 2/10, Batch 1360, Train Loss: 1.90, Epoch Time: 1135.92 s
+INFO:root:Epoch 2/10, Batch 1370, Train Loss: 1.91, Epoch Time: 1144.31 s
+INFO:root:Epoch 2/10, Batch 1380, Train Loss: 1.81, Epoch Time: 1152.67 s
+INFO:root:Epoch 2/10, Batch 1390, Train Loss: 2.07, Epoch Time: 1160.96 s
+INFO:root:Epoch 2/10, Batch 1400, Train Loss: 1.96, Epoch Time: 1169.11 s
+INFO:root:Epoch 2/10, Batch 1410, Train Loss: 1.74, Epoch Time: 1177.42 s
+INFO:root:Epoch 2/10, Batch 1420, Train Loss: 1.95, Epoch Time: 1185.82 s
+INFO:root:Epoch 2/10, Batch 1430, Train Loss: 1.76, Epoch Time: 1194.02 s
+INFO:root:Epoch 2/10, Batch 1440, Train Loss: 1.94, Epoch Time: 1202.40 s
+INFO:root:Epoch 2/10, Batch 1450, Train Loss: 1.89, Epoch Time: 1210.76 s
+INFO:root:Epoch 2/10, Batch 1460, Train Loss: 1.79, Epoch Time: 1219.09 s
+INFO:root:Epoch 2/10, Batch 1470, Train Loss: 1.91, Epoch Time: 1227.53 s
+INFO:root:Epoch 2/10, Batch 1480, Train Loss: 1.95, Epoch Time: 1235.83 s
+INFO:root:Epoch 2, Validating...
+INFO:root:Batch 0, Mean IoU: 25.77%, Test time: 1241.32 s
+INFO:root:Batch 10, Mean IoU: 20.23%, Test time: 1246.17 s
+INFO:root:Batch 20, Mean IoU: 24.31%, Test time: 1251.10 s
+INFO:root:Batch 30, Mean IoU: 23.56%, Test time: 1255.88 s
+INFO:root:Batch 40, Mean IoU: 33.01%, Test time: 1260.84 s
+INFO:root:Batch 50, Mean IoU: 30.58%, Test time: 1265.95 s
+INFO:root:Batch 60, Mean IoU: 27.20%, Test time: 1270.89 s
+INFO:root:Batch 70, Mean IoU: 22.88%, Test time: 1275.91 s
+INFO:root:Batch 80, Mean IoU: 29.81%, Test time: 1281.01 s
+INFO:root:Batch 90, Mean IoU: 30.49%, Test time: 1286.05 s
+INFO:root:Batch 100, Mean IoU: 23.93%, Test time: 1291.01 s
+INFO:root:Batch 110, Mean IoU: 19.55%, Test time: 1296.01 s
+INFO:root:Batch 120, Mean IoU: 29.08%, Test time: 1300.95 s
+INFO:root:Batch 130, Mean IoU: 31.06%, Test time: 1305.90 s
+INFO:root:Batch 140, Mean IoU: 31.34%, Test time: 1310.90 s
+INFO:root:Batch 150, Mean IoU: 34.92%, Test time: 1315.88 s
+INFO:root:Batch 160, Mean IoU: 32.03%, Test time: 1321.00 s
+INFO:root:Batch 170, Mean IoU: 30.57%, Test time: 1325.95 s
+INFO:root:Batch 180, Mean IoU: 30.71%, Test time: 1330.87 s
+INFO:root:Batch 190, Mean IoU: 34.06%, Test time: 1335.89 s
+INFO:root:Batch 200, Mean IoU: 27.54%, Test time: 1340.78 s
+INFO:root:Batch 210, Mean IoU: 26.38%, Test time: 1345.71 s
+INFO:root:Batch 220, Mean IoU: 28.52%, Test time: 1350.66 s
+INFO:root:Batch 230, Mean IoU: 30.08%, Test time: 1355.63 s
+INFO:root:Batch 240, Mean IoU: 30.34%, Test time: 1360.55 s
+INFO:root:Epoch 2, Training Loss: 1.887338493843566, Validation Loss: 1.6697414875030518, mIOU: 29.17%, Epoch Duration: 1365.0181379318237 s
+INFO:root:Current best val loss: Epoch 2
+INFO:root:Epoch 3, Training...
+INFO:root:Epoch 3/10, Batch 0, Train Loss: 1.79, Epoch Time: 0.83 s
+INFO:root:Epoch 3/10, Batch 10, Train Loss: 2.01, Epoch Time: 9.17 s
+INFO:root:Epoch 3/10, Batch 20, Train Loss: 1.98, Epoch Time: 17.52 s
+INFO:root:Epoch 3/10, Batch 30, Train Loss: 1.77, Epoch Time: 25.89 s
+INFO:root:Epoch 3/10, Batch 40, Train Loss: 1.82, Epoch Time: 34.14 s
+INFO:root:Epoch 3/10, Batch 50, Train Loss: 1.79, Epoch Time: 42.37 s
+INFO:root:Epoch 3/10, Batch 60, Train Loss: 1.78, Epoch Time: 50.63 s
+INFO:root:Epoch 3/10, Batch 70, Train Loss: 1.92, Epoch Time: 59.03 s
+INFO:root:Epoch 3/10, Batch 80, Train Loss: 1.84, Epoch Time: 67.49 s
+INFO:root:Epoch 3/10, Batch 90, Train Loss: 1.77, Epoch Time: 75.77 s
+INFO:root:Epoch 3/10, Batch 100, Train Loss: 1.75, Epoch Time: 84.22 s
+INFO:root:Epoch 3/10, Batch 110, Train Loss: 1.79, Epoch Time: 92.44 s
+INFO:root:Epoch 3/10, Batch 120, Train Loss: 1.84, Epoch Time: 100.68 s
+INFO:root:Epoch 3/10, Batch 130, Train Loss: 1.79, Epoch Time: 109.04 s
+INFO:root:Epoch 3/10, Batch 140, Train Loss: 1.75, Epoch Time: 117.37 s
+INFO:root:Epoch 3/10, Batch 150, Train Loss: 2.02, Epoch Time: 125.80 s
+INFO:root:Epoch 3/10, Batch 160, Train Loss: 1.83, Epoch Time: 134.20 s
+INFO:root:Epoch 3/10, Batch 170, Train Loss: 2.06, Epoch Time: 142.56 s
+INFO:root:Epoch 3/10, Batch 180, Train Loss: 1.83, Epoch Time: 150.93 s
+INFO:root:Epoch 3/10, Batch 190, Train Loss: 1.81, Epoch Time: 159.27 s
+INFO:root:Epoch 3/10, Batch 200, Train Loss: 1.83, Epoch Time: 167.54 s
+INFO:root:Epoch 3/10, Batch 210, Train Loss: 1.84, Epoch Time: 175.95 s
+INFO:root:Epoch 3/10, Batch 220, Train Loss: 1.79, Epoch Time: 184.23 s
+INFO:root:Epoch 3/10, Batch 230, Train Loss: 1.71, Epoch Time: 192.70 s
+INFO:root:Epoch 3/10, Batch 240, Train Loss: 1.85, Epoch Time: 201.09 s
+INFO:root:Epoch 3/10, Batch 250, Train Loss: 1.96, Epoch Time: 209.50 s
+INFO:root:Epoch 3/10, Batch 260, Train Loss: 1.82, Epoch Time: 217.89 s
+INFO:root:Epoch 3/10, Batch 270, Train Loss: 1.74, Epoch Time: 226.25 s
+INFO:root:Epoch 3/10, Batch 280, Train Loss: 2.01, Epoch Time: 234.55 s
+INFO:root:Epoch 3/10, Batch 290, Train Loss: 1.79, Epoch Time: 242.90 s
+INFO:root:Epoch 3/10, Batch 300, Train Loss: 1.89, Epoch Time: 251.14 s
+INFO:root:Epoch 3/10, Batch 310, Train Loss: 1.83, Epoch Time: 259.44 s
+INFO:root:Epoch 3/10, Batch 320, Train Loss: 1.83, Epoch Time: 267.89 s
+INFO:root:Epoch 3/10, Batch 330, Train Loss: 1.98, Epoch Time: 276.10 s
+INFO:root:Epoch 3/10, Batch 340, Train Loss: 1.88, Epoch Time: 284.42 s
+INFO:root:Epoch 3/10, Batch 350, Train Loss: 1.99, Epoch Time: 292.70 s
+INFO:root:Epoch 3/10, Batch 360, Train Loss: 1.88, Epoch Time: 301.03 s
+INFO:root:Epoch 3/10, Batch 370, Train Loss: 1.96, Epoch Time: 309.37 s
+INFO:root:Epoch 3/10, Batch 380, Train Loss: 1.76, Epoch Time: 317.83 s
+INFO:root:Epoch 3/10, Batch 390, Train Loss: 1.86, Epoch Time: 326.18 s
+INFO:root:Epoch 3/10, Batch 400, Train Loss: 1.75, Epoch Time: 334.51 s
+INFO:root:Epoch 3/10, Batch 410, Train Loss: 1.79, Epoch Time: 342.78 s
+INFO:root:Epoch 3/10, Batch 420, Train Loss: 1.89, Epoch Time: 351.05 s
+INFO:root:Epoch 3/10, Batch 430, Train Loss: 1.88, Epoch Time: 359.32 s
+INFO:root:Epoch 3/10, Batch 440, Train Loss: 1.79, Epoch Time: 367.60 s
+INFO:root:Epoch 3/10, Batch 450, Train Loss: 1.81, Epoch Time: 375.98 s
+INFO:root:Epoch 3/10, Batch 460, Train Loss: 1.80, Epoch Time: 384.37 s
+INFO:root:Epoch 3/10, Batch 470, Train Loss: 1.71, Epoch Time: 392.73 s
+INFO:root:Epoch 3/10, Batch 480, Train Loss: 1.88, Epoch Time: 401.14 s
+INFO:root:Epoch 3/10, Batch 490, Train Loss: 2.00, Epoch Time: 409.43 s
+INFO:root:Epoch 3/10, Batch 500, Train Loss: 1.79, Epoch Time: 417.73 s
+INFO:root:Epoch 3/10, Batch 510, Train Loss: 1.89, Epoch Time: 426.16 s
+INFO:root:Epoch 3/10, Batch 520, Train Loss: 1.76, Epoch Time: 434.43 s
+INFO:root:Epoch 3/10, Batch 530, Train Loss: 1.78, Epoch Time: 442.77 s
+INFO:root:Epoch 3/10, Batch 540, Train Loss: 1.86, Epoch Time: 451.07 s
+INFO:root:Epoch 3/10, Batch 550, Train Loss: 1.72, Epoch Time: 459.49 s
+INFO:root:Epoch 3/10, Batch 560, Train Loss: 1.74, Epoch Time: 467.80 s
+INFO:root:Epoch 3/10, Batch 570, Train Loss: 1.94, Epoch Time: 476.02 s
+INFO:root:Epoch 3/10, Batch 580, Train Loss: 1.84, Epoch Time: 484.39 s
+INFO:root:Epoch 3/10, Batch 590, Train Loss: 1.78, Epoch Time: 492.78 s
+INFO:root:Epoch 3/10, Batch 600, Train Loss: 1.91, Epoch Time: 501.22 s
+INFO:root:Epoch 3/10, Batch 610, Train Loss: 1.83, Epoch Time: 509.65 s
+INFO:root:Epoch 3/10, Batch 620, Train Loss: 1.82, Epoch Time: 517.97 s
+INFO:root:Epoch 3/10, Batch 630, Train Loss: 1.88, Epoch Time: 526.26 s
+INFO:root:Epoch 3/10, Batch 640, Train Loss: 1.82, Epoch Time: 534.56 s
+INFO:root:Epoch 3/10, Batch 650, Train Loss: 1.81, Epoch Time: 542.89 s
+INFO:root:Epoch 3/10, Batch 660, Train Loss: 1.90, Epoch Time: 551.06 s
+INFO:root:Epoch 3/10, Batch 670, Train Loss: 2.08, Epoch Time: 559.60 s
+INFO:root:Epoch 3/10, Batch 680, Train Loss: 1.89, Epoch Time: 568.06 s
+INFO:root:Epoch 3/10, Batch 690, Train Loss: 1.87, Epoch Time: 576.34 s
+INFO:root:Epoch 3/10, Batch 700, Train Loss: 1.80, Epoch Time: 584.76 s
+INFO:root:Epoch 3/10, Batch 710, Train Loss: 2.04, Epoch Time: 593.05 s
+INFO:root:Epoch 3/10, Batch 720, Train Loss: 1.80, Epoch Time: 601.25 s
+INFO:root:Epoch 3/10, Batch 730, Train Loss: 1.81, Epoch Time: 609.51 s
+INFO:root:Epoch 3/10, Batch 740, Train Loss: 1.72, Epoch Time: 617.97 s
+INFO:root:Epoch 3/10, Batch 750, Train Loss: 1.86, Epoch Time: 626.34 s
+INFO:root:Epoch 3/10, Batch 760, Train Loss: 1.99, Epoch Time: 634.65 s
+INFO:root:Epoch 3/10, Batch 770, Train Loss: 1.77, Epoch Time: 643.03 s
+INFO:root:Epoch 3/10, Batch 780, Train Loss: 1.77, Epoch Time: 651.39 s
+INFO:root:Epoch 3/10, Batch 790, Train Loss: 1.75, Epoch Time: 659.70 s
+INFO:root:Epoch 3/10, Batch 800, Train Loss: 1.80, Epoch Time: 668.06 s
+INFO:root:Epoch 3/10, Batch 810, Train Loss: 2.00, Epoch Time: 676.33 s
+INFO:root:Epoch 3/10, Batch 820, Train Loss: 1.83, Epoch Time: 684.74 s
+INFO:root:Epoch 3/10, Batch 830, Train Loss: 2.02, Epoch Time: 693.09 s
+INFO:root:Epoch 3/10, Batch 840, Train Loss: 1.73, Epoch Time: 701.37 s
+INFO:root:Epoch 3/10, Batch 850, Train Loss: 1.74, Epoch Time: 709.68 s
+INFO:root:Epoch 3/10, Batch 860, Train Loss: 1.80, Epoch Time: 717.98 s
+INFO:root:Epoch 3/10, Batch 870, Train Loss: 1.94, Epoch Time: 726.34 s
+INFO:root:Epoch 3/10, Batch 880, Train Loss: 1.73, Epoch Time: 734.77 s
+INFO:root:Epoch 3/10, Batch 890, Train Loss: 1.82, Epoch Time: 743.21 s
+INFO:root:Epoch 3/10, Batch 900, Train Loss: 1.82, Epoch Time: 751.57 s
+INFO:root:Epoch 3/10, Batch 910, Train Loss: 1.87, Epoch Time: 760.02 s
+INFO:root:Epoch 3/10, Batch 920, Train Loss: 1.75, Epoch Time: 768.44 s
+INFO:root:Epoch 3/10, Batch 930, Train Loss: 2.05, Epoch Time: 776.82 s
+INFO:root:Epoch 3/10, Batch 940, Train Loss: 1.77, Epoch Time: 785.24 s
+INFO:root:Epoch 3/10, Batch 950, Train Loss: 1.73, Epoch Time: 793.67 s
+INFO:root:Epoch 3/10, Batch 960, Train Loss: 1.84, Epoch Time: 802.08 s
+INFO:root:Epoch 3/10, Batch 970, Train Loss: 1.77, Epoch Time: 810.51 s
+INFO:root:Epoch 3/10, Batch 980, Train Loss: 1.91, Epoch Time: 818.84 s
+INFO:root:Epoch 3/10, Batch 990, Train Loss: 1.86, Epoch Time: 827.23 s
+INFO:root:Epoch 3/10, Batch 1000, Train Loss: 1.75, Epoch Time: 835.56 s
+INFO:root:Epoch 3/10, Batch 1010, Train Loss: 1.81, Epoch Time: 843.79 s
+INFO:root:Epoch 3/10, Batch 1020, Train Loss: 1.70, Epoch Time: 852.24 s
+INFO:root:Epoch 3/10, Batch 1030, Train Loss: 1.94, Epoch Time: 860.55 s
+INFO:root:Epoch 3/10, Batch 1040, Train Loss: 1.88, Epoch Time: 868.88 s
+INFO:root:Epoch 3/10, Batch 1050, Train Loss: 1.79, Epoch Time: 877.29 s
+INFO:root:Epoch 3/10, Batch 1060, Train Loss: 1.82, Epoch Time: 885.62 s
+INFO:root:Epoch 3/10, Batch 1070, Train Loss: 1.82, Epoch Time: 893.95 s
+INFO:root:Epoch 3/10, Batch 1080, Train Loss: 1.78, Epoch Time: 902.37 s
+INFO:root:Epoch 3/10, Batch 1090, Train Loss: 1.90, Epoch Time: 910.61 s
+INFO:root:Epoch 3/10, Batch 1100, Train Loss: 1.84, Epoch Time: 918.96 s
+INFO:root:Epoch 3/10, Batch 1110, Train Loss: 1.93, Epoch Time: 927.36 s
+INFO:root:Epoch 3/10, Batch 1120, Train Loss: 1.92, Epoch Time: 935.69 s
+INFO:root:Epoch 3/10, Batch 1130, Train Loss: 1.88, Epoch Time: 944.11 s
+INFO:root:Epoch 3/10, Batch 1140, Train Loss: 1.76, Epoch Time: 952.49 s
+INFO:root:Epoch 3/10, Batch 1150, Train Loss: 1.79, Epoch Time: 960.78 s
+INFO:root:Epoch 3/10, Batch 1160, Train Loss: 1.77, Epoch Time: 969.12 s
+INFO:root:Epoch 3/10, Batch 1170, Train Loss: 1.97, Epoch Time: 977.51 s
+INFO:root:Epoch 3/10, Batch 1180, Train Loss: 1.85, Epoch Time: 986.01 s
+INFO:root:Epoch 3/10, Batch 1190, Train Loss: 1.79, Epoch Time: 994.34 s
+INFO:root:Epoch 3/10, Batch 1200, Train Loss: 1.83, Epoch Time: 1002.66 s
+INFO:root:Epoch 3/10, Batch 1210, Train Loss: 1.77, Epoch Time: 1010.97 s
+INFO:root:Epoch 3/10, Batch 1220, Train Loss: 1.77, Epoch Time: 1019.42 s
+INFO:root:Epoch 3/10, Batch 1230, Train Loss: 1.79, Epoch Time: 1027.84 s
+INFO:root:Epoch 3/10, Batch 1240, Train Loss: 1.78, Epoch Time: 1036.13 s
+INFO:root:Epoch 3/10, Batch 1250, Train Loss: 1.81, Epoch Time: 1044.56 s
+INFO:root:Epoch 3/10, Batch 1260, Train Loss: 1.80, Epoch Time: 1052.86 s
+INFO:root:Epoch 3/10, Batch 1270, Train Loss: 1.87, Epoch Time: 1061.15 s
+INFO:root:Epoch 3/10, Batch 1280, Train Loss: 1.87, Epoch Time: 1069.48 s
+INFO:root:Epoch 3/10, Batch 1290, Train Loss: 1.82, Epoch Time: 1077.96 s
+INFO:root:Epoch 3/10, Batch 1300, Train Loss: 1.89, Epoch Time: 1086.30 s
+INFO:root:Epoch 3/10, Batch 1310, Train Loss: 1.74, Epoch Time: 1094.79 s
+INFO:root:Epoch 3/10, Batch 1320, Train Loss: 1.85, Epoch Time: 1103.17 s
+INFO:root:Epoch 3/10, Batch 1330, Train Loss: 1.79, Epoch Time: 1111.36 s
+INFO:root:Epoch 3/10, Batch 1340, Train Loss: 1.97, Epoch Time: 1119.58 s
+INFO:root:Epoch 3/10, Batch 1350, Train Loss: 1.72, Epoch Time: 1127.94 s
+INFO:root:Epoch 3/10, Batch 1360, Train Loss: 1.86, Epoch Time: 1136.22 s
+INFO:root:Epoch 3/10, Batch 1370, Train Loss: 1.73, Epoch Time: 1144.55 s
+INFO:root:Epoch 3/10, Batch 1380, Train Loss: 1.81, Epoch Time: 1152.80 s
+INFO:root:Epoch 3/10, Batch 1390, Train Loss: 1.87, Epoch Time: 1161.16 s
+INFO:root:Epoch 3/10, Batch 1400, Train Loss: 1.86, Epoch Time: 1169.49 s
+INFO:root:Epoch 3/10, Batch 1410, Train Loss: 1.80, Epoch Time: 1177.84 s
+INFO:root:Epoch 3/10, Batch 1420, Train Loss: 1.90, Epoch Time: 1186.16 s
+INFO:root:Epoch 3/10, Batch 1430, Train Loss: 1.70, Epoch Time: 1194.48 s
+INFO:root:Epoch 3/10, Batch 1440, Train Loss: 1.75, Epoch Time: 1202.85 s
+INFO:root:Epoch 3/10, Batch 1450, Train Loss: 1.83, Epoch Time: 1211.22 s
+INFO:root:Epoch 3/10, Batch 1460, Train Loss: 1.84, Epoch Time: 1219.57 s
+INFO:root:Epoch 3/10, Batch 1470, Train Loss: 1.82, Epoch Time: 1227.93 s
+INFO:root:Epoch 3/10, Batch 1480, Train Loss: 1.79, Epoch Time: 1236.19 s
+INFO:root:Epoch 3, Validating...
+INFO:root:Batch 0, Mean IoU: 26.62%, Test time: 1241.66 s
+INFO:root:Batch 10, Mean IoU: 21.79%, Test time: 1246.67 s
+INFO:root:Batch 20, Mean IoU: 27.31%, Test time: 1251.65 s
+INFO:root:Batch 30, Mean IoU: 26.58%, Test time: 1256.75 s
+INFO:root:Batch 40, Mean IoU: 34.23%, Test time: 1261.91 s
+INFO:root:Batch 50, Mean IoU: 33.57%, Test time: 1266.96 s
+INFO:root:Batch 60, Mean IoU: 30.35%, Test time: 1271.86 s
+INFO:root:Batch 70, Mean IoU: 24.47%, Test time: 1276.98 s
+INFO:root:Batch 80, Mean IoU: 32.32%, Test time: 1282.03 s
+INFO:root:Batch 90, Mean IoU: 33.36%, Test time: 1287.16 s
+INFO:root:Batch 100, Mean IoU: 24.36%, Test time: 1292.23 s
+INFO:root:Batch 110, Mean IoU: 23.12%, Test time: 1297.29 s
+INFO:root:Batch 120, Mean IoU: 32.18%, Test time: 1302.34 s
+INFO:root:Batch 130, Mean IoU: 33.66%, Test time: 1307.43 s
+INFO:root:Batch 140, Mean IoU: 34.24%, Test time: 1312.48 s
+INFO:root:Batch 150, Mean IoU: 31.96%, Test time: 1317.31 s
+INFO:root:Batch 160, Mean IoU: 33.93%, Test time: 1322.40 s
+INFO:root:Batch 170, Mean IoU: 31.12%, Test time: 1327.54 s
+INFO:root:Batch 180, Mean IoU: 32.83%, Test time: 1332.57 s
+INFO:root:Batch 190, Mean IoU: 33.80%, Test time: 1337.84 s
+INFO:root:Batch 200, Mean IoU: 30.41%, Test time: 1342.82 s
+INFO:root:Batch 210, Mean IoU: 30.18%, Test time: 1347.82 s
+INFO:root:Batch 220, Mean IoU: 30.88%, Test time: 1352.74 s
+INFO:root:Batch 230, Mean IoU: 33.67%, Test time: 1357.66 s
+INFO:root:Batch 240, Mean IoU: 30.64%, Test time: 1362.71 s
+INFO:root:Epoch 3, Training Loss: 1.8463428930380077, Validation Loss: 1.6411725158691406, mIOU: 30.21%, Epoch Duration: 1367.1683640480042 s
+INFO:root:Current best val loss: Epoch 3
+INFO:root:Epoch 4, Training...
+INFO:root:Epoch 4/10, Batch 0, Train Loss: 2.01, Epoch Time: 0.86 s
+INFO:root:Epoch 4/10, Batch 10, Train Loss: 1.83, Epoch Time: 9.27 s
+INFO:root:Epoch 4/10, Batch 20, Train Loss: 1.80, Epoch Time: 17.63 s
+INFO:root:Epoch 4/10, Batch 30, Train Loss: 1.88, Epoch Time: 26.01 s
+INFO:root:Epoch 4/10, Batch 40, Train Loss: 1.73, Epoch Time: 34.46 s
+INFO:root:Epoch 4/10, Batch 50, Train Loss: 1.79, Epoch Time: 42.82 s
+INFO:root:Epoch 4/10, Batch 60, Train Loss: 1.75, Epoch Time: 51.10 s
+INFO:root:Epoch 4/10, Batch 70, Train Loss: 1.77, Epoch Time: 59.41 s
+INFO:root:Epoch 4/10, Batch 80, Train Loss: 1.79, Epoch Time: 67.69 s
+INFO:root:Epoch 4/10, Batch 90, Train Loss: 1.72, Epoch Time: 76.01 s
+INFO:root:Epoch 4/10, Batch 100, Train Loss: 1.84, Epoch Time: 84.33 s
+INFO:root:Epoch 4/10, Batch 110, Train Loss: 1.90, Epoch Time: 92.75 s
+INFO:root:Epoch 4/10, Batch 120, Train Loss: 1.82, Epoch Time: 101.12 s
+INFO:root:Epoch 4/10, Batch 130, Train Loss: 1.75, Epoch Time: 109.56 s
+INFO:root:Epoch 4/10, Batch 140, Train Loss: 1.83, Epoch Time: 117.82 s
+INFO:root:Epoch 4/10, Batch 150, Train Loss: 1.92, Epoch Time: 126.22 s
+INFO:root:Epoch 4/10, Batch 160, Train Loss: 1.85, Epoch Time: 134.62 s
+INFO:root:Epoch 4/10, Batch 170, Train Loss: 1.88, Epoch Time: 142.94 s
+INFO:root:Epoch 4/10, Batch 180, Train Loss: 1.70, Epoch Time: 151.33 s
+INFO:root:Epoch 4/10, Batch 190, Train Loss: 1.80, Epoch Time: 159.70 s
+INFO:root:Epoch 4/10, Batch 200, Train Loss: 1.81, Epoch Time: 168.08 s
+INFO:root:Epoch 4/10, Batch 210, Train Loss: 1.88, Epoch Time: 176.38 s
+INFO:root:Epoch 4/10, Batch 220, Train Loss: 1.88, Epoch Time: 184.76 s
+INFO:root:Epoch 4/10, Batch 230, Train Loss: 1.76, Epoch Time: 193.22 s
+INFO:root:Epoch 4/10, Batch 240, Train Loss: 1.83, Epoch Time: 201.58 s
+INFO:root:Epoch 4/10, Batch 250, Train Loss: 1.80, Epoch Time: 209.98 s
+INFO:root:Epoch 4/10, Batch 260, Train Loss: 1.83, Epoch Time: 218.36 s
+INFO:root:Epoch 4/10, Batch 270, Train Loss: 1.94, Epoch Time: 226.74 s
+INFO:root:Epoch 4/10, Batch 280, Train Loss: 1.71, Epoch Time: 234.98 s
+INFO:root:Epoch 4/10, Batch 290, Train Loss: 1.91, Epoch Time: 243.23 s
+INFO:root:Epoch 4/10, Batch 300, Train Loss: 1.76, Epoch Time: 251.60 s
+INFO:root:Epoch 4/10, Batch 310, Train Loss: 1.73, Epoch Time: 259.92 s
+INFO:root:Epoch 4/10, Batch 320, Train Loss: 1.71, Epoch Time: 268.27 s
+INFO:root:Epoch 4/10, Batch 330, Train Loss: 1.84, Epoch Time: 276.66 s
+INFO:root:Epoch 4/10, Batch 340, Train Loss: 1.95, Epoch Time: 285.13 s
+INFO:root:Epoch 4/10, Batch 350, Train Loss: 1.83, Epoch Time: 293.55 s
+INFO:root:Epoch 4/10, Batch 360, Train Loss: 1.79, Epoch Time: 301.79 s
+INFO:root:Epoch 4/10, Batch 370, Train Loss: 1.93, Epoch Time: 310.22 s
+INFO:root:Epoch 4/10, Batch 380, Train Loss: 1.81, Epoch Time: 318.47 s
+INFO:root:Epoch 4/10, Batch 390, Train Loss: 1.82, Epoch Time: 326.85 s
+INFO:root:Epoch 4/10, Batch 400, Train Loss: 1.83, Epoch Time: 335.31 s
+INFO:root:Epoch 4/10, Batch 410, Train Loss: 1.83, Epoch Time: 343.69 s
+INFO:root:Epoch 4/10, Batch 420, Train Loss: 1.85, Epoch Time: 352.20 s
+INFO:root:Epoch 4/10, Batch 430, Train Loss: 1.81, Epoch Time: 360.49 s
+INFO:root:Epoch 4/10, Batch 440, Train Loss: 2.11, Epoch Time: 368.80 s
+INFO:root:Epoch 4/10, Batch 450, Train Loss: 1.88, Epoch Time: 377.06 s
+INFO:root:Epoch 4/10, Batch 460, Train Loss: 1.81, Epoch Time: 385.45 s
+INFO:root:Epoch 4/10, Batch 470, Train Loss: 1.85, Epoch Time: 393.72 s
+INFO:root:Epoch 4/10, Batch 480, Train Loss: 2.01, Epoch Time: 402.06 s
+INFO:root:Epoch 4/10, Batch 490, Train Loss: 1.94, Epoch Time: 410.41 s
+INFO:root:Epoch 4/10, Batch 500, Train Loss: 1.99, Epoch Time: 418.66 s
+INFO:root:Epoch 4/10, Batch 510, Train Loss: 1.87, Epoch Time: 427.02 s
+INFO:root:Epoch 4/10, Batch 520, Train Loss: 1.79, Epoch Time: 435.33 s
+INFO:root:Epoch 4/10, Batch 530, Train Loss: 1.91, Epoch Time: 443.72 s
+INFO:root:Epoch 4/10, Batch 540, Train Loss: 1.93, Epoch Time: 452.12 s
+INFO:root:Epoch 4/10, Batch 550, Train Loss: 1.80, Epoch Time: 460.50 s
+INFO:root:Epoch 4/10, Batch 560, Train Loss: 1.86, Epoch Time: 468.82 s
+INFO:root:Epoch 4/10, Batch 570, Train Loss: 1.94, Epoch Time: 477.17 s
+INFO:root:Epoch 4/10, Batch 580, Train Loss: 1.87, Epoch Time: 485.54 s
+INFO:root:Epoch 4/10, Batch 590, Train Loss: 2.12, Epoch Time: 494.03 s
+INFO:root:Epoch 4/10, Batch 600, Train Loss: 1.78, Epoch Time: 502.45 s
+INFO:root:Epoch 4/10, Batch 610, Train Loss: 1.71, Epoch Time: 510.99 s
+INFO:root:Epoch 4/10, Batch 620, Train Loss: 1.81, Epoch Time: 519.34 s
+INFO:root:Epoch 4/10, Batch 630, Train Loss: 1.85, Epoch Time: 527.65 s
+INFO:root:Epoch 4/10, Batch 640, Train Loss: 1.73, Epoch Time: 536.06 s
+INFO:root:Epoch 4/10, Batch 650, Train Loss: 1.84, Epoch Time: 544.27 s
+INFO:root:Epoch 4/10, Batch 660, Train Loss: 1.75, Epoch Time: 552.59 s
+INFO:root:Epoch 4/10, Batch 670, Train Loss: 1.70, Epoch Time: 560.96 s
+INFO:root:Epoch 4/10, Batch 680, Train Loss: 1.97, Epoch Time: 569.38 s
+INFO:root:Epoch 4/10, Batch 690, Train Loss: 1.79, Epoch Time: 577.69 s
+INFO:root:Epoch 4/10, Batch 700, Train Loss: 1.85, Epoch Time: 585.99 s
+INFO:root:Epoch 4/10, Batch 710, Train Loss: 1.92, Epoch Time: 594.36 s
+INFO:root:Epoch 4/10, Batch 720, Train Loss: 1.79, Epoch Time: 602.69 s
+INFO:root:Epoch 4/10, Batch 730, Train Loss: 1.81, Epoch Time: 610.98 s
+INFO:root:Epoch 4/10, Batch 740, Train Loss: 1.89, Epoch Time: 619.36 s
+INFO:root:Epoch 4/10, Batch 750, Train Loss: 1.77, Epoch Time: 627.71 s
+INFO:root:Epoch 4/10, Batch 760, Train Loss: 2.00, Epoch Time: 636.15 s
+INFO:root:Epoch 4/10, Batch 770, Train Loss: 1.83, Epoch Time: 644.43 s
+INFO:root:Epoch 4/10, Batch 780, Train Loss: 1.82, Epoch Time: 652.69 s
+INFO:root:Epoch 4/10, Batch 790, Train Loss: 1.90, Epoch Time: 660.99 s
+INFO:root:Epoch 4/10, Batch 800, Train Loss: 1.85, Epoch Time: 669.43 s
+INFO:root:Epoch 4/10, Batch 810, Train Loss: 1.67, Epoch Time: 677.78 s
+INFO:root:Epoch 4/10, Batch 820, Train Loss: 1.83, Epoch Time: 686.32 s
+INFO:root:Epoch 4/10, Batch 830, Train Loss: 1.85, Epoch Time: 694.78 s
+INFO:root:Epoch 4/10, Batch 840, Train Loss: 1.69, Epoch Time: 703.22 s
+INFO:root:Epoch 4/10, Batch 850, Train Loss: 1.84, Epoch Time: 711.51 s
+INFO:root:Epoch 4/10, Batch 860, Train Loss: 1.83, Epoch Time: 719.89 s
+INFO:root:Epoch 4/10, Batch 870, Train Loss: 1.97, Epoch Time: 728.07 s
+INFO:root:Epoch 4/10, Batch 880, Train Loss: 1.74, Epoch Time: 736.45 s
+INFO:root:Epoch 4/10, Batch 890, Train Loss: 1.85, Epoch Time: 744.76 s
+INFO:root:Epoch 4/10, Batch 900, Train Loss: 1.80, Epoch Time: 753.10 s
+INFO:root:Epoch 4/10, Batch 910, Train Loss: 1.83, Epoch Time: 761.35 s
+INFO:root:Epoch 4/10, Batch 920, Train Loss: 1.72, Epoch Time: 769.56 s
+INFO:root:Epoch 4/10, Batch 930, Train Loss: 1.79, Epoch Time: 777.89 s
+INFO:root:Epoch 4/10, Batch 940, Train Loss: 1.81, Epoch Time: 786.17 s
+INFO:root:Epoch 4/10, Batch 950, Train Loss: 1.68, Epoch Time: 794.57 s
+INFO:root:Epoch 4/10, Batch 960, Train Loss: 1.76, Epoch Time: 803.03 s
+INFO:root:Epoch 4/10, Batch 970, Train Loss: 1.81, Epoch Time: 811.50 s
+INFO:root:Epoch 4/10, Batch 980, Train Loss: 1.73, Epoch Time: 819.92 s
+INFO:root:Epoch 4/10, Batch 990, Train Loss: 1.82, Epoch Time: 828.23 s
+INFO:root:Epoch 4/10, Batch 1000, Train Loss: 1.76, Epoch Time: 836.55 s
+INFO:root:Epoch 4/10, Batch 1010, Train Loss: 1.80, Epoch Time: 844.95 s
+INFO:root:Epoch 4/10, Batch 1020, Train Loss: 1.70, Epoch Time: 853.23 s
+INFO:root:Epoch 4/10, Batch 1030, Train Loss: 1.95, Epoch Time: 861.75 s
+INFO:root:Epoch 4/10, Batch 1040, Train Loss: 2.12, Epoch Time: 870.02 s
+INFO:root:Epoch 4/10, Batch 1050, Train Loss: 1.81, Epoch Time: 878.38 s
+INFO:root:Epoch 4/10, Batch 1060, Train Loss: 1.98, Epoch Time: 886.85 s
+INFO:root:Epoch 4/10, Batch 1070, Train Loss: 1.84, Epoch Time: 895.28 s
+INFO:root:Epoch 4/10, Batch 1080, Train Loss: 1.77, Epoch Time: 903.69 s
+INFO:root:Epoch 4/10, Batch 1090, Train Loss: 2.26, Epoch Time: 912.01 s
+INFO:root:Epoch 4/10, Batch 1100, Train Loss: 1.75, Epoch Time: 920.33 s
+INFO:root:Epoch 4/10, Batch 1110, Train Loss: 1.93, Epoch Time: 928.57 s
+INFO:root:Epoch 4/10, Batch 1120, Train Loss: 1.86, Epoch Time: 936.94 s
+INFO:root:Epoch 4/10, Batch 1130, Train Loss: 1.79, Epoch Time: 945.28 s
+INFO:root:Epoch 4/10, Batch 1140, Train Loss: 1.73, Epoch Time: 953.58 s
+INFO:root:Epoch 4/10, Batch 1150, Train Loss: 1.84, Epoch Time: 962.01 s
+INFO:root:Epoch 4/10, Batch 1160, Train Loss: 1.79, Epoch Time: 970.28 s
+INFO:root:Epoch 4/10, Batch 1170, Train Loss: 1.80, Epoch Time: 978.57 s
+INFO:root:Epoch 4/10, Batch 1180, Train Loss: 1.77, Epoch Time: 986.99 s
+INFO:root:Epoch 4/10, Batch 1190, Train Loss: 1.64, Epoch Time: 995.26 s
+INFO:root:Epoch 4/10, Batch 1200, Train Loss: 1.72, Epoch Time: 1003.64 s
+INFO:root:Epoch 4/10, Batch 1210, Train Loss: 1.66, Epoch Time: 1011.90 s
+INFO:root:Epoch 4/10, Batch 1220, Train Loss: 1.84, Epoch Time: 1020.33 s
+INFO:root:Epoch 4/10, Batch 1230, Train Loss: 1.72, Epoch Time: 1028.80 s
+INFO:root:Epoch 4/10, Batch 1240, Train Loss: 1.74, Epoch Time: 1037.13 s
+INFO:root:Epoch 4/10, Batch 1250, Train Loss: 1.79, Epoch Time: 1045.41 s
+INFO:root:Epoch 4/10, Batch 1260, Train Loss: 1.67, Epoch Time: 1053.79 s
+INFO:root:Epoch 4/10, Batch 1270, Train Loss: 1.85, Epoch Time: 1062.14 s
+INFO:root:Epoch 4/10, Batch 1280, Train Loss: 1.77, Epoch Time: 1070.44 s
+INFO:root:Epoch 4/10, Batch 1290, Train Loss: 1.82, Epoch Time: 1078.74 s
+INFO:root:Epoch 4/10, Batch 1300, Train Loss: 1.76, Epoch Time: 1087.14 s
+INFO:root:Epoch 4/10, Batch 1310, Train Loss: 1.80, Epoch Time: 1095.40 s
+INFO:root:Epoch 4/10, Batch 1320, Train Loss: 1.80, Epoch Time: 1103.83 s
+INFO:root:Epoch 4/10, Batch 1330, Train Loss: 1.88, Epoch Time: 1112.29 s
+INFO:root:Epoch 4/10, Batch 1340, Train Loss: 1.72, Epoch Time: 1120.62 s
+INFO:root:Epoch 4/10, Batch 1350, Train Loss: 1.68, Epoch Time: 1129.01 s
+INFO:root:Epoch 4/10, Batch 1360, Train Loss: 1.71, Epoch Time: 1137.29 s
+INFO:root:Epoch 4/10, Batch 1370, Train Loss: 2.09, Epoch Time: 1145.56 s
+INFO:root:Epoch 4/10, Batch 1380, Train Loss: 1.84, Epoch Time: 1153.97 s
+INFO:root:Epoch 4/10, Batch 1390, Train Loss: 1.76, Epoch Time: 1162.29 s
+INFO:root:Epoch 4/10, Batch 1400, Train Loss: 1.73, Epoch Time: 1170.65 s
+INFO:root:Epoch 4/10, Batch 1410, Train Loss: 1.77, Epoch Time: 1179.01 s
+INFO:root:Epoch 4/10, Batch 1420, Train Loss: 1.84, Epoch Time: 1187.33 s
+INFO:root:Epoch 4/10, Batch 1430, Train Loss: 1.76, Epoch Time: 1195.51 s
+INFO:root:Epoch 4/10, Batch 1440, Train Loss: 1.68, Epoch Time: 1203.84 s
+INFO:root:Epoch 4/10, Batch 1450, Train Loss: 2.08, Epoch Time: 1212.28 s
+INFO:root:Epoch 4/10, Batch 1460, Train Loss: 1.84, Epoch Time: 1220.64 s
+INFO:root:Epoch 4/10, Batch 1470, Train Loss: 1.75, Epoch Time: 1229.01 s
+INFO:root:Epoch 4/10, Batch 1480, Train Loss: 1.77, Epoch Time: 1237.47 s
+INFO:root:Epoch 4, Validating...
+INFO:root:Batch 0, Mean IoU: 29.00%, Test time: 1242.98 s
+INFO:root:Batch 10, Mean IoU: 21.22%, Test time: 1247.89 s
+INFO:root:Batch 20, Mean IoU: 26.23%, Test time: 1252.90 s
+INFO:root:Batch 30, Mean IoU: 29.62%, Test time: 1257.87 s
+INFO:root:Batch 40, Mean IoU: 34.84%, Test time: 1263.00 s
+INFO:root:Batch 50, Mean IoU: 33.41%, Test time: 1267.94 s
+INFO:root:Batch 60, Mean IoU: 31.10%, Test time: 1272.95 s
+INFO:root:Batch 70, Mean IoU: 25.71%, Test time: 1278.04 s
+INFO:root:Batch 80, Mean IoU: 33.97%, Test time: 1283.13 s
+INFO:root:Batch 90, Mean IoU: 35.12%, Test time: 1288.36 s
+INFO:root:Batch 100, Mean IoU: 26.09%, Test time: 1293.59 s
+INFO:root:Batch 110, Mean IoU: 24.29%, Test time: 1298.59 s
+INFO:root:Batch 120, Mean IoU: 34.49%, Test time: 1303.71 s
+INFO:root:Batch 130, Mean IoU: 36.69%, Test time: 1308.82 s
+INFO:root:Batch 140, Mean IoU: 40.58%, Test time: 1313.96 s
+INFO:root:Batch 150, Mean IoU: 36.68%, Test time: 1318.99 s
+INFO:root:Batch 160, Mean IoU: 35.38%, Test time: 1324.07 s
+INFO:root:Batch 170, Mean IoU: 34.18%, Test time: 1329.07 s
+INFO:root:Batch 180, Mean IoU: 36.84%, Test time: 1334.15 s
+INFO:root:Batch 190, Mean IoU: 34.92%, Test time: 1339.25 s
+INFO:root:Batch 200, Mean IoU: 30.98%, Test time: 1344.32 s
+INFO:root:Batch 210, Mean IoU: 30.72%, Test time: 1349.65 s
+INFO:root:Batch 220, Mean IoU: 32.12%, Test time: 1354.73 s
+INFO:root:Batch 230, Mean IoU: 37.68%, Test time: 1359.70 s
+INFO:root:Batch 240, Mean IoU: 32.07%, Test time: 1364.75 s
+INFO:root:Epoch 4, Training Loss: 1.8250804608030133, Validation Loss: 1.6403915901184083, mIOU: 31.52%, Epoch Duration: 1369.2568757534027 s
+INFO:root:Current best val loss: Epoch 4
+INFO:root:Epoch 5, Training...
+INFO:root:Epoch 5/10, Batch 0, Train Loss: 1.78, Epoch Time: 0.86 s
+INFO:root:Epoch 5/10, Batch 10, Train Loss: 1.88, Epoch Time: 9.13 s
+INFO:root:Epoch 5/10, Batch 20, Train Loss: 1.95, Epoch Time: 17.48 s
+INFO:root:Epoch 5/10, Batch 30, Train Loss: 1.69, Epoch Time: 25.82 s
+INFO:root:Epoch 5/10, Batch 40, Train Loss: 1.77, Epoch Time: 34.11 s
+INFO:root:Epoch 5/10, Batch 50, Train Loss: 1.81, Epoch Time: 42.57 s
+INFO:root:Epoch 5/10, Batch 60, Train Loss: 1.83, Epoch Time: 50.82 s
+INFO:root:Epoch 5/10, Batch 70, Train Loss: 1.80, Epoch Time: 59.02 s
+INFO:root:Epoch 5/10, Batch 80, Train Loss: 1.83, Epoch Time: 67.40 s
+INFO:root:Epoch 5/10, Batch 90, Train Loss: 1.75, Epoch Time: 75.72 s
+INFO:root:Epoch 5/10, Batch 100, Train Loss: 1.78, Epoch Time: 84.19 s
+INFO:root:Epoch 5/10, Batch 110, Train Loss: 1.82, Epoch Time: 92.48 s
+INFO:root:Epoch 5/10, Batch 120, Train Loss: 1.72, Epoch Time: 100.98 s
+INFO:root:Epoch 5/10, Batch 130, Train Loss: 1.80, Epoch Time: 109.26 s
+INFO:root:Epoch 5/10, Batch 140, Train Loss: 1.78, Epoch Time: 117.54 s
+INFO:root:Epoch 5/10, Batch 150, Train Loss: 1.83, Epoch Time: 125.80 s
+INFO:root:Epoch 5/10, Batch 160, Train Loss: 1.97, Epoch Time: 134.12 s
+INFO:root:Epoch 5/10, Batch 170, Train Loss: 2.04, Epoch Time: 142.37 s
+INFO:root:Epoch 5/10, Batch 180, Train Loss: 1.80, Epoch Time: 150.63 s
+INFO:root:Epoch 5/10, Batch 190, Train Loss: 1.66, Epoch Time: 158.97 s
+INFO:root:Epoch 5/10, Batch 200, Train Loss: 1.76, Epoch Time: 167.29 s
+INFO:root:Epoch 5/10, Batch 210, Train Loss: 1.65, Epoch Time: 175.83 s
+INFO:root:Epoch 5/10, Batch 220, Train Loss: 1.81, Epoch Time: 184.14 s
+INFO:root:Epoch 5/10, Batch 230, Train Loss: 1.68, Epoch Time: 192.41 s
+INFO:root:Epoch 5/10, Batch 240, Train Loss: 1.79, Epoch Time: 200.83 s
+INFO:root:Epoch 5/10, Batch 250, Train Loss: 1.88, Epoch Time: 209.17 s
+INFO:root:Epoch 5/10, Batch 260, Train Loss: 1.94, Epoch Time: 217.47 s
+INFO:root:Epoch 5/10, Batch 270, Train Loss: 1.77, Epoch Time: 225.79 s
+INFO:root:Epoch 5/10, Batch 280, Train Loss: 1.84, Epoch Time: 234.08 s
+INFO:root:Epoch 5/10, Batch 290, Train Loss: 1.80, Epoch Time: 242.38 s
+INFO:root:Epoch 5/10, Batch 300, Train Loss: 1.79, Epoch Time: 250.74 s
+INFO:root:Epoch 5/10, Batch 310, Train Loss: 1.93, Epoch Time: 259.09 s
+INFO:root:Epoch 5/10, Batch 320, Train Loss: 1.75, Epoch Time: 267.46 s
+INFO:root:Epoch 5/10, Batch 330, Train Loss: 1.81, Epoch Time: 275.94 s
+INFO:root:Epoch 5/10, Batch 340, Train Loss: 1.78, Epoch Time: 284.32 s
+INFO:root:Epoch 5/10, Batch 350, Train Loss: 1.75, Epoch Time: 292.67 s
+INFO:root:Epoch 5/10, Batch 360, Train Loss: 1.72, Epoch Time: 301.09 s
+INFO:root:Epoch 5/10, Batch 370, Train Loss: 1.84, Epoch Time: 309.52 s
+INFO:root:Epoch 5/10, Batch 380, Train Loss: 1.74, Epoch Time: 317.90 s
+INFO:root:Epoch 5/10, Batch 390, Train Loss: 1.79, Epoch Time: 326.32 s
+INFO:root:Epoch 5/10, Batch 400, Train Loss: 1.72, Epoch Time: 334.67 s
+INFO:root:Epoch 5/10, Batch 410, Train Loss: 1.85, Epoch Time: 343.09 s
+INFO:root:Epoch 5/10, Batch 420, Train Loss: 1.86, Epoch Time: 351.44 s
+INFO:root:Epoch 5/10, Batch 430, Train Loss: 1.79, Epoch Time: 359.78 s
+INFO:root:Epoch 5/10, Batch 440, Train Loss: 1.75, Epoch Time: 368.06 s
+INFO:root:Epoch 5/10, Batch 450, Train Loss: 1.80, Epoch Time: 376.37 s
+INFO:root:Epoch 5/10, Batch 460, Train Loss: 1.87, Epoch Time: 384.86 s
+INFO:root:Epoch 5/10, Batch 470, Train Loss: 1.80, Epoch Time: 393.19 s
+INFO:root:Epoch 5/10, Batch 480, Train Loss: 1.78, Epoch Time: 401.51 s
+INFO:root:Epoch 5/10, Batch 490, Train Loss: 2.06, Epoch Time: 409.78 s
+INFO:root:Epoch 5/10, Batch 500, Train Loss: 1.85, Epoch Time: 418.26 s
+INFO:root:Epoch 5/10, Batch 510, Train Loss: 1.78, Epoch Time: 426.60 s
+INFO:root:Epoch 5/10, Batch 520, Train Loss: 1.72, Epoch Time: 435.06 s
+INFO:root:Epoch 5/10, Batch 530, Train Loss: 1.86, Epoch Time: 443.42 s
+INFO:root:Epoch 5/10, Batch 540, Train Loss: 1.87, Epoch Time: 451.81 s
+INFO:root:Epoch 5/10, Batch 550, Train Loss: 1.75, Epoch Time: 460.18 s
+INFO:root:Epoch 5/10, Batch 560, Train Loss: 2.08, Epoch Time: 468.39 s
+INFO:root:Epoch 5/10, Batch 570, Train Loss: 1.79, Epoch Time: 476.66 s
+INFO:root:Epoch 5/10, Batch 580, Train Loss: 1.76, Epoch Time: 484.96 s
+INFO:root:Epoch 5/10, Batch 590, Train Loss: 1.77, Epoch Time: 493.30 s
+INFO:root:Epoch 5/10, Batch 600, Train Loss: 1.78, Epoch Time: 501.61 s
+INFO:root:Epoch 5/10, Batch 610, Train Loss: 1.75, Epoch Time: 509.98 s
+INFO:root:Epoch 5/10, Batch 620, Train Loss: 1.91, Epoch Time: 518.45 s
+INFO:root:Epoch 5/10, Batch 630, Train Loss: 2.00, Epoch Time: 526.76 s
+INFO:root:Epoch 5/10, Batch 640, Train Loss: 1.76, Epoch Time: 535.14 s
+INFO:root:Epoch 5/10, Batch 650, Train Loss: 2.01, Epoch Time: 543.53 s
+INFO:root:Epoch 5/10, Batch 660, Train Loss: 1.78, Epoch Time: 551.79 s
+INFO:root:Epoch 5/10, Batch 670, Train Loss: 1.76, Epoch Time: 560.03 s
+INFO:root:Epoch 5/10, Batch 680, Train Loss: 1.74, Epoch Time: 568.24 s
+INFO:root:Epoch 5/10, Batch 690, Train Loss: 1.86, Epoch Time: 576.60 s
+INFO:root:Epoch 5/10, Batch 700, Train Loss: 1.70, Epoch Time: 584.91 s
+INFO:root:Epoch 5/10, Batch 710, Train Loss: 1.70, Epoch Time: 593.27 s
+INFO:root:Epoch 5/10, Batch 720, Train Loss: 1.69, Epoch Time: 601.61 s
+INFO:root:Epoch 5/10, Batch 730, Train Loss: 2.18, Epoch Time: 609.89 s
+INFO:root:Epoch 5/10, Batch 740, Train Loss: 1.79, Epoch Time: 618.22 s
+INFO:root:Epoch 5/10, Batch 750, Train Loss: 1.76, Epoch Time: 626.58 s
+INFO:root:Epoch 5/10, Batch 760, Train Loss: 1.80, Epoch Time: 634.94 s
+INFO:root:Epoch 5/10, Batch 770, Train Loss: 1.68, Epoch Time: 643.26 s
+INFO:root:Epoch 5/10, Batch 780, Train Loss: 1.75, Epoch Time: 651.61 s
+INFO:root:Epoch 5/10, Batch 790, Train Loss: 1.82, Epoch Time: 659.99 s
+INFO:root:Epoch 5/10, Batch 800, Train Loss: 1.80, Epoch Time: 668.22 s
+INFO:root:Epoch 5/10, Batch 810, Train Loss: 1.86, Epoch Time: 676.47 s
+INFO:root:Epoch 5/10, Batch 820, Train Loss: 1.81, Epoch Time: 684.74 s
+INFO:root:Epoch 5/10, Batch 830, Train Loss: 1.82, Epoch Time: 693.00 s
+INFO:root:Epoch 5/10, Batch 840, Train Loss: 1.98, Epoch Time: 701.38 s
+INFO:root:Epoch 5/10, Batch 850, Train Loss: 1.75, Epoch Time: 709.75 s
+INFO:root:Epoch 5/10, Batch 860, Train Loss: 1.75, Epoch Time: 718.07 s
+INFO:root:Epoch 5/10, Batch 870, Train Loss: 1.71, Epoch Time: 726.34 s
+INFO:root:Epoch 5/10, Batch 880, Train Loss: 1.87, Epoch Time: 734.63 s
+INFO:root:Epoch 5/10, Batch 890, Train Loss: 1.71, Epoch Time: 743.06 s
+INFO:root:Epoch 5/10, Batch 900, Train Loss: 1.65, Epoch Time: 751.42 s
+INFO:root:Epoch 5/10, Batch 910, Train Loss: 1.72, Epoch Time: 759.73 s
+INFO:root:Epoch 5/10, Batch 920, Train Loss: 1.76, Epoch Time: 768.01 s
+INFO:root:Epoch 5/10, Batch 930, Train Loss: 1.91, Epoch Time: 776.37 s
+INFO:root:Epoch 5/10, Batch 940, Train Loss: 1.70, Epoch Time: 784.90 s
+INFO:root:Epoch 5/10, Batch 950, Train Loss: 1.80, Epoch Time: 793.22 s
+INFO:root:Epoch 5/10, Batch 960, Train Loss: 2.03, Epoch Time: 801.64 s
+INFO:root:Epoch 5/10, Batch 970, Train Loss: 1.93, Epoch Time: 809.98 s
+INFO:root:Epoch 5/10, Batch 980, Train Loss: 2.03, Epoch Time: 818.35 s
+INFO:root:Epoch 5/10, Batch 990, Train Loss: 1.89, Epoch Time: 826.68 s
+INFO:root:Epoch 5/10, Batch 1000, Train Loss: 1.96, Epoch Time: 835.10 s
+INFO:root:Epoch 5/10, Batch 1010, Train Loss: 1.85, Epoch Time: 843.37 s
+INFO:root:Epoch 5/10, Batch 1020, Train Loss: 1.73, Epoch Time: 851.63 s
+INFO:root:Epoch 5/10, Batch 1030, Train Loss: 1.89, Epoch Time: 859.91 s
+INFO:root:Epoch 5/10, Batch 1040, Train Loss: 1.71, Epoch Time: 868.18 s
+INFO:root:Epoch 5/10, Batch 1050, Train Loss: 1.84, Epoch Time: 876.69 s
+INFO:root:Epoch 5/10, Batch 1060, Train Loss: 1.79, Epoch Time: 885.05 s
+INFO:root:Epoch 5/10, Batch 1070, Train Loss: 1.78, Epoch Time: 893.25 s
+INFO:root:Epoch 5/10, Batch 1080, Train Loss: 1.69, Epoch Time: 901.73 s
+INFO:root:Epoch 5/10, Batch 1090, Train Loss: 1.85, Epoch Time: 909.97 s
+INFO:root:Epoch 5/10, Batch 1100, Train Loss: 1.80, Epoch Time: 918.34 s
+INFO:root:Epoch 5/10, Batch 1110, Train Loss: 1.90, Epoch Time: 926.94 s
+INFO:root:Epoch 5/10, Batch 1120, Train Loss: 1.76, Epoch Time: 935.31 s
+INFO:root:Epoch 5/10, Batch 1130, Train Loss: 1.85, Epoch Time: 943.65 s
+INFO:root:Epoch 5/10, Batch 1140, Train Loss: 1.64, Epoch Time: 951.99 s
+INFO:root:Epoch 5/10, Batch 1150, Train Loss: 1.73, Epoch Time: 960.35 s
+INFO:root:Epoch 5/10, Batch 1160, Train Loss: 1.80, Epoch Time: 968.70 s
+INFO:root:Epoch 5/10, Batch 1170, Train Loss: 1.96, Epoch Time: 977.09 s
+INFO:root:Epoch 5/10, Batch 1180, Train Loss: 1.79, Epoch Time: 985.43 s
+INFO:root:Epoch 5/10, Batch 1190, Train Loss: 1.83, Epoch Time: 993.76 s
+INFO:root:Epoch 5/10, Batch 1200, Train Loss: 1.68, Epoch Time: 1002.12 s
+INFO:root:Epoch 5/10, Batch 1210, Train Loss: 1.83, Epoch Time: 1010.50 s
+INFO:root:Epoch 5/10, Batch 1220, Train Loss: 1.85, Epoch Time: 1018.82 s
+INFO:root:Epoch 5/10, Batch 1230, Train Loss: 1.78, Epoch Time: 1027.03 s
+INFO:root:Epoch 5/10, Batch 1240, Train Loss: 1.80, Epoch Time: 1035.25 s
+INFO:root:Epoch 5/10, Batch 1250, Train Loss: 1.81, Epoch Time: 1043.56 s
+INFO:root:Epoch 5/10, Batch 1260, Train Loss: 1.68, Epoch Time: 1051.92 s
+INFO:root:Epoch 5/10, Batch 1270, Train Loss: 1.66, Epoch Time: 1060.23 s
+INFO:root:Epoch 5/10, Batch 1280, Train Loss: 1.93, Epoch Time: 1068.45 s
+INFO:root:Epoch 5/10, Batch 1290, Train Loss: 1.84, Epoch Time: 1076.90 s
+INFO:root:Epoch 5/10, Batch 1300, Train Loss: 1.69, Epoch Time: 1085.35 s
+INFO:root:Epoch 5/10, Batch 1310, Train Loss: 1.71, Epoch Time: 1093.78 s
+INFO:root:Epoch 5/10, Batch 1320, Train Loss: 1.72, Epoch Time: 1102.10 s
+INFO:root:Epoch 5/10, Batch 1330, Train Loss: 1.76, Epoch Time: 1110.40 s
+INFO:root:Epoch 5/10, Batch 1340, Train Loss: 1.79, Epoch Time: 1118.82 s
+INFO:root:Epoch 5/10, Batch 1350, Train Loss: 1.84, Epoch Time: 1127.14 s
+INFO:root:Epoch 5/10, Batch 1360, Train Loss: 1.79, Epoch Time: 1135.53 s
+INFO:root:Epoch 5/10, Batch 1370, Train Loss: 1.75, Epoch Time: 1143.90 s
+INFO:root:Epoch 5/10, Batch 1380, Train Loss: 1.76, Epoch Time: 1152.07 s
+INFO:root:Epoch 5/10, Batch 1390, Train Loss: 1.74, Epoch Time: 1160.47 s
+INFO:root:Epoch 5/10, Batch 1400, Train Loss: 1.73, Epoch Time: 1168.82 s
+INFO:root:Epoch 5/10, Batch 1410, Train Loss: 1.71, Epoch Time: 1177.40 s
+INFO:root:Epoch 5/10, Batch 1420, Train Loss: 1.94, Epoch Time: 1185.82 s
+INFO:root:Epoch 5/10, Batch 1430, Train Loss: 1.78, Epoch Time: 1194.06 s
+INFO:root:Epoch 5/10, Batch 1440, Train Loss: 1.84, Epoch Time: 1202.45 s
+INFO:root:Epoch 5/10, Batch 1450, Train Loss: 1.84, Epoch Time: 1210.81 s
+INFO:root:Epoch 5/10, Batch 1460, Train Loss: 1.74, Epoch Time: 1219.18 s
+INFO:root:Epoch 5/10, Batch 1470, Train Loss: 1.94, Epoch Time: 1227.41 s
+INFO:root:Epoch 5/10, Batch 1480, Train Loss: 1.78, Epoch Time: 1235.84 s
+INFO:root:Epoch 5, Validating...
+INFO:root:Batch 0, Mean IoU: 28.34%, Test time: 1241.39 s
+INFO:root:Batch 10, Mean IoU: 22.09%, Test time: 1246.49 s
+INFO:root:Batch 20, Mean IoU: 26.77%, Test time: 1251.66 s
+INFO:root:Batch 30, Mean IoU: 25.00%, Test time: 1256.77 s
+INFO:root:Batch 40, Mean IoU: 35.10%, Test time: 1261.80 s
+INFO:root:Batch 50, Mean IoU: 32.83%, Test time: 1266.81 s
+INFO:root:Batch 60, Mean IoU: 32.57%, Test time: 1271.87 s
+INFO:root:Batch 70, Mean IoU: 24.73%, Test time: 1277.08 s
+INFO:root:Batch 80, Mean IoU: 31.95%, Test time: 1282.22 s
+INFO:root:Batch 90, Mean IoU: 32.05%, Test time: 1287.34 s
+INFO:root:Batch 100, Mean IoU: 26.01%, Test time: 1292.55 s
+INFO:root:Batch 110, Mean IoU: 24.31%, Test time: 1297.55 s
+INFO:root:Batch 120, Mean IoU: 36.42%, Test time: 1302.59 s
+INFO:root:Batch 130, Mean IoU: 37.56%, Test time: 1307.71 s
+INFO:root:Batch 140, Mean IoU: 39.02%, Test time: 1312.73 s
+INFO:root:Batch 150, Mean IoU: 34.51%, Test time: 1317.77 s
+INFO:root:Batch 160, Mean IoU: 34.01%, Test time: 1323.04 s
+INFO:root:Batch 170, Mean IoU: 31.60%, Test time: 1328.16 s
+INFO:root:Batch 180, Mean IoU: 36.95%, Test time: 1333.22 s
+INFO:root:Batch 190, Mean IoU: 35.67%, Test time: 1338.16 s
+INFO:root:Batch 200, Mean IoU: 32.36%, Test time: 1343.24 s
+INFO:root:Batch 210, Mean IoU: 30.95%, Test time: 1348.38 s
+INFO:root:Batch 220, Mean IoU: 34.03%, Test time: 1353.42 s
+INFO:root:Batch 230, Mean IoU: 38.56%, Test time: 1358.63 s
+INFO:root:Batch 240, Mean IoU: 33.75%, Test time: 1363.65 s
+INFO:root:Epoch 5, Training Loss: 1.8134290298200246, Validation Loss: 1.6443478608131408, mIOU: 31.42%, Epoch Duration: 1368.1022222042084 s
+INFO:root:Epoch 6, Training...
+INFO:root:Epoch 6/10, Batch 0, Train Loss: 1.77, Epoch Time: 0.85 s
+INFO:root:Epoch 6/10, Batch 10, Train Loss: 1.77, Epoch Time: 9.27 s
+INFO:root:Epoch 6/10, Batch 20, Train Loss: 1.92, Epoch Time: 17.75 s
+INFO:root:Epoch 6/10, Batch 30, Train Loss: 1.74, Epoch Time: 26.02 s
+INFO:root:Epoch 6/10, Batch 40, Train Loss: 1.72, Epoch Time: 34.46 s
+INFO:root:Epoch 6/10, Batch 50, Train Loss: 1.69, Epoch Time: 42.81 s
+INFO:root:Epoch 6/10, Batch 60, Train Loss: 1.73, Epoch Time: 51.18 s
+INFO:root:Epoch 6/10, Batch 70, Train Loss: 1.92, Epoch Time: 59.53 s
+INFO:root:Epoch 6/10, Batch 80, Train Loss: 1.78, Epoch Time: 67.84 s
+INFO:root:Epoch 6/10, Batch 90, Train Loss: 1.92, Epoch Time: 76.27 s
+INFO:root:Epoch 6/10, Batch 100, Train Loss: 1.81, Epoch Time: 84.61 s
+INFO:root:Epoch 6/10, Batch 110, Train Loss: 1.75, Epoch Time: 93.01 s
+INFO:root:Epoch 6/10, Batch 120, Train Loss: 1.87, Epoch Time: 101.19 s
+INFO:root:Epoch 6/10, Batch 130, Train Loss: 1.82, Epoch Time: 109.68 s
+INFO:root:Epoch 6/10, Batch 140, Train Loss: 1.76, Epoch Time: 117.98 s
+INFO:root:Epoch 6/10, Batch 150, Train Loss: 1.81, Epoch Time: 126.32 s
+INFO:root:Epoch 6/10, Batch 160, Train Loss: 1.90, Epoch Time: 134.52 s
+INFO:root:Epoch 6/10, Batch 170, Train Loss: 1.75, Epoch Time: 142.78 s
+INFO:root:Epoch 6/10, Batch 180, Train Loss: 1.82, Epoch Time: 151.06 s
+INFO:root:Epoch 6/10, Batch 190, Train Loss: 1.72, Epoch Time: 159.33 s
+INFO:root:Epoch 6/10, Batch 200, Train Loss: 1.81, Epoch Time: 167.73 s
+INFO:root:Epoch 6/10, Batch 210, Train Loss: 1.86, Epoch Time: 176.24 s
+INFO:root:Epoch 6/10, Batch 220, Train Loss: 1.81, Epoch Time: 184.64 s
+INFO:root:Epoch 6/10, Batch 230, Train Loss: 1.73, Epoch Time: 193.02 s
+INFO:root:Epoch 6/10, Batch 240, Train Loss: 1.87, Epoch Time: 201.29 s
+INFO:root:Epoch 6/10, Batch 250, Train Loss: 1.89, Epoch Time: 209.61 s
+INFO:root:Epoch 6/10, Batch 260, Train Loss: 1.82, Epoch Time: 217.90 s
+INFO:root:Epoch 6/10, Batch 270, Train Loss: 1.74, Epoch Time: 226.35 s
+INFO:root:Epoch 6/10, Batch 280, Train Loss: 1.78, Epoch Time: 234.79 s
+INFO:root:Epoch 6/10, Batch 290, Train Loss: 1.88, Epoch Time: 243.14 s
+INFO:root:Epoch 6/10, Batch 300, Train Loss: 1.77, Epoch Time: 251.53 s
+INFO:root:Epoch 6/10, Batch 310, Train Loss: 1.76, Epoch Time: 259.86 s
+INFO:root:Epoch 6/10, Batch 320, Train Loss: 1.93, Epoch Time: 268.23 s
+INFO:root:Epoch 6/10, Batch 330, Train Loss: 1.71, Epoch Time: 276.55 s
+INFO:root:Epoch 6/10, Batch 340, Train Loss: 1.80, Epoch Time: 284.80 s
+INFO:root:Epoch 6/10, Batch 350, Train Loss: 1.92, Epoch Time: 293.18 s
+INFO:root:Epoch 6/10, Batch 360, Train Loss: 1.76, Epoch Time: 301.56 s
+INFO:root:Epoch 6/10, Batch 370, Train Loss: 1.74, Epoch Time: 309.97 s
+INFO:root:Epoch 6/10, Batch 380, Train Loss: 1.91, Epoch Time: 318.25 s
+INFO:root:Epoch 6/10, Batch 390, Train Loss: 1.85, Epoch Time: 326.65 s
+INFO:root:Epoch 6/10, Batch 400, Train Loss: 1.84, Epoch Time: 335.01 s
+INFO:root:Epoch 6/10, Batch 410, Train Loss: 1.83, Epoch Time: 343.35 s
+INFO:root:Epoch 6/10, Batch 420, Train Loss: 1.76, Epoch Time: 351.68 s
+INFO:root:Epoch 6/10, Batch 430, Train Loss: 1.75, Epoch Time: 360.01 s
+INFO:root:Epoch 6/10, Batch 440, Train Loss: 1.92, Epoch Time: 368.33 s
+INFO:root:Epoch 6/10, Batch 450, Train Loss: 1.81, Epoch Time: 376.46 s
+INFO:root:Epoch 6/10, Batch 460, Train Loss: 1.77, Epoch Time: 384.79 s
+INFO:root:Epoch 6/10, Batch 470, Train Loss: 2.02, Epoch Time: 393.09 s
+INFO:root:Epoch 6/10, Batch 480, Train Loss: 1.77, Epoch Time: 401.44 s
+INFO:root:Epoch 6/10, Batch 490, Train Loss: 1.94, Epoch Time: 409.91 s
+INFO:root:Epoch 6/10, Batch 500, Train Loss: 1.67, Epoch Time: 418.23 s
+INFO:root:Epoch 6/10, Batch 510, Train Loss: 1.88, Epoch Time: 426.53 s
+INFO:root:Epoch 6/10, Batch 520, Train Loss: 2.07, Epoch Time: 434.88 s
+INFO:root:Epoch 6/10, Batch 530, Train Loss: 1.85, Epoch Time: 443.34 s
+INFO:root:Epoch 6/10, Batch 540, Train Loss: 1.74, Epoch Time: 451.70 s
+INFO:root:Epoch 6/10, Batch 550, Train Loss: 1.78, Epoch Time: 460.08 s
+INFO:root:Epoch 6/10, Batch 560, Train Loss: 1.74, Epoch Time: 468.53 s
+INFO:root:Epoch 6/10, Batch 570, Train Loss: 1.75, Epoch Time: 476.77 s
+INFO:root:Epoch 6/10, Batch 580, Train Loss: 1.80, Epoch Time: 485.24 s
+INFO:root:Epoch 6/10, Batch 590, Train Loss: 1.79, Epoch Time: 493.56 s
+INFO:root:Epoch 6/10, Batch 600, Train Loss: 1.73, Epoch Time: 501.84 s
+INFO:root:Epoch 6/10, Batch 610, Train Loss: 1.71, Epoch Time: 510.20 s
+INFO:root:Epoch 6/10, Batch 620, Train Loss: 1.81, Epoch Time: 518.45 s
+INFO:root:Epoch 6/10, Batch 630, Train Loss: 1.70, Epoch Time: 526.84 s
+INFO:root:Epoch 6/10, Batch 640, Train Loss: 1.86, Epoch Time: 535.10 s
+INFO:root:Epoch 6/10, Batch 650, Train Loss: 1.69, Epoch Time: 543.42 s
+INFO:root:Epoch 6/10, Batch 660, Train Loss: 1.81, Epoch Time: 551.79 s
+INFO:root:Epoch 6/10, Batch 670, Train Loss: 1.74, Epoch Time: 560.13 s
+INFO:root:Epoch 6/10, Batch 680, Train Loss: 1.86, Epoch Time: 568.49 s
+INFO:root:Epoch 6/10, Batch 690, Train Loss: 1.71, Epoch Time: 576.79 s
+INFO:root:Epoch 6/10, Batch 700, Train Loss: 1.66, Epoch Time: 585.15 s
+INFO:root:Epoch 6/10, Batch 710, Train Loss: 1.85, Epoch Time: 593.51 s
+INFO:root:Epoch 6/10, Batch 720, Train Loss: 1.74, Epoch Time: 601.90 s
+INFO:root:Epoch 6/10, Batch 730, Train Loss: 1.79, Epoch Time: 610.27 s
+INFO:root:Epoch 6/10, Batch 740, Train Loss: 1.68, Epoch Time: 618.67 s
+INFO:root:Epoch 6/10, Batch 750, Train Loss: 1.81, Epoch Time: 627.02 s
+INFO:root:Epoch 6/10, Batch 760, Train Loss: 1.92, Epoch Time: 635.41 s
+INFO:root:Epoch 6/10, Batch 770, Train Loss: 1.91, Epoch Time: 643.74 s
+INFO:root:Epoch 6/10, Batch 780, Train Loss: 1.75, Epoch Time: 652.16 s
+INFO:root:Epoch 6/10, Batch 790, Train Loss: 1.80, Epoch Time: 660.50 s
+INFO:root:Epoch 6/10, Batch 800, Train Loss: 1.95, Epoch Time: 668.84 s
+INFO:root:Epoch 6/10, Batch 810, Train Loss: 1.79, Epoch Time: 677.11 s
+INFO:root:Epoch 6/10, Batch 820, Train Loss: 1.74, Epoch Time: 685.39 s
+INFO:root:Epoch 6/10, Batch 830, Train Loss: 1.83, Epoch Time: 693.80 s
+INFO:root:Epoch 6/10, Batch 840, Train Loss: 1.97, Epoch Time: 702.17 s
+INFO:root:Epoch 6/10, Batch 850, Train Loss: 1.75, Epoch Time: 710.64 s
+INFO:root:Epoch 6/10, Batch 860, Train Loss: 1.92, Epoch Time: 719.03 s
+INFO:root:Epoch 6/10, Batch 870, Train Loss: 1.73, Epoch Time: 727.41 s
+INFO:root:Epoch 6/10, Batch 880, Train Loss: 1.87, Epoch Time: 735.78 s
+INFO:root:Epoch 6/10, Batch 890, Train Loss: 1.78, Epoch Time: 744.15 s
+INFO:root:Epoch 6/10, Batch 900, Train Loss: 1.69, Epoch Time: 752.38 s
+INFO:root:Epoch 6/10, Batch 910, Train Loss: 2.00, Epoch Time: 760.63 s
+INFO:root:Epoch 6/10, Batch 920, Train Loss: 1.75, Epoch Time: 769.04 s
+INFO:root:Epoch 6/10, Batch 930, Train Loss: 1.91, Epoch Time: 777.38 s
+INFO:root:Epoch 6/10, Batch 940, Train Loss: 1.87, Epoch Time: 785.79 s
+INFO:root:Epoch 6/10, Batch 950, Train Loss: 1.76, Epoch Time: 794.11 s
+INFO:root:Epoch 6/10, Batch 960, Train Loss: 1.77, Epoch Time: 802.38 s
+INFO:root:Epoch 6/10, Batch 970, Train Loss: 1.71, Epoch Time: 810.87 s
+INFO:root:Epoch 6/10, Batch 980, Train Loss: 1.80, Epoch Time: 819.20 s
+INFO:root:Epoch 6/10, Batch 990, Train Loss: 1.76, Epoch Time: 827.42 s
+INFO:root:Epoch 6/10, Batch 1000, Train Loss: 1.66, Epoch Time: 835.85 s
+INFO:root:Epoch 6/10, Batch 1010, Train Loss: 1.86, Epoch Time: 844.20 s
+INFO:root:Epoch 6/10, Batch 1020, Train Loss: 1.84, Epoch Time: 852.64 s
+INFO:root:Epoch 6/10, Batch 1030, Train Loss: 1.76, Epoch Time: 861.03 s
+INFO:root:Epoch 6/10, Batch 1040, Train Loss: 1.67, Epoch Time: 869.29 s
+INFO:root:Epoch 6/10, Batch 1050, Train Loss: 1.90, Epoch Time: 877.61 s
+INFO:root:Epoch 6/10, Batch 1060, Train Loss: 1.79, Epoch Time: 885.92 s
+INFO:root:Epoch 6/10, Batch 1070, Train Loss: 1.77, Epoch Time: 894.42 s
+INFO:root:Epoch 6/10, Batch 1080, Train Loss: 1.76, Epoch Time: 902.80 s
+INFO:root:Epoch 6/10, Batch 1090, Train Loss: 1.73, Epoch Time: 911.12 s
+INFO:root:Epoch 6/10, Batch 1100, Train Loss: 1.77, Epoch Time: 919.53 s
+INFO:root:Epoch 6/10, Batch 1110, Train Loss: 1.74, Epoch Time: 927.82 s
+INFO:root:Epoch 6/10, Batch 1120, Train Loss: 1.86, Epoch Time: 936.11 s
+INFO:root:Epoch 6/10, Batch 1130, Train Loss: 1.94, Epoch Time: 944.52 s
+INFO:root:Epoch 6/10, Batch 1140, Train Loss: 1.69, Epoch Time: 952.85 s
+INFO:root:Epoch 6/10, Batch 1150, Train Loss: 1.77, Epoch Time: 961.21 s
+INFO:root:Epoch 6/10, Batch 1160, Train Loss: 1.75, Epoch Time: 969.50 s
+INFO:root:Epoch 6/10, Batch 1170, Train Loss: 1.79, Epoch Time: 977.79 s
+INFO:root:Epoch 6/10, Batch 1180, Train Loss: 1.81, Epoch Time: 986.19 s
+INFO:root:Epoch 6/10, Batch 1190, Train Loss: 1.93, Epoch Time: 994.61 s
+INFO:root:Epoch 6/10, Batch 1200, Train Loss: 1.72, Epoch Time: 1002.90 s
+INFO:root:Epoch 6/10, Batch 1210, Train Loss: 1.63, Epoch Time: 1011.41 s
+INFO:root:Epoch 6/10, Batch 1220, Train Loss: 1.86, Epoch Time: 1019.61 s
+INFO:root:Epoch 6/10, Batch 1230, Train Loss: 1.80, Epoch Time: 1028.08 s
+INFO:root:Epoch 6/10, Batch 1240, Train Loss: 1.90, Epoch Time: 1036.39 s
+INFO:root:Epoch 6/10, Batch 1250, Train Loss: 1.80, Epoch Time: 1044.80 s
+INFO:root:Epoch 6/10, Batch 1260, Train Loss: 2.03, Epoch Time: 1053.17 s
+INFO:root:Epoch 6/10, Batch 1270, Train Loss: 1.69, Epoch Time: 1061.57 s
+INFO:root:Epoch 6/10, Batch 1280, Train Loss: 2.10, Epoch Time: 1069.98 s
+INFO:root:Epoch 6/10, Batch 1290, Train Loss: 1.79, Epoch Time: 1078.36 s
+INFO:root:Epoch 6/10, Batch 1300, Train Loss: 1.77, Epoch Time: 1086.74 s
+INFO:root:Epoch 6/10, Batch 1310, Train Loss: 2.05, Epoch Time: 1095.01 s
+INFO:root:Epoch 6/10, Batch 1320, Train Loss: 1.76, Epoch Time: 1103.31 s
+INFO:root:Epoch 6/10, Batch 1330, Train Loss: 1.91, Epoch Time: 1111.74 s
+INFO:root:Epoch 6/10, Batch 1340, Train Loss: 1.91, Epoch Time: 1119.98 s
+INFO:root:Epoch 6/10, Batch 1350, Train Loss: 1.72, Epoch Time: 1128.40 s
+INFO:root:Epoch 6/10, Batch 1360, Train Loss: 1.77, Epoch Time: 1136.76 s
+INFO:root:Epoch 6/10, Batch 1370, Train Loss: 1.89, Epoch Time: 1145.16 s
+INFO:root:Epoch 6/10, Batch 1380, Train Loss: 1.73, Epoch Time: 1153.48 s
+INFO:root:Epoch 6/10, Batch 1390, Train Loss: 1.83, Epoch Time: 1161.76 s
+INFO:root:Epoch 6/10, Batch 1400, Train Loss: 1.83, Epoch Time: 1170.21 s
+INFO:root:Epoch 6/10, Batch 1410, Train Loss: 1.74, Epoch Time: 1178.53 s
+INFO:root:Epoch 6/10, Batch 1420, Train Loss: 1.78, Epoch Time: 1186.91 s
+INFO:root:Epoch 6/10, Batch 1430, Train Loss: 1.66, Epoch Time: 1195.22 s
+INFO:root:Epoch 6/10, Batch 1440, Train Loss: 1.96, Epoch Time: 1203.48 s
+INFO:root:Epoch 6/10, Batch 1450, Train Loss: 1.91, Epoch Time: 1211.88 s
+INFO:root:Epoch 6/10, Batch 1460, Train Loss: 1.81, Epoch Time: 1220.23 s
+INFO:root:Epoch 6/10, Batch 1470, Train Loss: 1.87, Epoch Time: 1228.55 s
+INFO:root:Epoch 6/10, Batch 1480, Train Loss: 1.85, Epoch Time: 1236.85 s
+INFO:root:Epoch 6, Validating...
+INFO:root:Batch 0, Mean IoU: 28.92%, Test time: 1242.39 s
+INFO:root:Batch 10, Mean IoU: 22.42%, Test time: 1247.41 s
+INFO:root:Batch 20, Mean IoU: 32.63%, Test time: 1252.53 s
+INFO:root:Batch 30, Mean IoU: 29.63%, Test time: 1257.64 s
+INFO:root:Batch 40, Mean IoU: 35.71%, Test time: 1262.71 s
+INFO:root:Batch 50, Mean IoU: 33.46%, Test time: 1267.88 s
+INFO:root:Batch 60, Mean IoU: 33.06%, Test time: 1272.74 s
+INFO:root:Batch 70, Mean IoU: 25.93%, Test time: 1277.90 s
+INFO:root:Batch 80, Mean IoU: 30.45%, Test time: 1282.93 s
+INFO:root:Batch 90, Mean IoU: 35.86%, Test time: 1288.07 s
+INFO:root:Batch 100, Mean IoU: 28.35%, Test time: 1293.02 s
+INFO:root:Batch 110, Mean IoU: 25.18%, Test time: 1298.06 s
+INFO:root:Batch 120, Mean IoU: 34.41%, Test time: 1303.07 s
+INFO:root:Batch 130, Mean IoU: 38.02%, Test time: 1308.13 s
+INFO:root:Batch 140, Mean IoU: 34.16%, Test time: 1313.26 s
+INFO:root:Batch 150, Mean IoU: 32.74%, Test time: 1318.40 s
+INFO:root:Batch 160, Mean IoU: 33.85%, Test time: 1323.48 s
+INFO:root:Batch 170, Mean IoU: 33.49%, Test time: 1328.57 s
+INFO:root:Batch 180, Mean IoU: 35.11%, Test time: 1333.53 s
+INFO:root:Batch 190, Mean IoU: 35.99%, Test time: 1338.53 s
+INFO:root:Batch 200, Mean IoU: 33.13%, Test time: 1343.58 s
+INFO:root:Batch 210, Mean IoU: 33.01%, Test time: 1348.59 s
+INFO:root:Batch 220, Mean IoU: 35.25%, Test time: 1353.90 s
+INFO:root:Batch 230, Mean IoU: 35.73%, Test time: 1359.21 s
+INFO:root:Batch 240, Mean IoU: 32.01%, Test time: 1364.22 s
+INFO:root:Epoch 6, Training Loss: 1.8017497667147155, Validation Loss: 1.6168659129142762, mIOU: 32.05%, Epoch Duration: 1368.981465101242 s
+INFO:root:Current best val loss: Epoch 6
+INFO:root:Epoch 7, Training...
+INFO:root:Epoch 7/10, Batch 0, Train Loss: 1.79, Epoch Time: 0.80 s
+INFO:root:Epoch 7/10, Batch 10, Train Loss: 1.72, Epoch Time: 9.18 s
+INFO:root:Epoch 7/10, Batch 20, Train Loss: 1.69, Epoch Time: 17.54 s
+INFO:root:Epoch 7/10, Batch 30, Train Loss: 1.79, Epoch Time: 25.75 s
+INFO:root:Epoch 7/10, Batch 40, Train Loss: 1.71, Epoch Time: 34.11 s
+INFO:root:Epoch 7/10, Batch 50, Train Loss: 1.68, Epoch Time: 42.42 s
+INFO:root:Epoch 7/10, Batch 60, Train Loss: 1.81, Epoch Time: 50.69 s
+INFO:root:Epoch 7/10, Batch 70, Train Loss: 1.71, Epoch Time: 59.08 s
+INFO:root:Epoch 7/10, Batch 80, Train Loss: 2.16, Epoch Time: 67.36 s
+INFO:root:Epoch 7/10, Batch 90, Train Loss: 1.84, Epoch Time: 75.65 s
+INFO:root:Epoch 7/10, Batch 100, Train Loss: 1.76, Epoch Time: 83.96 s
+INFO:root:Epoch 7/10, Batch 110, Train Loss: 1.81, Epoch Time: 92.37 s
+INFO:root:Epoch 7/10, Batch 120, Train Loss: 1.80, Epoch Time: 100.60 s
+INFO:root:Epoch 7/10, Batch 130, Train Loss: 1.67, Epoch Time: 108.91 s
+INFO:root:Epoch 7/10, Batch 140, Train Loss: 1.75, Epoch Time: 117.14 s
+INFO:root:Epoch 7/10, Batch 150, Train Loss: 1.81, Epoch Time: 125.54 s
+INFO:root:Epoch 7/10, Batch 160, Train Loss: 1.71, Epoch Time: 133.75 s
+INFO:root:Epoch 7/10, Batch 170, Train Loss: 1.70, Epoch Time: 142.12 s
+INFO:root:Epoch 7/10, Batch 180, Train Loss: 1.73, Epoch Time: 150.40 s
+INFO:root:Epoch 7/10, Batch 190, Train Loss: 1.69, Epoch Time: 158.70 s
+INFO:root:Epoch 7/10, Batch 200, Train Loss: 1.86, Epoch Time: 167.02 s
+INFO:root:Epoch 7/10, Batch 210, Train Loss: 1.89, Epoch Time: 175.32 s
+INFO:root:Epoch 7/10, Batch 220, Train Loss: 1.82, Epoch Time: 183.78 s
+INFO:root:Epoch 7/10, Batch 230, Train Loss: 1.90, Epoch Time: 192.06 s
+INFO:root:Epoch 7/10, Batch 240, Train Loss: 1.68, Epoch Time: 200.51 s
+INFO:root:Epoch 7/10, Batch 250, Train Loss: 1.79, Epoch Time: 208.90 s
+INFO:root:Epoch 7/10, Batch 260, Train Loss: 1.75, Epoch Time: 217.30 s
+INFO:root:Epoch 7/10, Batch 270, Train Loss: 1.75, Epoch Time: 225.66 s
+INFO:root:Epoch 7/10, Batch 280, Train Loss: 1.68, Epoch Time: 233.90 s
+INFO:root:Epoch 7/10, Batch 290, Train Loss: 1.69, Epoch Time: 242.23 s
+INFO:root:Epoch 7/10, Batch 300, Train Loss: 1.76, Epoch Time: 250.68 s
+INFO:root:Epoch 7/10, Batch 310, Train Loss: 1.76, Epoch Time: 259.09 s
+INFO:root:Epoch 7/10, Batch 320, Train Loss: 1.72, Epoch Time: 267.33 s
+INFO:root:Epoch 7/10, Batch 330, Train Loss: 1.70, Epoch Time: 275.66 s
+INFO:root:Epoch 7/10, Batch 340, Train Loss: 1.72, Epoch Time: 284.00 s
+INFO:root:Epoch 7/10, Batch 350, Train Loss: 1.84, Epoch Time: 292.28 s
+INFO:root:Epoch 7/10, Batch 360, Train Loss: 1.68, Epoch Time: 300.70 s
+INFO:root:Epoch 7/10, Batch 370, Train Loss: 1.94, Epoch Time: 309.11 s
+INFO:root:Epoch 7/10, Batch 380, Train Loss: 1.81, Epoch Time: 317.34 s
+INFO:root:Epoch 7/10, Batch 390, Train Loss: 1.69, Epoch Time: 325.71 s
+INFO:root:Epoch 7/10, Batch 400, Train Loss: 1.67, Epoch Time: 334.05 s
+INFO:root:Epoch 7/10, Batch 410, Train Loss: 1.86, Epoch Time: 342.37 s
+INFO:root:Epoch 7/10, Batch 420, Train Loss: 1.82, Epoch Time: 350.62 s
+INFO:root:Epoch 7/10, Batch 430, Train Loss: 1.69, Epoch Time: 359.04 s
+INFO:root:Epoch 7/10, Batch 440, Train Loss: 1.84, Epoch Time: 367.43 s
+INFO:root:Epoch 7/10, Batch 450, Train Loss: 1.77, Epoch Time: 375.78 s
+INFO:root:Epoch 7/10, Batch 460, Train Loss: 1.98, Epoch Time: 384.12 s
+INFO:root:Epoch 7/10, Batch 470, Train Loss: 1.83, Epoch Time: 392.31 s
+INFO:root:Epoch 7/10, Batch 480, Train Loss: 1.91, Epoch Time: 400.65 s
+INFO:root:Epoch 7/10, Batch 490, Train Loss: 1.82, Epoch Time: 409.10 s
+INFO:root:Epoch 7/10, Batch 500, Train Loss: 1.70, Epoch Time: 417.40 s
+INFO:root:Epoch 7/10, Batch 510, Train Loss: 1.71, Epoch Time: 425.72 s
+INFO:root:Epoch 7/10, Batch 520, Train Loss: 1.73, Epoch Time: 434.10 s
+INFO:root:Epoch 7/10, Batch 530, Train Loss: 1.82, Epoch Time: 442.41 s
+INFO:root:Epoch 7/10, Batch 540, Train Loss: 1.67, Epoch Time: 450.75 s
+INFO:root:Epoch 7/10, Batch 550, Train Loss: 1.85, Epoch Time: 459.20 s
+INFO:root:Epoch 7/10, Batch 560, Train Loss: 1.89, Epoch Time: 467.60 s
+INFO:root:Epoch 7/10, Batch 570, Train Loss: 1.80, Epoch Time: 475.84 s
+INFO:root:Epoch 7/10, Batch 580, Train Loss: 1.78, Epoch Time: 484.30 s
+INFO:root:Epoch 7/10, Batch 590, Train Loss: 1.79, Epoch Time: 492.71 s
+INFO:root:Epoch 7/10, Batch 600, Train Loss: 1.72, Epoch Time: 500.98 s
+INFO:root:Epoch 7/10, Batch 610, Train Loss: 1.74, Epoch Time: 509.34 s
+INFO:root:Epoch 7/10, Batch 620, Train Loss: 1.91, Epoch Time: 517.69 s
+INFO:root:Epoch 7/10, Batch 630, Train Loss: 1.66, Epoch Time: 525.98 s
+INFO:root:Epoch 7/10, Batch 640, Train Loss: 1.68, Epoch Time: 534.40 s
+INFO:root:Epoch 7/10, Batch 650, Train Loss: 1.84, Epoch Time: 542.72 s
+INFO:root:Epoch 7/10, Batch 660, Train Loss: 1.73, Epoch Time: 551.20 s
+INFO:root:Epoch 7/10, Batch 670, Train Loss: 1.72, Epoch Time: 559.64 s
+INFO:root:Epoch 7/10, Batch 680, Train Loss: 1.86, Epoch Time: 567.99 s
+INFO:root:Epoch 7/10, Batch 690, Train Loss: 1.68, Epoch Time: 576.41 s
+INFO:root:Epoch 7/10, Batch 700, Train Loss: 1.82, Epoch Time: 584.78 s
+INFO:root:Epoch 7/10, Batch 710, Train Loss: 1.96, Epoch Time: 593.20 s
+INFO:root:Epoch 7/10, Batch 720, Train Loss: 1.76, Epoch Time: 601.67 s
+INFO:root:Epoch 7/10, Batch 730, Train Loss: 1.83, Epoch Time: 609.92 s
+INFO:root:Epoch 7/10, Batch 740, Train Loss: 1.77, Epoch Time: 618.24 s
+INFO:root:Epoch 7/10, Batch 750, Train Loss: 1.73, Epoch Time: 626.52 s
+INFO:root:Epoch 7/10, Batch 760, Train Loss: 1.73, Epoch Time: 634.80 s
+INFO:root:Epoch 7/10, Batch 770, Train Loss: 1.77, Epoch Time: 643.11 s
+INFO:root:Epoch 7/10, Batch 780, Train Loss: 1.95, Epoch Time: 651.38 s
+INFO:root:Epoch 7/10, Batch 790, Train Loss: 1.78, Epoch Time: 659.71 s
+INFO:root:Epoch 7/10, Batch 800, Train Loss: 1.94, Epoch Time: 668.00 s
+INFO:root:Epoch 7/10, Batch 810, Train Loss: 1.97, Epoch Time: 676.36 s
+INFO:root:Epoch 7/10, Batch 820, Train Loss: 1.80, Epoch Time: 684.64 s
+INFO:root:Epoch 7/10, Batch 830, Train Loss: 1.81, Epoch Time: 692.95 s
+INFO:root:Epoch 7/10, Batch 840, Train Loss: 1.80, Epoch Time: 701.31 s
+INFO:root:Epoch 7/10, Batch 850, Train Loss: 1.74, Epoch Time: 709.63 s
+INFO:root:Epoch 7/10, Batch 860, Train Loss: 1.78, Epoch Time: 717.92 s
+INFO:root:Epoch 7/10, Batch 870, Train Loss: 1.72, Epoch Time: 726.25 s
+INFO:root:Epoch 7/10, Batch 880, Train Loss: 1.88, Epoch Time: 734.51 s
+INFO:root:Epoch 7/10, Batch 890, Train Loss: 1.83, Epoch Time: 742.86 s
+INFO:root:Epoch 7/10, Batch 900, Train Loss: 1.74, Epoch Time: 751.14 s
+INFO:root:Epoch 7/10, Batch 910, Train Loss: 1.75, Epoch Time: 759.53 s
+INFO:root:Epoch 7/10, Batch 920, Train Loss: 1.63, Epoch Time: 767.88 s
+INFO:root:Epoch 7/10, Batch 930, Train Loss: 1.64, Epoch Time: 776.23 s
+INFO:root:Epoch 7/10, Batch 940, Train Loss: 1.75, Epoch Time: 784.73 s
+INFO:root:Epoch 7/10, Batch 950, Train Loss: 1.63, Epoch Time: 793.18 s
+INFO:root:Epoch 7/10, Batch 960, Train Loss: 1.83, Epoch Time: 801.42 s
+INFO:root:Epoch 7/10, Batch 970, Train Loss: 1.97, Epoch Time: 809.91 s
+INFO:root:Epoch 7/10, Batch 980, Train Loss: 1.82, Epoch Time: 818.33 s
+INFO:root:Epoch 7/10, Batch 990, Train Loss: 1.80, Epoch Time: 826.64 s
+INFO:root:Epoch 7/10, Batch 1000, Train Loss: 1.87, Epoch Time: 835.11 s
+INFO:root:Epoch 7/10, Batch 1010, Train Loss: 1.72, Epoch Time: 843.45 s
+INFO:root:Epoch 7/10, Batch 1020, Train Loss: 1.79, Epoch Time: 851.73 s
+INFO:root:Epoch 7/10, Batch 1030, Train Loss: 1.89, Epoch Time: 860.04 s
+INFO:root:Epoch 7/10, Batch 1040, Train Loss: 1.70, Epoch Time: 868.33 s
+INFO:root:Epoch 7/10, Batch 1050, Train Loss: 2.00, Epoch Time: 876.64 s
+INFO:root:Epoch 7/10, Batch 1060, Train Loss: 1.74, Epoch Time: 884.91 s
+INFO:root:Epoch 7/10, Batch 1070, Train Loss: 1.75, Epoch Time: 893.22 s
+INFO:root:Epoch 7/10, Batch 1080, Train Loss: 1.76, Epoch Time: 901.79 s
+INFO:root:Epoch 7/10, Batch 1090, Train Loss: 1.75, Epoch Time: 910.12 s
+INFO:root:Epoch 7/10, Batch 1100, Train Loss: 1.74, Epoch Time: 918.44 s
+INFO:root:Epoch 7/10, Batch 1110, Train Loss: 1.76, Epoch Time: 926.81 s
+INFO:root:Epoch 7/10, Batch 1120, Train Loss: 1.84, Epoch Time: 935.13 s
+INFO:root:Epoch 7/10, Batch 1130, Train Loss: 1.90, Epoch Time: 943.39 s
+INFO:root:Epoch 7/10, Batch 1140, Train Loss: 1.93, Epoch Time: 951.70 s
+INFO:root:Epoch 7/10, Batch 1150, Train Loss: 1.84, Epoch Time: 960.09 s
+INFO:root:Epoch 7/10, Batch 1160, Train Loss: 1.80, Epoch Time: 968.46 s
+INFO:root:Epoch 7/10, Batch 1170, Train Loss: 1.78, Epoch Time: 976.70 s
+INFO:root:Epoch 7/10, Batch 1180, Train Loss: 1.79, Epoch Time: 985.06 s
+INFO:root:Epoch 7/10, Batch 1190, Train Loss: 1.94, Epoch Time: 993.37 s
+INFO:root:Epoch 7/10, Batch 1200, Train Loss: 1.69, Epoch Time: 1001.67 s
+INFO:root:Epoch 7/10, Batch 1210, Train Loss: 1.87, Epoch Time: 1010.11 s
+INFO:root:Epoch 7/10, Batch 1220, Train Loss: 1.94, Epoch Time: 1018.47 s
+INFO:root:Epoch 7/10, Batch 1230, Train Loss: 1.75, Epoch Time: 1026.87 s
+INFO:root:Epoch 7/10, Batch 1240, Train Loss: 1.72, Epoch Time: 1035.26 s
+INFO:root:Epoch 7/10, Batch 1250, Train Loss: 1.66, Epoch Time: 1043.47 s
+INFO:root:Epoch 7/10, Batch 1260, Train Loss: 1.81, Epoch Time: 1051.80 s
+INFO:root:Epoch 7/10, Batch 1270, Train Loss: 1.87, Epoch Time: 1060.22 s
+INFO:root:Epoch 7/10, Batch 1280, Train Loss: 1.80, Epoch Time: 1068.49 s
+INFO:root:Epoch 7/10, Batch 1290, Train Loss: 1.82, Epoch Time: 1076.91 s
+INFO:root:Epoch 7/10, Batch 1300, Train Loss: 1.88, Epoch Time: 1085.38 s
+INFO:root:Epoch 7/10, Batch 1310, Train Loss: 1.86, Epoch Time: 1093.86 s
+INFO:root:Epoch 7/10, Batch 1320, Train Loss: 1.85, Epoch Time: 1102.31 s
+INFO:root:Epoch 7/10, Batch 1330, Train Loss: 1.83, Epoch Time: 1110.70 s
+INFO:root:Epoch 7/10, Batch 1340, Train Loss: 1.75, Epoch Time: 1119.12 s
+INFO:root:Epoch 7/10, Batch 1350, Train Loss: 1.83, Epoch Time: 1127.51 s
+INFO:root:Epoch 7/10, Batch 1360, Train Loss: 1.84, Epoch Time: 1135.85 s
+INFO:root:Epoch 7/10, Batch 1370, Train Loss: 1.81, Epoch Time: 1144.30 s
+INFO:root:Epoch 7/10, Batch 1380, Train Loss: 1.74, Epoch Time: 1152.63 s
+INFO:root:Epoch 7/10, Batch 1390, Train Loss: 1.83, Epoch Time: 1160.99 s
+INFO:root:Epoch 7/10, Batch 1400, Train Loss: 1.80, Epoch Time: 1169.36 s
+INFO:root:Epoch 7/10, Batch 1410, Train Loss: 1.81, Epoch Time: 1177.66 s
+INFO:root:Epoch 7/10, Batch 1420, Train Loss: 1.76, Epoch Time: 1185.95 s
+INFO:root:Epoch 7/10, Batch 1430, Train Loss: 1.73, Epoch Time: 1194.34 s
+INFO:root:Epoch 7/10, Batch 1440, Train Loss: 1.84, Epoch Time: 1202.86 s
+INFO:root:Epoch 7/10, Batch 1450, Train Loss: 1.82, Epoch Time: 1211.22 s
+INFO:root:Epoch 7/10, Batch 1460, Train Loss: 1.76, Epoch Time: 1219.55 s
+INFO:root:Epoch 7/10, Batch 1470, Train Loss: 1.80, Epoch Time: 1227.87 s
+INFO:root:Epoch 7/10, Batch 1480, Train Loss: 1.73, Epoch Time: 1236.20 s
+INFO:root:Epoch 7, Validating...
+INFO:root:Batch 0, Mean IoU: 30.52%, Test time: 1241.74 s
+INFO:root:Batch 10, Mean IoU: 21.64%, Test time: 1246.85 s
+INFO:root:Batch 20, Mean IoU: 30.52%, Test time: 1251.74 s
+INFO:root:Batch 30, Mean IoU: 29.99%, Test time: 1256.79 s
+INFO:root:Batch 40, Mean IoU: 35.85%, Test time: 1262.03 s
+INFO:root:Batch 50, Mean IoU: 32.34%, Test time: 1267.04 s
+INFO:root:Batch 60, Mean IoU: 31.85%, Test time: 1272.15 s
+INFO:root:Batch 70, Mean IoU: 27.05%, Test time: 1277.23 s
+INFO:root:Batch 80, Mean IoU: 32.59%, Test time: 1282.38 s
+INFO:root:Batch 90, Mean IoU: 36.94%, Test time: 1287.42 s
+INFO:root:Batch 100, Mean IoU: 27.40%, Test time: 1292.38 s
+INFO:root:Batch 110, Mean IoU: 25.71%, Test time: 1297.44 s
+INFO:root:Batch 120, Mean IoU: 34.39%, Test time: 1302.41 s
+INFO:root:Batch 130, Mean IoU: 39.67%, Test time: 1307.44 s
+INFO:root:Batch 140, Mean IoU: 41.45%, Test time: 1312.60 s
+INFO:root:Batch 150, Mean IoU: 35.09%, Test time: 1317.70 s
+INFO:root:Batch 160, Mean IoU: 31.90%, Test time: 1322.90 s
+INFO:root:Batch 170, Mean IoU: 36.02%, Test time: 1327.98 s
+INFO:root:Batch 180, Mean IoU: 34.82%, Test time: 1332.95 s
+INFO:root:Batch 190, Mean IoU: 36.20%, Test time: 1337.98 s
+INFO:root:Batch 200, Mean IoU: 31.31%, Test time: 1342.86 s
+INFO:root:Batch 210, Mean IoU: 33.24%, Test time: 1347.87 s
+INFO:root:Batch 220, Mean IoU: 34.71%, Test time: 1352.83 s
+INFO:root:Batch 230, Mean IoU: 35.74%, Test time: 1357.91 s
+INFO:root:Batch 240, Mean IoU: 32.60%, Test time: 1362.89 s
+INFO:root:Epoch 7, Training Loss: 1.7945906885855136, Validation Loss: 1.62844060754776, mIOU: 32.36%, Epoch Duration: 1367.483984708786 s
+INFO:root:Epoch 8, Training...
+INFO:root:Epoch 8/10, Batch 0, Train Loss: 1.77, Epoch Time: 0.85 s
+INFO:root:Epoch 8/10, Batch 10, Train Loss: 1.77, Epoch Time: 9.27 s
+INFO:root:Epoch 8/10, Batch 20, Train Loss: 1.78, Epoch Time: 17.75 s
+INFO:root:Epoch 8/10, Batch 30, Train Loss: 1.70, Epoch Time: 26.14 s
+INFO:root:Epoch 8/10, Batch 40, Train Loss: 1.77, Epoch Time: 34.52 s
+INFO:root:Epoch 8/10, Batch 50, Train Loss: 1.75, Epoch Time: 42.81 s
+INFO:root:Epoch 8/10, Batch 60, Train Loss: 1.73, Epoch Time: 51.19 s
+INFO:root:Epoch 8/10, Batch 70, Train Loss: 1.75, Epoch Time: 59.51 s
+INFO:root:Epoch 8/10, Batch 80, Train Loss: 1.91, Epoch Time: 67.81 s
+INFO:root:Epoch 8/10, Batch 90, Train Loss: 1.80, Epoch Time: 76.25 s
+INFO:root:Epoch 8/10, Batch 100, Train Loss: 1.86, Epoch Time: 84.51 s
+INFO:root:Epoch 8/10, Batch 110, Train Loss: 1.73, Epoch Time: 92.85 s
+INFO:root:Epoch 8/10, Batch 120, Train Loss: 1.79, Epoch Time: 101.24 s
+INFO:root:Epoch 8/10, Batch 130, Train Loss: 1.82, Epoch Time: 109.62 s
+INFO:root:Epoch 8/10, Batch 140, Train Loss: 2.19, Epoch Time: 118.05 s
+INFO:root:Epoch 8/10, Batch 150, Train Loss: 1.79, Epoch Time: 126.42 s
+INFO:root:Epoch 8/10, Batch 160, Train Loss: 1.89, Epoch Time: 134.71 s
+INFO:root:Epoch 8/10, Batch 170, Train Loss: 1.75, Epoch Time: 143.17 s
+INFO:root:Epoch 8/10, Batch 180, Train Loss: 1.87, Epoch Time: 151.53 s
+INFO:root:Epoch 8/10, Batch 190, Train Loss: 1.70, Epoch Time: 159.87 s
+INFO:root:Epoch 8/10, Batch 200, Train Loss: 1.85, Epoch Time: 168.22 s
+INFO:root:Epoch 8/10, Batch 210, Train Loss: 1.83, Epoch Time: 176.60 s
+INFO:root:Epoch 8/10, Batch 220, Train Loss: 1.80, Epoch Time: 185.00 s
+INFO:root:Epoch 8/10, Batch 230, Train Loss: 1.75, Epoch Time: 193.40 s
+INFO:root:Epoch 8/10, Batch 240, Train Loss: 1.71, Epoch Time: 201.68 s
+INFO:root:Epoch 8/10, Batch 250, Train Loss: 1.63, Epoch Time: 209.98 s
+INFO:root:Epoch 8/10, Batch 260, Train Loss: 1.75, Epoch Time: 218.35 s
+INFO:root:Epoch 8/10, Batch 270, Train Loss: 1.70, Epoch Time: 226.69 s
+INFO:root:Epoch 8/10, Batch 280, Train Loss: 1.72, Epoch Time: 235.02 s
+INFO:root:Epoch 8/10, Batch 290, Train Loss: 1.77, Epoch Time: 243.53 s
+INFO:root:Epoch 8/10, Batch 300, Train Loss: 1.75, Epoch Time: 252.03 s
+INFO:root:Epoch 8/10, Batch 310, Train Loss: 1.94, Epoch Time: 260.48 s
+INFO:root:Epoch 8/10, Batch 320, Train Loss: 1.84, Epoch Time: 268.84 s
+INFO:root:Epoch 8/10, Batch 330, Train Loss: 1.71, Epoch Time: 277.24 s
+INFO:root:Epoch 8/10, Batch 340, Train Loss: 1.84, Epoch Time: 285.58 s
+INFO:root:Epoch 8/10, Batch 350, Train Loss: 1.73, Epoch Time: 293.94 s
+INFO:root:Epoch 8/10, Batch 360, Train Loss: 1.90, Epoch Time: 302.31 s
+INFO:root:Epoch 8/10, Batch 370, Train Loss: 1.85, Epoch Time: 310.79 s
+INFO:root:Epoch 8/10, Batch 380, Train Loss: 1.83, Epoch Time: 319.24 s
+INFO:root:Epoch 8/10, Batch 390, Train Loss: 1.76, Epoch Time: 327.53 s
+INFO:root:Epoch 8/10, Batch 400, Train Loss: 1.74, Epoch Time: 335.79 s
+INFO:root:Epoch 8/10, Batch 410, Train Loss: 1.88, Epoch Time: 344.25 s
+INFO:root:Epoch 8/10, Batch 420, Train Loss: 1.90, Epoch Time: 352.60 s
+INFO:root:Epoch 8/10, Batch 430, Train Loss: 1.80, Epoch Time: 360.90 s
+INFO:root:Epoch 8/10, Batch 440, Train Loss: 1.76, Epoch Time: 369.27 s
+INFO:root:Epoch 8/10, Batch 450, Train Loss: 1.75, Epoch Time: 377.82 s
+INFO:root:Epoch 8/10, Batch 460, Train Loss: 1.77, Epoch Time: 386.17 s
+INFO:root:Epoch 8/10, Batch 470, Train Loss: 1.70, Epoch Time: 394.63 s
+INFO:root:Epoch 8/10, Batch 480, Train Loss: 1.84, Epoch Time: 402.94 s
+INFO:root:Epoch 8/10, Batch 490, Train Loss: 2.17, Epoch Time: 411.25 s
+INFO:root:Epoch 8/10, Batch 500, Train Loss: 1.80, Epoch Time: 419.88 s
+INFO:root:Epoch 8/10, Batch 510, Train Loss: 1.68, Epoch Time: 428.22 s
+INFO:root:Epoch 8/10, Batch 520, Train Loss: 1.85, Epoch Time: 436.70 s
+INFO:root:Epoch 8/10, Batch 530, Train Loss: 1.74, Epoch Time: 445.10 s
+INFO:root:Epoch 8/10, Batch 540, Train Loss: 1.67, Epoch Time: 453.39 s
+INFO:root:Epoch 8/10, Batch 550, Train Loss: 1.96, Epoch Time: 461.83 s
+INFO:root:Epoch 8/10, Batch 560, Train Loss: 1.74, Epoch Time: 470.21 s
+INFO:root:Epoch 8/10, Batch 570, Train Loss: 1.76, Epoch Time: 478.59 s
+INFO:root:Epoch 8/10, Batch 580, Train Loss: 1.78, Epoch Time: 486.93 s
+INFO:root:Epoch 8/10, Batch 590, Train Loss: 1.82, Epoch Time: 495.28 s
+INFO:root:Epoch 8/10, Batch 600, Train Loss: 1.80, Epoch Time: 503.60 s
+INFO:root:Epoch 8/10, Batch 610, Train Loss: 1.70, Epoch Time: 511.92 s
+INFO:root:Epoch 8/10, Batch 620, Train Loss: 1.67, Epoch Time: 520.33 s
+INFO:root:Epoch 8/10, Batch 630, Train Loss: 1.61, Epoch Time: 528.62 s
+INFO:root:Epoch 8/10, Batch 640, Train Loss: 1.68, Epoch Time: 537.04 s
+INFO:root:Epoch 8/10, Batch 650, Train Loss: 1.79, Epoch Time: 545.47 s
+INFO:root:Epoch 8/10, Batch 660, Train Loss: 1.71, Epoch Time: 553.85 s
+INFO:root:Epoch 8/10, Batch 670, Train Loss: 1.76, Epoch Time: 562.08 s
+INFO:root:Epoch 8/10, Batch 680, Train Loss: 1.68, Epoch Time: 570.41 s
+INFO:root:Epoch 8/10, Batch 690, Train Loss: 1.77, Epoch Time: 578.81 s
+INFO:root:Epoch 8/10, Batch 700, Train Loss: 1.79, Epoch Time: 587.12 s
+INFO:root:Epoch 8/10, Batch 710, Train Loss: 1.78, Epoch Time: 595.42 s
+INFO:root:Epoch 8/10, Batch 720, Train Loss: 1.79, Epoch Time: 603.71 s
+INFO:root:Epoch 8/10, Batch 730, Train Loss: 1.69, Epoch Time: 612.08 s
+INFO:root:Epoch 8/10, Batch 740, Train Loss: 1.92, Epoch Time: 620.41 s
+INFO:root:Epoch 8/10, Batch 750, Train Loss: 1.82, Epoch Time: 628.76 s
+INFO:root:Epoch 8/10, Batch 760, Train Loss: 1.82, Epoch Time: 637.22 s
+INFO:root:Epoch 8/10, Batch 770, Train Loss: 1.68, Epoch Time: 645.64 s
+INFO:root:Epoch 8/10, Batch 780, Train Loss: 1.66, Epoch Time: 654.00 s
+INFO:root:Epoch 8/10, Batch 790, Train Loss: 1.78, Epoch Time: 662.30 s
+INFO:root:Epoch 8/10, Batch 800, Train Loss: 1.74, Epoch Time: 670.66 s
+INFO:root:Epoch 8/10, Batch 810, Train Loss: 1.72, Epoch Time: 678.97 s
+INFO:root:Epoch 8/10, Batch 820, Train Loss: 1.86, Epoch Time: 687.36 s
+INFO:root:Epoch 8/10, Batch 830, Train Loss: 1.74, Epoch Time: 695.74 s
+INFO:root:Epoch 8/10, Batch 840, Train Loss: 1.73, Epoch Time: 704.12 s
+INFO:root:Epoch 8/10, Batch 850, Train Loss: 1.75, Epoch Time: 712.45 s
+INFO:root:Epoch 8/10, Batch 860, Train Loss: 1.76, Epoch Time: 720.89 s
+INFO:root:Epoch 8/10, Batch 870, Train Loss: 1.81, Epoch Time: 729.33 s
+INFO:root:Epoch 8/10, Batch 880, Train Loss: 1.77, Epoch Time: 737.76 s
+INFO:root:Epoch 8/10, Batch 890, Train Loss: 1.85, Epoch Time: 746.13 s
+INFO:root:Epoch 8/10, Batch 900, Train Loss: 1.78, Epoch Time: 754.51 s
+INFO:root:Epoch 8/10, Batch 910, Train Loss: 1.83, Epoch Time: 762.94 s
+INFO:root:Epoch 8/10, Batch 920, Train Loss: 1.78, Epoch Time: 771.34 s
+INFO:root:Epoch 8/10, Batch 930, Train Loss: 1.70, Epoch Time: 779.71 s
+INFO:root:Epoch 8/10, Batch 940, Train Loss: 1.73, Epoch Time: 788.10 s
+INFO:root:Epoch 8/10, Batch 950, Train Loss: 1.76, Epoch Time: 796.58 s
+INFO:root:Epoch 8/10, Batch 960, Train Loss: 1.72, Epoch Time: 804.97 s
+INFO:root:Epoch 8/10, Batch 970, Train Loss: 1.88, Epoch Time: 813.34 s
+INFO:root:Epoch 8/10, Batch 980, Train Loss: 1.69, Epoch Time: 821.62 s
+INFO:root:Epoch 8/10, Batch 990, Train Loss: 1.85, Epoch Time: 830.02 s
+INFO:root:Epoch 8/10, Batch 1000, Train Loss: 1.77, Epoch Time: 838.29 s
+INFO:root:Epoch 8/10, Batch 1010, Train Loss: 1.81, Epoch Time: 846.61 s
+INFO:root:Epoch 8/10, Batch 1020, Train Loss: 1.83, Epoch Time: 855.11 s
+INFO:root:Epoch 8/10, Batch 1030, Train Loss: 1.82, Epoch Time: 863.41 s
+INFO:root:Epoch 8/10, Batch 1040, Train Loss: 1.76, Epoch Time: 871.70 s
+INFO:root:Epoch 8/10, Batch 1050, Train Loss: 1.74, Epoch Time: 880.10 s
+INFO:root:Epoch 8/10, Batch 1060, Train Loss: 1.67, Epoch Time: 888.39 s
+INFO:root:Epoch 8/10, Batch 1070, Train Loss: 1.80, Epoch Time: 896.74 s
+INFO:root:Epoch 8/10, Batch 1080, Train Loss: 1.72, Epoch Time: 905.03 s
+INFO:root:Epoch 8/10, Batch 1090, Train Loss: 1.97, Epoch Time: 913.49 s
+INFO:root:Epoch 8/10, Batch 1100, Train Loss: 1.72, Epoch Time: 921.82 s
+INFO:root:Epoch 8/10, Batch 1110, Train Loss: 1.74, Epoch Time: 930.13 s
+INFO:root:Epoch 8/10, Batch 1120, Train Loss: 1.74, Epoch Time: 938.50 s
+INFO:root:Epoch 8/10, Batch 1130, Train Loss: 1.69, Epoch Time: 946.75 s
+INFO:root:Epoch 8/10, Batch 1140, Train Loss: 1.75, Epoch Time: 955.18 s
+INFO:root:Epoch 8/10, Batch 1150, Train Loss: 1.82, Epoch Time: 963.45 s
+INFO:root:Epoch 8/10, Batch 1160, Train Loss: 1.79, Epoch Time: 971.87 s
+INFO:root:Epoch 8/10, Batch 1170, Train Loss: 1.84, Epoch Time: 980.24 s
+INFO:root:Epoch 8/10, Batch 1180, Train Loss: 1.85, Epoch Time: 988.60 s
+INFO:root:Epoch 8/10, Batch 1190, Train Loss: 1.76, Epoch Time: 997.00 s
+INFO:root:Epoch 8/10, Batch 1200, Train Loss: 1.73, Epoch Time: 1005.35 s
+INFO:root:Epoch 8/10, Batch 1210, Train Loss: 1.75, Epoch Time: 1013.66 s
+INFO:root:Epoch 8/10, Batch 1220, Train Loss: 1.87, Epoch Time: 1022.01 s
+INFO:root:Epoch 8/10, Batch 1230, Train Loss: 1.68, Epoch Time: 1030.25 s
+INFO:root:Epoch 8/10, Batch 1240, Train Loss: 1.90, Epoch Time: 1038.46 s
+INFO:root:Epoch 8/10, Batch 1250, Train Loss: 1.75, Epoch Time: 1046.84 s
+INFO:root:Epoch 8/10, Batch 1260, Train Loss: 1.98, Epoch Time: 1055.29 s
+INFO:root:Epoch 8/10, Batch 1270, Train Loss: 1.82, Epoch Time: 1063.58 s
+INFO:root:Epoch 8/10, Batch 1280, Train Loss: 1.73, Epoch Time: 1071.96 s
+INFO:root:Epoch 8/10, Batch 1290, Train Loss: 1.71, Epoch Time: 1080.35 s
+INFO:root:Epoch 8/10, Batch 1300, Train Loss: 1.64, Epoch Time: 1088.83 s
+INFO:root:Epoch 8/10, Batch 1310, Train Loss: 1.77, Epoch Time: 1097.14 s
+INFO:root:Epoch 8/10, Batch 1320, Train Loss: 1.78, Epoch Time: 1105.51 s
+INFO:root:Epoch 8/10, Batch 1330, Train Loss: 1.88, Epoch Time: 1113.70 s
+INFO:root:Epoch 8/10, Batch 1340, Train Loss: 1.64, Epoch Time: 1122.08 s
+INFO:root:Epoch 8/10, Batch 1350, Train Loss: 1.74, Epoch Time: 1130.40 s
+INFO:root:Epoch 8/10, Batch 1360, Train Loss: 1.77, Epoch Time: 1138.83 s
+INFO:root:Epoch 8/10, Batch 1370, Train Loss: 1.86, Epoch Time: 1147.26 s
+INFO:root:Epoch 8/10, Batch 1380, Train Loss: 1.75, Epoch Time: 1155.70 s
+INFO:root:Epoch 8/10, Batch 1390, Train Loss: 1.90, Epoch Time: 1164.12 s
+INFO:root:Epoch 8/10, Batch 1400, Train Loss: 1.71, Epoch Time: 1172.50 s
+INFO:root:Epoch 8/10, Batch 1410, Train Loss: 1.73, Epoch Time: 1180.73 s
+INFO:root:Epoch 8/10, Batch 1420, Train Loss: 1.71, Epoch Time: 1189.01 s
+INFO:root:Epoch 8/10, Batch 1430, Train Loss: 1.73, Epoch Time: 1197.47 s
+INFO:root:Epoch 8/10, Batch 1440, Train Loss: 1.72, Epoch Time: 1205.94 s
+INFO:root:Epoch 8/10, Batch 1450, Train Loss: 1.78, Epoch Time: 1214.40 s
+INFO:root:Epoch 8/10, Batch 1460, Train Loss: 1.73, Epoch Time: 1222.76 s
+INFO:root:Epoch 8/10, Batch 1470, Train Loss: 1.81, Epoch Time: 1231.21 s
+INFO:root:Epoch 8/10, Batch 1480, Train Loss: 1.78, Epoch Time: 1239.56 s
+INFO:root:Epoch 8, Validating...
+INFO:root:Batch 0, Mean IoU: 27.97%, Test time: 1245.05 s
+INFO:root:Batch 10, Mean IoU: 22.69%, Test time: 1250.13 s
+INFO:root:Batch 20, Mean IoU: 26.60%, Test time: 1255.14 s
+INFO:root:Batch 30, Mean IoU: 27.99%, Test time: 1260.28 s
+INFO:root:Batch 40, Mean IoU: 36.21%, Test time: 1265.29 s
+INFO:root:Batch 50, Mean IoU: 34.32%, Test time: 1270.18 s
+INFO:root:Batch 60, Mean IoU: 31.35%, Test time: 1275.19 s
+INFO:root:Batch 70, Mean IoU: 26.07%, Test time: 1280.31 s
+INFO:root:Batch 80, Mean IoU: 32.95%, Test time: 1285.38 s
+INFO:root:Batch 90, Mean IoU: 34.33%, Test time: 1290.48 s
+INFO:root:Batch 100, Mean IoU: 29.12%, Test time: 1295.60 s
+INFO:root:Batch 110, Mean IoU: 23.91%, Test time: 1300.62 s
+INFO:root:Batch 120, Mean IoU: 35.82%, Test time: 1305.76 s
+INFO:root:Batch 130, Mean IoU: 36.37%, Test time: 1310.82 s
+INFO:root:Batch 140, Mean IoU: 34.82%, Test time: 1315.95 s
+INFO:root:Batch 150, Mean IoU: 35.24%, Test time: 1321.01 s
+INFO:root:Batch 160, Mean IoU: 32.05%, Test time: 1326.16 s
+INFO:root:Batch 170, Mean IoU: 34.50%, Test time: 1331.27 s
+INFO:root:Batch 180, Mean IoU: 35.45%, Test time: 1336.28 s
+INFO:root:Batch 190, Mean IoU: 36.56%, Test time: 1341.37 s
+INFO:root:Batch 200, Mean IoU: 31.44%, Test time: 1346.38 s
+INFO:root:Batch 210, Mean IoU: 33.43%, Test time: 1351.42 s
+INFO:root:Batch 220, Mean IoU: 34.09%, Test time: 1356.42 s
+INFO:root:Batch 230, Mean IoU: 34.45%, Test time: 1361.36 s
+INFO:root:Batch 240, Mean IoU: 32.30%, Test time: 1366.37 s
+INFO:root:Epoch 8, Training Loss: 1.7891234806422507, Validation Loss: 1.6097108354568481, mIOU: 31.69%, Epoch Duration: 1370.8506269454956 s
+INFO:root:Current best val loss: Epoch 8
+INFO:root:Epoch 9, Training...
+INFO:root:Epoch 9/10, Batch 0, Train Loss: 1.71, Epoch Time: 0.83 s
+INFO:root:Epoch 9/10, Batch 10, Train Loss: 1.73, Epoch Time: 9.25 s
+INFO:root:Epoch 9/10, Batch 20, Train Loss: 1.74, Epoch Time: 17.60 s
+INFO:root:Epoch 9/10, Batch 30, Train Loss: 1.66, Epoch Time: 26.05 s
+INFO:root:Epoch 9/10, Batch 40, Train Loss: 1.72, Epoch Time: 34.45 s
+INFO:root:Epoch 9/10, Batch 50, Train Loss: 1.80, Epoch Time: 42.84 s
+INFO:root:Epoch 9/10, Batch 60, Train Loss: 1.78, Epoch Time: 51.13 s
+INFO:root:Epoch 9/10, Batch 70, Train Loss: 1.79, Epoch Time: 59.30 s
+INFO:root:Epoch 9/10, Batch 80, Train Loss: 1.79, Epoch Time: 67.59 s
+INFO:root:Epoch 9/10, Batch 90, Train Loss: 1.73, Epoch Time: 76.01 s
+INFO:root:Epoch 9/10, Batch 100, Train Loss: 1.78, Epoch Time: 84.41 s
+INFO:root:Epoch 9/10, Batch 110, Train Loss: 1.74, Epoch Time: 92.60 s
+INFO:root:Epoch 9/10, Batch 120, Train Loss: 1.65, Epoch Time: 100.98 s
+INFO:root:Epoch 9/10, Batch 130, Train Loss: 1.76, Epoch Time: 109.35 s
+INFO:root:Epoch 9/10, Batch 140, Train Loss: 1.79, Epoch Time: 117.55 s
+INFO:root:Epoch 9/10, Batch 150, Train Loss: 1.79, Epoch Time: 125.88 s
+INFO:root:Epoch 9/10, Batch 160, Train Loss: 1.75, Epoch Time: 134.17 s
+INFO:root:Epoch 9/10, Batch 170, Train Loss: 1.81, Epoch Time: 142.48 s
+INFO:root:Epoch 9/10, Batch 180, Train Loss: 1.76, Epoch Time: 150.85 s
+INFO:root:Epoch 9/10, Batch 190, Train Loss: 1.77, Epoch Time: 159.14 s
+INFO:root:Epoch 9/10, Batch 200, Train Loss: 1.82, Epoch Time: 167.53 s
+INFO:root:Epoch 9/10, Batch 210, Train Loss: 1.69, Epoch Time: 175.71 s
+INFO:root:Epoch 9/10, Batch 220, Train Loss: 1.70, Epoch Time: 184.13 s
+INFO:root:Epoch 9/10, Batch 230, Train Loss: 1.82, Epoch Time: 192.54 s
+INFO:root:Epoch 9/10, Batch 240, Train Loss: 1.75, Epoch Time: 200.94 s
+INFO:root:Epoch 9/10, Batch 250, Train Loss: 2.02, Epoch Time: 209.12 s
+INFO:root:Epoch 9/10, Batch 260, Train Loss: 1.77, Epoch Time: 217.51 s
+INFO:root:Epoch 9/10, Batch 270, Train Loss: 1.81, Epoch Time: 225.92 s
+INFO:root:Epoch 9/10, Batch 280, Train Loss: 1.69, Epoch Time: 234.27 s
+INFO:root:Epoch 9/10, Batch 290, Train Loss: 1.65, Epoch Time: 242.55 s
+INFO:root:Epoch 9/10, Batch 300, Train Loss: 1.92, Epoch Time: 250.83 s
+INFO:root:Epoch 9/10, Batch 310, Train Loss: 1.66, Epoch Time: 259.02 s
+INFO:root:Epoch 9/10, Batch 320, Train Loss: 1.76, Epoch Time: 267.32 s
+INFO:root:Epoch 9/10, Batch 330, Train Loss: 1.71, Epoch Time: 275.77 s
+INFO:root:Epoch 9/10, Batch 340, Train Loss: 1.71, Epoch Time: 284.16 s
+INFO:root:Epoch 9/10, Batch 350, Train Loss: 1.97, Epoch Time: 292.42 s
+INFO:root:Epoch 9/10, Batch 360, Train Loss: 1.73, Epoch Time: 300.83 s
+INFO:root:Epoch 9/10, Batch 370, Train Loss: 1.74, Epoch Time: 309.27 s
+INFO:root:Epoch 9/10, Batch 380, Train Loss: 1.83, Epoch Time: 317.59 s
+INFO:root:Epoch 9/10, Batch 390, Train Loss: 1.77, Epoch Time: 325.86 s
+INFO:root:Epoch 9/10, Batch 400, Train Loss: 1.82, Epoch Time: 334.22 s
+INFO:root:Epoch 9/10, Batch 410, Train Loss: 1.67, Epoch Time: 342.63 s
+INFO:root:Epoch 9/10, Batch 420, Train Loss: 1.90, Epoch Time: 350.95 s
+INFO:root:Epoch 9/10, Batch 430, Train Loss: 1.71, Epoch Time: 359.37 s
+INFO:root:Epoch 9/10, Batch 440, Train Loss: 1.82, Epoch Time: 367.77 s
+INFO:root:Epoch 9/10, Batch 450, Train Loss: 1.74, Epoch Time: 376.10 s
+INFO:root:Epoch 9/10, Batch 460, Train Loss: 1.85, Epoch Time: 384.60 s
+INFO:root:Epoch 9/10, Batch 470, Train Loss: 1.85, Epoch Time: 392.80 s
+INFO:root:Epoch 9/10, Batch 480, Train Loss: 1.83, Epoch Time: 401.20 s
+INFO:root:Epoch 9/10, Batch 490, Train Loss: 1.78, Epoch Time: 409.54 s
+INFO:root:Epoch 9/10, Batch 500, Train Loss: 1.76, Epoch Time: 417.85 s
+INFO:root:Epoch 9/10, Batch 510, Train Loss: 1.76, Epoch Time: 426.21 s
+INFO:root:Epoch 9/10, Batch 520, Train Loss: 1.79, Epoch Time: 434.35 s
+INFO:root:Epoch 9/10, Batch 530, Train Loss: 1.85, Epoch Time: 442.77 s
+INFO:root:Epoch 9/10, Batch 540, Train Loss: 1.98, Epoch Time: 451.07 s
+INFO:root:Epoch 9/10, Batch 550, Train Loss: 1.80, Epoch Time: 459.41 s
+INFO:root:Epoch 9/10, Batch 560, Train Loss: 1.74, Epoch Time: 467.80 s
+INFO:root:Epoch 9/10, Batch 570, Train Loss: 1.87, Epoch Time: 476.13 s
+INFO:root:Epoch 9/10, Batch 580, Train Loss: 1.82, Epoch Time: 484.39 s
+INFO:root:Epoch 9/10, Batch 590, Train Loss: 1.87, Epoch Time: 492.81 s
+INFO:root:Epoch 9/10, Batch 600, Train Loss: 1.78, Epoch Time: 501.21 s
+INFO:root:Epoch 9/10, Batch 610, Train Loss: 1.73, Epoch Time: 509.52 s
+INFO:root:Epoch 9/10, Batch 620, Train Loss: 1.79, Epoch Time: 517.82 s
+INFO:root:Epoch 9/10, Batch 630, Train Loss: 1.80, Epoch Time: 526.07 s
+INFO:root:Epoch 9/10, Batch 640, Train Loss: 1.74, Epoch Time: 534.33 s
+INFO:root:Epoch 9/10, Batch 650, Train Loss: 1.76, Epoch Time: 542.59 s
+INFO:root:Epoch 9/10, Batch 660, Train Loss: 1.77, Epoch Time: 550.82 s
+INFO:root:Epoch 9/10, Batch 670, Train Loss: 1.88, Epoch Time: 559.09 s
+INFO:root:Epoch 9/10, Batch 680, Train Loss: 1.88, Epoch Time: 567.41 s
+INFO:root:Epoch 9/10, Batch 690, Train Loss: 1.71, Epoch Time: 575.77 s
+INFO:root:Epoch 9/10, Batch 700, Train Loss: 1.93, Epoch Time: 584.16 s
+INFO:root:Epoch 9/10, Batch 710, Train Loss: 1.74, Epoch Time: 592.60 s
+INFO:root:Epoch 9/10, Batch 720, Train Loss: 1.87, Epoch Time: 600.90 s
+INFO:root:Epoch 9/10, Batch 730, Train Loss: 1.79, Epoch Time: 609.17 s
+INFO:root:Epoch 9/10, Batch 740, Train Loss: 1.68, Epoch Time: 617.54 s
+INFO:root:Epoch 9/10, Batch 750, Train Loss: 1.78, Epoch Time: 626.09 s
+INFO:root:Epoch 9/10, Batch 760, Train Loss: 1.74, Epoch Time: 634.44 s
+INFO:root:Epoch 9/10, Batch 770, Train Loss: 1.78, Epoch Time: 642.70 s
+INFO:root:Epoch 9/10, Batch 780, Train Loss: 1.69, Epoch Time: 651.05 s
+INFO:root:Epoch 9/10, Batch 790, Train Loss: 1.70, Epoch Time: 659.27 s
+INFO:root:Epoch 9/10, Batch 800, Train Loss: 1.79, Epoch Time: 667.70 s
+INFO:root:Epoch 9/10, Batch 810, Train Loss: 2.05, Epoch Time: 675.97 s
+INFO:root:Epoch 9/10, Batch 820, Train Loss: 1.79, Epoch Time: 684.36 s
+INFO:root:Epoch 9/10, Batch 830, Train Loss: 1.79, Epoch Time: 692.52 s
+INFO:root:Epoch 9/10, Batch 840, Train Loss: 1.88, Epoch Time: 700.84 s
+INFO:root:Epoch 9/10, Batch 850, Train Loss: 1.77, Epoch Time: 709.22 s
+INFO:root:Epoch 9/10, Batch 860, Train Loss: 1.63, Epoch Time: 717.63 s
+INFO:root:Epoch 9/10, Batch 870, Train Loss: 1.68, Epoch Time: 725.98 s
+INFO:root:Epoch 9/10, Batch 880, Train Loss: 1.68, Epoch Time: 734.31 s
+INFO:root:Epoch 9/10, Batch 890, Train Loss: 1.72, Epoch Time: 742.51 s
+INFO:root:Epoch 9/10, Batch 900, Train Loss: 1.75, Epoch Time: 750.83 s
+INFO:root:Epoch 9/10, Batch 910, Train Loss: 1.81, Epoch Time: 759.22 s
+INFO:root:Epoch 9/10, Batch 920, Train Loss: 1.69, Epoch Time: 767.52 s
+INFO:root:Epoch 9/10, Batch 930, Train Loss: 1.79, Epoch Time: 775.85 s
+INFO:root:Epoch 9/10, Batch 940, Train Loss: 1.77, Epoch Time: 784.21 s
+INFO:root:Epoch 9/10, Batch 950, Train Loss: 1.78, Epoch Time: 792.67 s
+INFO:root:Epoch 9/10, Batch 960, Train Loss: 1.75, Epoch Time: 801.09 s
+INFO:root:Epoch 9/10, Batch 970, Train Loss: 1.73, Epoch Time: 809.56 s
+INFO:root:Epoch 9/10, Batch 980, Train Loss: 1.80, Epoch Time: 818.08 s
+INFO:root:Epoch 9/10, Batch 990, Train Loss: 1.82, Epoch Time: 826.30 s
+INFO:root:Epoch 9/10, Batch 1000, Train Loss: 2.09, Epoch Time: 834.59 s
+INFO:root:Epoch 9/10, Batch 1010, Train Loss: 1.84, Epoch Time: 842.96 s
+INFO:root:Epoch 9/10, Batch 1020, Train Loss: 1.72, Epoch Time: 851.49 s
+INFO:root:Epoch 9/10, Batch 1030, Train Loss: 1.66, Epoch Time: 859.94 s
+INFO:root:Epoch 9/10, Batch 1040, Train Loss: 1.96, Epoch Time: 868.36 s
+INFO:root:Epoch 9/10, Batch 1050, Train Loss: 1.76, Epoch Time: 876.68 s
+INFO:root:Epoch 9/10, Batch 1060, Train Loss: 1.72, Epoch Time: 884.95 s
+INFO:root:Epoch 9/10, Batch 1070, Train Loss: 1.77, Epoch Time: 893.33 s
+INFO:root:Epoch 9/10, Batch 1080, Train Loss: 1.71, Epoch Time: 901.63 s
+INFO:root:Epoch 9/10, Batch 1090, Train Loss: 1.72, Epoch Time: 909.98 s
+INFO:root:Epoch 9/10, Batch 1100, Train Loss: 1.76, Epoch Time: 918.34 s
+INFO:root:Epoch 9/10, Batch 1110, Train Loss: 1.77, Epoch Time: 926.74 s
+INFO:root:Epoch 9/10, Batch 1120, Train Loss: 1.79, Epoch Time: 935.15 s
+INFO:root:Epoch 9/10, Batch 1130, Train Loss: 1.72, Epoch Time: 943.53 s
+INFO:root:Epoch 9/10, Batch 1140, Train Loss: 1.85, Epoch Time: 951.92 s
+INFO:root:Epoch 9/10, Batch 1150, Train Loss: 1.85, Epoch Time: 960.21 s
+INFO:root:Epoch 9/10, Batch 1160, Train Loss: 1.87, Epoch Time: 968.62 s
+INFO:root:Epoch 9/10, Batch 1170, Train Loss: 1.79, Epoch Time: 976.80 s
+INFO:root:Epoch 9/10, Batch 1180, Train Loss: 1.71, Epoch Time: 985.22 s
+INFO:root:Epoch 9/10, Batch 1190, Train Loss: 1.71, Epoch Time: 993.49 s
+INFO:root:Epoch 9/10, Batch 1200, Train Loss: 1.77, Epoch Time: 1001.75 s
+INFO:root:Epoch 9/10, Batch 1210, Train Loss: 1.78, Epoch Time: 1010.09 s
+INFO:root:Epoch 9/10, Batch 1220, Train Loss: 1.76, Epoch Time: 1018.48 s
+INFO:root:Epoch 9/10, Batch 1230, Train Loss: 1.72, Epoch Time: 1026.85 s
+INFO:root:Epoch 9/10, Batch 1240, Train Loss: 1.80, Epoch Time: 1035.30 s
+INFO:root:Epoch 9/10, Batch 1250, Train Loss: 1.72, Epoch Time: 1043.81 s
+INFO:root:Epoch 9/10, Batch 1260, Train Loss: 1.84, Epoch Time: 1052.17 s
+INFO:root:Epoch 9/10, Batch 1270, Train Loss: 1.70, Epoch Time: 1060.61 s
+INFO:root:Epoch 9/10, Batch 1280, Train Loss: 1.75, Epoch Time: 1068.94 s
+INFO:root:Epoch 9/10, Batch 1290, Train Loss: 1.85, Epoch Time: 1077.24 s
+INFO:root:Epoch 9/10, Batch 1300, Train Loss: 1.80, Epoch Time: 1085.45 s
+INFO:root:Epoch 9/10, Batch 1310, Train Loss: 1.77, Epoch Time: 1093.87 s
+INFO:root:Epoch 9/10, Batch 1320, Train Loss: 1.71, Epoch Time: 1102.27 s
+INFO:root:Epoch 9/10, Batch 1330, Train Loss: 1.82, Epoch Time: 1110.61 s
+INFO:root:Epoch 9/10, Batch 1340, Train Loss: 1.87, Epoch Time: 1118.95 s
+INFO:root:Epoch 9/10, Batch 1350, Train Loss: 1.92, Epoch Time: 1127.27 s
+INFO:root:Epoch 9/10, Batch 1360, Train Loss: 1.93, Epoch Time: 1135.55 s
+INFO:root:Epoch 9/10, Batch 1370, Train Loss: 1.74, Epoch Time: 1143.95 s
+INFO:root:Epoch 9/10, Batch 1380, Train Loss: 1.87, Epoch Time: 1152.37 s
+INFO:root:Epoch 9/10, Batch 1390, Train Loss: 1.72, Epoch Time: 1160.71 s
+INFO:root:Epoch 9/10, Batch 1400, Train Loss: 1.97, Epoch Time: 1169.05 s
+INFO:root:Epoch 9/10, Batch 1410, Train Loss: 1.96, Epoch Time: 1177.37 s
+INFO:root:Epoch 9/10, Batch 1420, Train Loss: 1.72, Epoch Time: 1185.72 s
+INFO:root:Epoch 9/10, Batch 1430, Train Loss: 1.71, Epoch Time: 1194.08 s
+INFO:root:Epoch 9/10, Batch 1440, Train Loss: 1.71, Epoch Time: 1202.45 s
+INFO:root:Epoch 9/10, Batch 1450, Train Loss: 1.95, Epoch Time: 1210.78 s
+INFO:root:Epoch 9/10, Batch 1460, Train Loss: 1.78, Epoch Time: 1219.17 s
+INFO:root:Epoch 9/10, Batch 1470, Train Loss: 1.72, Epoch Time: 1227.47 s
+INFO:root:Epoch 9/10, Batch 1480, Train Loss: 1.75, Epoch Time: 1235.75 s
+INFO:root:Epoch 9, Validating...
+INFO:root:Batch 0, Mean IoU: 31.71%, Test time: 1241.17 s
+INFO:root:Batch 10, Mean IoU: 22.45%, Test time: 1246.30 s
+INFO:root:Batch 20, Mean IoU: 24.81%, Test time: 1251.40 s
+INFO:root:Batch 30, Mean IoU: 30.11%, Test time: 1256.32 s
+INFO:root:Batch 40, Mean IoU: 36.59%, Test time: 1261.40 s
+INFO:root:Batch 50, Mean IoU: 32.23%, Test time: 1266.47 s
+INFO:root:Batch 60, Mean IoU: 31.43%, Test time: 1271.54 s
+INFO:root:Batch 70, Mean IoU: 26.99%, Test time: 1276.64 s
+INFO:root:Batch 80, Mean IoU: 32.45%, Test time: 1281.88 s
+INFO:root:Batch 90, Mean IoU: 35.09%, Test time: 1286.94 s
+INFO:root:Batch 100, Mean IoU: 27.35%, Test time: 1291.88 s
+INFO:root:Batch 110, Mean IoU: 26.47%, Test time: 1296.85 s
+INFO:root:Batch 120, Mean IoU: 36.04%, Test time: 1302.02 s
+INFO:root:Batch 130, Mean IoU: 39.35%, Test time: 1307.16 s
+INFO:root:Batch 140, Mean IoU: 39.71%, Test time: 1312.31 s
+INFO:root:Batch 150, Mean IoU: 37.34%, Test time: 1317.44 s
+INFO:root:Batch 160, Mean IoU: 29.57%, Test time: 1322.60 s
+INFO:root:Batch 170, Mean IoU: 34.95%, Test time: 1327.60 s
+INFO:root:Batch 180, Mean IoU: 37.79%, Test time: 1332.68 s
+INFO:root:Batch 190, Mean IoU: 40.82%, Test time: 1337.77 s
+INFO:root:Batch 200, Mean IoU: 32.69%, Test time: 1342.88 s
+INFO:root:Batch 210, Mean IoU: 34.45%, Test time: 1347.98 s
+INFO:root:Batch 220, Mean IoU: 34.82%, Test time: 1352.90 s
+INFO:root:Batch 230, Mean IoU: 36.52%, Test time: 1357.81 s
+INFO:root:Batch 240, Mean IoU: 32.00%, Test time: 1362.91 s
+INFO:root:Epoch 9, Training Loss: 1.7846715674756275, Validation Loss: 1.601738389968872, mIOU: 32.55%, Epoch Duration: 1367.5084807872772 s
+INFO:root:Current best val loss: Epoch 9
+INFO:root:Epoch 10, Training...
+INFO:root:Epoch 10/10, Batch 0, Train Loss: 1.86, Epoch Time: 0.85 s
+INFO:root:Epoch 10/10, Batch 10, Train Loss: 1.72, Epoch Time: 9.22 s
+INFO:root:Epoch 10/10, Batch 20, Train Loss: 1.96, Epoch Time: 17.46 s
+INFO:root:Epoch 10/10, Batch 30, Train Loss: 1.88, Epoch Time: 25.80 s
+INFO:root:Epoch 10/10, Batch 40, Train Loss: 1.90, Epoch Time: 34.24 s
+INFO:root:Epoch 10/10, Batch 50, Train Loss: 1.84, Epoch Time: 42.64 s
+INFO:root:Epoch 10/10, Batch 60, Train Loss: 1.83, Epoch Time: 50.94 s
+INFO:root:Epoch 10/10, Batch 70, Train Loss: 1.68, Epoch Time: 59.21 s
+INFO:root:Epoch 10/10, Batch 80, Train Loss: 1.69, Epoch Time: 67.54 s
+INFO:root:Epoch 10/10, Batch 90, Train Loss: 1.81, Epoch Time: 75.86 s
+INFO:root:Epoch 10/10, Batch 100, Train Loss: 1.71, Epoch Time: 84.18 s
+INFO:root:Epoch 10/10, Batch 110, Train Loss: 1.74, Epoch Time: 92.67 s
+INFO:root:Epoch 10/10, Batch 120, Train Loss: 1.82, Epoch Time: 101.03 s
+INFO:root:Epoch 10/10, Batch 130, Train Loss: 2.00, Epoch Time: 109.39 s
+INFO:root:Epoch 10/10, Batch 140, Train Loss: 1.75, Epoch Time: 117.80 s
+INFO:root:Epoch 10/10, Batch 150, Train Loss: 1.78, Epoch Time: 126.27 s
+INFO:root:Epoch 10/10, Batch 160, Train Loss: 1.65, Epoch Time: 134.62 s
+INFO:root:Epoch 10/10, Batch 170, Train Loss: 1.73, Epoch Time: 143.02 s
+INFO:root:Epoch 10/10, Batch 180, Train Loss: 1.67, Epoch Time: 151.52 s
+INFO:root:Epoch 10/10, Batch 190, Train Loss: 1.77, Epoch Time: 159.82 s
+INFO:root:Epoch 10/10, Batch 200, Train Loss: 2.09, Epoch Time: 168.19 s
+INFO:root:Epoch 10/10, Batch 210, Train Loss: 1.73, Epoch Time: 176.58 s
+INFO:root:Epoch 10/10, Batch 220, Train Loss: 1.77, Epoch Time: 184.91 s
+INFO:root:Epoch 10/10, Batch 230, Train Loss: 1.70, Epoch Time: 193.27 s
+INFO:root:Epoch 10/10, Batch 240, Train Loss: 1.71, Epoch Time: 201.65 s
+INFO:root:Epoch 10/10, Batch 250, Train Loss: 1.83, Epoch Time: 210.09 s
+INFO:root:Epoch 10/10, Batch 260, Train Loss: 1.75, Epoch Time: 218.46 s
+INFO:root:Epoch 10/10, Batch 270, Train Loss: 1.81, Epoch Time: 226.79 s
+INFO:root:Epoch 10/10, Batch 280, Train Loss: 1.78, Epoch Time: 235.06 s
+INFO:root:Epoch 10/10, Batch 290, Train Loss: 1.98, Epoch Time: 243.54 s
+INFO:root:Epoch 10/10, Batch 300, Train Loss: 1.76, Epoch Time: 251.95 s
+INFO:root:Epoch 10/10, Batch 310, Train Loss: 1.75, Epoch Time: 260.20 s
+INFO:root:Epoch 10/10, Batch 320, Train Loss: 1.63, Epoch Time: 268.49 s
+INFO:root:Epoch 10/10, Batch 330, Train Loss: 1.73, Epoch Time: 277.04 s
+INFO:root:Epoch 10/10, Batch 340, Train Loss: 1.78, Epoch Time: 285.50 s
+INFO:root:Epoch 10/10, Batch 350, Train Loss: 1.71, Epoch Time: 293.78 s
+INFO:root:Epoch 10/10, Batch 360, Train Loss: 1.69, Epoch Time: 302.11 s
+INFO:root:Epoch 10/10, Batch 370, Train Loss: 1.92, Epoch Time: 310.52 s
+INFO:root:Epoch 10/10, Batch 380, Train Loss: 1.80, Epoch Time: 318.92 s
+INFO:root:Epoch 10/10, Batch 390, Train Loss: 1.71, Epoch Time: 327.20 s
+INFO:root:Epoch 10/10, Batch 400, Train Loss: 1.79, Epoch Time: 335.55 s
+INFO:root:Epoch 10/10, Batch 410, Train Loss: 1.68, Epoch Time: 343.78 s
+INFO:root:Epoch 10/10, Batch 420, Train Loss: 1.64, Epoch Time: 352.10 s
+INFO:root:Epoch 10/10, Batch 430, Train Loss: 1.76, Epoch Time: 360.59 s
+INFO:root:Epoch 10/10, Batch 440, Train Loss: 1.71, Epoch Time: 368.92 s
+INFO:root:Epoch 10/10, Batch 450, Train Loss: 1.61, Epoch Time: 377.21 s
+INFO:root:Epoch 10/10, Batch 460, Train Loss: 1.74, Epoch Time: 385.54 s
+INFO:root:Epoch 10/10, Batch 470, Train Loss: 1.66, Epoch Time: 393.93 s
+INFO:root:Epoch 10/10, Batch 480, Train Loss: 1.83, Epoch Time: 402.18 s
+INFO:root:Epoch 10/10, Batch 490, Train Loss: 1.83, Epoch Time: 410.53 s
+INFO:root:Epoch 10/10, Batch 500, Train Loss: 1.74, Epoch Time: 418.83 s
+INFO:root:Epoch 10/10, Batch 510, Train Loss: 1.93, Epoch Time: 427.19 s
+INFO:root:Epoch 10/10, Batch 520, Train Loss: 1.68, Epoch Time: 435.62 s
+INFO:root:Epoch 10/10, Batch 530, Train Loss: 1.90, Epoch Time: 443.88 s
+INFO:root:Epoch 10/10, Batch 540, Train Loss: 1.84, Epoch Time: 452.30 s
+INFO:root:Epoch 10/10, Batch 550, Train Loss: 1.83, Epoch Time: 460.52 s
+INFO:root:Epoch 10/10, Batch 560, Train Loss: 1.82, Epoch Time: 468.88 s
+INFO:root:Epoch 10/10, Batch 570, Train Loss: 1.65, Epoch Time: 477.22 s
+INFO:root:Epoch 10/10, Batch 580, Train Loss: 1.90, Epoch Time: 485.61 s
+INFO:root:Epoch 10/10, Batch 590, Train Loss: 1.76, Epoch Time: 493.87 s
+INFO:root:Epoch 10/10, Batch 600, Train Loss: 1.82, Epoch Time: 502.27 s
+INFO:root:Epoch 10/10, Batch 610, Train Loss: 1.70, Epoch Time: 510.61 s
+INFO:root:Epoch 10/10, Batch 620, Train Loss: 1.82, Epoch Time: 518.99 s
+INFO:root:Epoch 10/10, Batch 630, Train Loss: 1.70, Epoch Time: 527.39 s
+INFO:root:Epoch 10/10, Batch 640, Train Loss: 1.99, Epoch Time: 535.66 s
+INFO:root:Epoch 10/10, Batch 650, Train Loss: 1.74, Epoch Time: 543.99 s
+INFO:root:Epoch 10/10, Batch 660, Train Loss: 1.78, Epoch Time: 552.15 s
+INFO:root:Epoch 10/10, Batch 670, Train Loss: 1.71, Epoch Time: 560.51 s
+INFO:root:Epoch 10/10, Batch 680, Train Loss: 1.80, Epoch Time: 568.78 s
+INFO:root:Epoch 10/10, Batch 690, Train Loss: 1.73, Epoch Time: 577.14 s
+INFO:root:Epoch 10/10, Batch 700, Train Loss: 1.80, Epoch Time: 585.51 s
+INFO:root:Epoch 10/10, Batch 710, Train Loss: 2.08, Epoch Time: 593.85 s
+INFO:root:Epoch 10/10, Batch 720, Train Loss: 1.73, Epoch Time: 602.10 s
+INFO:root:Epoch 10/10, Batch 730, Train Loss: 1.85, Epoch Time: 610.40 s
+INFO:root:Epoch 10/10, Batch 740, Train Loss: 1.71, Epoch Time: 618.81 s
+INFO:root:Epoch 10/10, Batch 750, Train Loss: 1.95, Epoch Time: 627.17 s
+INFO:root:Epoch 10/10, Batch 760, Train Loss: 1.68, Epoch Time: 635.49 s
+INFO:root:Epoch 10/10, Batch 770, Train Loss: 1.71, Epoch Time: 643.83 s
+INFO:root:Epoch 10/10, Batch 780, Train Loss: 1.88, Epoch Time: 652.14 s
+INFO:root:Epoch 10/10, Batch 790, Train Loss: 1.78, Epoch Time: 660.54 s
+INFO:root:Epoch 10/10, Batch 800, Train Loss: 1.63, Epoch Time: 668.95 s
+INFO:root:Epoch 10/10, Batch 810, Train Loss: 1.74, Epoch Time: 677.38 s
+INFO:root:Epoch 10/10, Batch 820, Train Loss: 1.71, Epoch Time: 685.79 s
+INFO:root:Epoch 10/10, Batch 830, Train Loss: 1.79, Epoch Time: 694.18 s
+INFO:root:Epoch 10/10, Batch 840, Train Loss: 2.06, Epoch Time: 702.59 s
+INFO:root:Epoch 10/10, Batch 850, Train Loss: 1.72, Epoch Time: 711.03 s
+INFO:root:Epoch 10/10, Batch 860, Train Loss: 1.65, Epoch Time: 719.28 s
+INFO:root:Epoch 10/10, Batch 870, Train Loss: 1.76, Epoch Time: 727.72 s
+INFO:root:Epoch 10/10, Batch 880, Train Loss: 1.75, Epoch Time: 736.09 s
+INFO:root:Epoch 10/10, Batch 890, Train Loss: 1.73, Epoch Time: 744.54 s
+INFO:root:Epoch 10/10, Batch 900, Train Loss: 1.71, Epoch Time: 752.90 s
+INFO:root:Epoch 10/10, Batch 910, Train Loss: 1.71, Epoch Time: 761.27 s
+INFO:root:Epoch 10/10, Batch 920, Train Loss: 1.76, Epoch Time: 769.60 s
+INFO:root:Epoch 10/10, Batch 930, Train Loss: 1.77, Epoch Time: 777.85 s
+INFO:root:Epoch 10/10, Batch 940, Train Loss: 1.74, Epoch Time: 786.11 s
+INFO:root:Epoch 10/10, Batch 950, Train Loss: 1.77, Epoch Time: 794.42 s
+INFO:root:Epoch 10/10, Batch 960, Train Loss: 1.84, Epoch Time: 802.67 s
+INFO:root:Epoch 10/10, Batch 970, Train Loss: 1.75, Epoch Time: 811.08 s
+INFO:root:Epoch 10/10, Batch 980, Train Loss: 1.71, Epoch Time: 819.47 s
+INFO:root:Epoch 10/10, Batch 990, Train Loss: 1.84, Epoch Time: 827.79 s
+INFO:root:Epoch 10/10, Batch 1000, Train Loss: 1.86, Epoch Time: 836.13 s
+INFO:root:Epoch 10/10, Batch 1010, Train Loss: 1.75, Epoch Time: 844.57 s
+INFO:root:Epoch 10/10, Batch 1020, Train Loss: 1.78, Epoch Time: 852.98 s
+INFO:root:Epoch 10/10, Batch 1030, Train Loss: 1.82, Epoch Time: 861.32 s
+INFO:root:Epoch 10/10, Batch 1040, Train Loss: 1.84, Epoch Time: 869.67 s
+INFO:root:Epoch 10/10, Batch 1050, Train Loss: 1.74, Epoch Time: 877.99 s
+INFO:root:Epoch 10/10, Batch 1060, Train Loss: 1.75, Epoch Time: 886.25 s
+INFO:root:Epoch 10/10, Batch 1070, Train Loss: 1.95, Epoch Time: 894.55 s
+INFO:root:Epoch 10/10, Batch 1080, Train Loss: 1.78, Epoch Time: 902.73 s
+INFO:root:Epoch 10/10, Batch 1090, Train Loss: 1.82, Epoch Time: 911.19 s
+INFO:root:Epoch 10/10, Batch 1100, Train Loss: 1.76, Epoch Time: 919.51 s
+INFO:root:Epoch 10/10, Batch 1110, Train Loss: 1.82, Epoch Time: 927.90 s
+INFO:root:Epoch 10/10, Batch 1120, Train Loss: 1.69, Epoch Time: 936.32 s
+INFO:root:Epoch 10/10, Batch 1130, Train Loss: 1.95, Epoch Time: 944.62 s
+INFO:root:Epoch 10/10, Batch 1140, Train Loss: 1.86, Epoch Time: 952.92 s
+INFO:root:Epoch 10/10, Batch 1150, Train Loss: 1.82, Epoch Time: 961.29 s
+INFO:root:Epoch 10/10, Batch 1160, Train Loss: 1.95, Epoch Time: 969.53 s
+INFO:root:Epoch 10/10, Batch 1170, Train Loss: 1.81, Epoch Time: 977.79 s
+INFO:root:Epoch 10/10, Batch 1180, Train Loss: 1.79, Epoch Time: 986.30 s
+INFO:root:Epoch 10/10, Batch 1190, Train Loss: 2.03, Epoch Time: 994.69 s
+INFO:root:Epoch 10/10, Batch 1200, Train Loss: 1.70, Epoch Time: 1003.06 s
+INFO:root:Epoch 10/10, Batch 1210, Train Loss: 1.70, Epoch Time: 1011.38 s
+INFO:root:Epoch 10/10, Batch 1220, Train Loss: 2.04, Epoch Time: 1019.80 s
+INFO:root:Epoch 10/10, Batch 1230, Train Loss: 1.81, Epoch Time: 1028.20 s
+INFO:root:Epoch 10/10, Batch 1240, Train Loss: 1.77, Epoch Time: 1036.69 s
+INFO:root:Epoch 10/10, Batch 1250, Train Loss: 1.78, Epoch Time: 1045.16 s
+INFO:root:Epoch 10/10, Batch 1260, Train Loss: 2.13, Epoch Time: 1053.61 s
+INFO:root:Epoch 10/10, Batch 1270, Train Loss: 1.80, Epoch Time: 1062.09 s
+INFO:root:Epoch 10/10, Batch 1280, Train Loss: 1.66, Epoch Time: 1070.50 s
+INFO:root:Epoch 10/10, Batch 1290, Train Loss: 2.05, Epoch Time: 1078.75 s
+INFO:root:Epoch 10/10, Batch 1300, Train Loss: 1.75, Epoch Time: 1087.14 s
+INFO:root:Epoch 10/10, Batch 1310, Train Loss: 1.76, Epoch Time: 1095.33 s
+INFO:root:Epoch 10/10, Batch 1320, Train Loss: 2.00, Epoch Time: 1103.57 s
+INFO:root:Epoch 10/10, Batch 1330, Train Loss: 1.81, Epoch Time: 1111.92 s
+INFO:root:Epoch 10/10, Batch 1340, Train Loss: 1.76, Epoch Time: 1120.23 s
+INFO:root:Epoch 10/10, Batch 1350, Train Loss: 1.79, Epoch Time: 1128.56 s
+INFO:root:Epoch 10/10, Batch 1360, Train Loss: 1.79, Epoch Time: 1136.80 s
+INFO:root:Epoch 10/10, Batch 1370, Train Loss: 1.71, Epoch Time: 1145.30 s
+INFO:root:Epoch 10/10, Batch 1380, Train Loss: 1.90, Epoch Time: 1153.68 s
+INFO:root:Epoch 10/10, Batch 1390, Train Loss: 1.99, Epoch Time: 1161.91 s
+INFO:root:Epoch 10/10, Batch 1400, Train Loss: 1.84, Epoch Time: 1170.40 s
+INFO:root:Epoch 10/10, Batch 1410, Train Loss: 1.73, Epoch Time: 1178.82 s
+INFO:root:Epoch 10/10, Batch 1420, Train Loss: 1.77, Epoch Time: 1187.14 s
+INFO:root:Epoch 10/10, Batch 1430, Train Loss: 1.84, Epoch Time: 1195.48 s
+INFO:root:Epoch 10/10, Batch 1440, Train Loss: 1.68, Epoch Time: 1203.81 s
+INFO:root:Epoch 10/10, Batch 1450, Train Loss: 1.89, Epoch Time: 1212.16 s
+INFO:root:Epoch 10/10, Batch 1460, Train Loss: 1.94, Epoch Time: 1220.56 s
+INFO:root:Epoch 10/10, Batch 1470, Train Loss: 1.83, Epoch Time: 1229.02 s
+INFO:root:Epoch 10/10, Batch 1480, Train Loss: 1.77, Epoch Time: 1237.48 s
+INFO:root:Epoch 10, Validating...
+INFO:root:Batch 0, Mean IoU: 27.25%, Test time: 1242.98 s
+INFO:root:Batch 10, Mean IoU: 22.07%, Test time: 1247.88 s
+INFO:root:Batch 20, Mean IoU: 27.31%, Test time: 1252.91 s
+INFO:root:Batch 30, Mean IoU: 27.83%, Test time: 1258.02 s
+INFO:root:Batch 40, Mean IoU: 34.39%, Test time: 1263.22 s
+INFO:root:Batch 50, Mean IoU: 32.19%, Test time: 1268.28 s
+INFO:root:Batch 60, Mean IoU: 31.63%, Test time: 1273.36 s
+INFO:root:Batch 70, Mean IoU: 26.96%, Test time: 1278.77 s
+INFO:root:Batch 80, Mean IoU: 32.50%, Test time: 1284.04 s
+INFO:root:Batch 90, Mean IoU: 35.12%, Test time: 1289.17 s
+INFO:root:Batch 100, Mean IoU: 28.50%, Test time: 1294.35 s
+INFO:root:Batch 110, Mean IoU: 25.13%, Test time: 1299.38 s
+INFO:root:Batch 120, Mean IoU: 34.74%, Test time: 1304.39 s
+INFO:root:Batch 130, Mean IoU: 38.15%, Test time: 1309.44 s
+INFO:root:Batch 140, Mean IoU: 43.38%, Test time: 1314.49 s
+INFO:root:Batch 150, Mean IoU: 35.43%, Test time: 1319.42 s
+INFO:root:Batch 160, Mean IoU: 34.10%, Test time: 1324.44 s
+INFO:root:Batch 170, Mean IoU: 34.90%, Test time: 1329.59 s
+INFO:root:Batch 180, Mean IoU: 40.06%, Test time: 1334.70 s
+INFO:root:Batch 190, Mean IoU: 38.74%, Test time: 1339.63 s
+INFO:root:Batch 200, Mean IoU: 33.26%, Test time: 1344.75 s
+INFO:root:Batch 210, Mean IoU: 35.83%, Test time: 1349.92 s
+INFO:root:Batch 220, Mean IoU: 35.61%, Test time: 1354.93 s
+INFO:root:Batch 230, Mean IoU: 37.58%, Test time: 1359.97 s
+INFO:root:Batch 240, Mean IoU: 31.04%, Test time: 1364.98 s
+INFO:root:Epoch 10, Training Loss: 1.781089351733579, Validation Loss: 1.5957990822792054, mIOU: 32.75%, Epoch Duration: 1369.476405620575 s
+INFO:root:Current best val loss: Epoch 10
+WARNING:matplotlib.image:Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).

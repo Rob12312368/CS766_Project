@@ -1,23 +1,17 @@
 '''
+1.1.0 Error: segmentation head was locked, only LoRA was trained
 backbone: resnet50(pretrained: ImageNet)
+Adapter: LoRA, add after conv2
 segmentation_head: DeepLabV3Head
-batch_size: 4
+batch_size: 2
 
 datapath: './gtFine_trainvaltest'(2975 training images, 500 validation images, 1525 test images)
-num_epochs: 100
+num_epochs: 5
 
 backbone: Resnet50(ImageNet)
 output size: batchsize(2) * class(1000) * 1 * 1
-remove the last two layers(avgpool, fc): batchsize(2) * class(1000) * 16 * 16
+remove the last two layers(avgpool, fc): batchsize(2) * class(1000) * 32 * 64
 
-
-
-
-learning rate: (1 - iter/total_iter) ** 0.9, which is rather high
-crop size: 769, this helps the ASPP kernel to focus on image instead of padding
-batch normalization: True
-upsampling logits: keep the groundtruths intact
-No Data Augmentation
 '''
 
 import torch
@@ -36,6 +30,7 @@ from datetime import datetime
 import logging
 from tqdm import tqdm
 from peft import LoraConfig, get_peft_model
+import csv
 
 
 with open('config.json') as config_file:
@@ -46,8 +41,8 @@ dataset_path = config['data_path']
 num_epochs = config['num_epochs']
 save_dir = config['save_dir']
 batch_size = config['batch_size']
-num_workers = config['num_workers']
 
+# save log
 save_dir = save_dir +'/' + datetime.now().strftime('%Y-%m-%d-%H%M')
 os.mkdir(save_dir)
 logger = logging.getLogger()
@@ -62,13 +57,13 @@ class CustomDeepLabV3(torch.nn.Module):
     def forward(self, x):
         input_shape = x.shape[-2:]
         features = self.backbone(x)
-        print("size after downsampling", features.shape)
+        #print("size after downsampling", features.shape)
         x = self.classifier(features)
-        print("size after segmentation head", x.shape)
+        #print("size after segmentation head", x.shape)
         # spatial dimensions of this map are smaller than the original input image due to the downsampling operations in the backbone.
         # We can upsample the output to the size of the input image using interpolation
         x = torch.nn.functional.interpolate(x, size=input_shape, mode='bilinear', align_corners=False)
-        print("size after upsampling", x.shape)
+        #print("size after upsampling", x.shape)
         return {'out': x}
 
 backbone = models.resnet50(pretrained=True)
@@ -80,19 +75,18 @@ num_classes = 20
 segmentation_head = DeepLabHead(2048, num_classes)
 # 2048 is the number of output channels in the resnet50 backbone
 
-# Then use your custom model instead of the original one
-model = CustomDeepLabV3(backbone, segmentation_head)
-
 config = LoraConfig(
     r=16,
     lora_alpha=16,
-    target_modules=["conv3"],
+    target_modules=["conv2"],
     lora_dropout=0.1,
     bias="none",
     modules_to_save=["fc"],
 )
-model = get_peft_model(model, config)
+backbone = get_peft_model(backbone, config)
 
+# Then use your custom model instead of the original one
+model = CustomDeepLabV3(backbone, segmentation_head)
 
 # Number of effective classes after mapping (19 classes + 1 background)
 
@@ -132,8 +126,8 @@ val_dataset = datasets.Cityscapes(root=dataset_path, split='val', mode='fine', t
 #test_dataset = datasets.Cityscapes(root=dataset_path, split='test', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
 
 # batch size should be set to 4 or more on GPU for training
-train_loader = DataLoader(train_dataset, batch_size=batch_size, num_workers=num_workers, shuffle=True)
-val_loader = DataLoader(val_dataset, batch_size=batch_size, num_workers=num_workers, shuffle=False)
+train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
+val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, drop_last=True)
 #test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
 
@@ -147,14 +141,17 @@ optimizer = optim.Adam(model.parameters(), lr=0.001)
 scheduler = StepLR(optimizer, step_size=7, gamma=0.1) # learning rate decay，reduce the learning rate by a factor of 0.1 every 7 epochs
 
 # Training loop
-train_loss_values = []
-loss_values = [] # total loss
+train_loss_list = []
+val_loss_list = [] # total loss
+mIou_list = []
+accuracy_list = []
 best_val_loss = float('inf')
 for epoch in range(num_epochs):
     start_time = time.time()  # Start time measurement
     model.train()
     counter = 0
-    running_loss = 0.0
+    train_loss_total = 0
+    val_loss_total = 0
 
     print(f"Epoch {epoch + 1}, Training...")
     logger.info(f"Epoch {epoch + 1}, Training...")
@@ -165,25 +162,27 @@ for epoch in range(num_epochs):
         optimizer.zero_grad()
         outputs = model(images)['out']
 
-        loss = criterion(outputs, targets)
-        loss.backward()
+        train_loss = criterion(outputs, targets)
+        train_loss.backward()
         optimizer.step()
-        running_loss += loss.item()
+        train_loss_total += train_loss.item()
         # print loss every 10 batches
         if counter % 10 == 0:
             end_time = time.time()
             duration = end_time - start_time
             # epoch i / num_epochs, loss should only have 2 decimal places
-            #print(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Train Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
-            logger.info(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Train Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
+            print(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Train Loss: {train_loss.item():.2f}, Epoch Time: {duration:.2f} s")
+            logger.info(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Train Loss: {train_loss.item():.2f}, Epoch Time: {duration:.2f} s")
         counter += 1
-    train_loss = running_loss / len(train_loader)
-    train_loss_values.append(train_loss)
+    train_loss = train_loss_total / len(train_loader)
+    train_loss_list.append(train_loss)
 
     # Validation phase
     model.eval()
-    val_loss = 0.0
+    total = 0
+    correct = 0
     counter = 0
+    total_mIou = []
     print(f"Epoch {epoch + 1}, Validating...")
     logger.info(f"Epoch {epoch + 1}, Validating...")
     with torch.no_grad():
@@ -191,78 +190,73 @@ for epoch in range(num_epochs):
             images = images.to(device)
             targets = targets.to(device)
             outputs = model(images)['out']
-            loss = criterion(outputs, targets)
-            val_loss += loss.item()
+            val_loss = criterion(outputs, targets)
+            val_loss_total += val_loss.item()
+
+            _, predicted = torch.max(outputs,
+                                     1)  # max is used to get the index of the class with the highest probability
+            total += targets.nelement()  #
+            correct += (predicted == targets).sum().item()
+
+            iou_per_class = []
+            # calculate MIoU here:
+            for cls in range(num_classes):
+                predicted_cls = predicted == cls
+                target_cls = targets == cls
+                intersection = (predicted_cls & target_cls).sum().item()
+                union = (predicted_cls | target_cls).sum().item()
+                if union == 0:
+                    iou_per_class.append(float('nan'))  # Avoid division by zero
+                else:
+                    iou_per_class.append(intersection / union)
+
+            mean_iou = np.nanmean(iou_per_class)
+            total_mIou.append(mean_iou)
+
             if counter % 10 == 0:
                 end_time = time.time()
                 duration = end_time - start_time
-                #print(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Validation Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
-                logger.info(f"Epoch {epoch + 1}/{num_epochs}, Batch {counter}, Validation Loss: {loss.item():.2f}, Epoch Time: {duration:.2f} s")
+                print(f"Batch {counter}, validation loss: {val_loss.item():.2f}, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
+                logger.info( f"Batch {counter}, validation loss: {val_loss.item():.2f}, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
+
             counter += 1
-    val_loss /= len(val_loader)
-    loss_values.append(val_loss)
+
+    accuracy = correct / total
+    accuracy_list.append(accuracy)
+
+    avg_mIou = np.mean(total_mIou)
+    mIou_list.append(avg_mIou)
+
+    val_loss = val_loss_total / len(val_loader)
+    val_loss_list.append(val_loss)
 
     end_time = time.time()  # End time measurement
     epoch_duration = end_time - start_time
 
-    print(f"Epoch {epoch + 1}, Training Loss: {train_loss}, Validation Loss: {val_loss}, Epoch Duration: {epoch_duration} s")
-    logger.info(f"Epoch {epoch + 1}, Training Loss: {train_loss}, Validation Loss: {val_loss}, Epoch Duration: {epoch_duration} s")
+    print(f"Epoch {epoch + 1}, Training Loss: {train_loss}, Validation Loss: {val_loss}, accuracy: {accuracy*100:.2f}%, mIOU: {avg_mIou*100:.2f}%, Epoch Duration: {epoch_duration} s")
+    logger.info(f"Epoch {epoch + 1}, Training Loss: {train_loss}, Validation Loss: {val_loss}, accuracy: {accuracy*100:.2f}%, mIOU: {avg_mIou*100:.2f}%, Epoch Duration: {epoch_duration} s")
     if val_loss < best_val_loss:
         logger.info(f"Current best val loss: Epoch {epoch + 1}")
         best_val_loss = val_loss
         torch.save(model.state_dict(), save_dir + '/best_model_weights.pth')
-torch.save(model.state_dict(), save_dir + '/last_model_weights.pth')
 
-# Validation phase
-model.load_state_dict(torch.load(save_dir +'/best_model_weights.pth'))
-model.eval()
-total = 0
-correct = 0
-counter = 0
-total_mIou = []
+# Define path for the CSV file
+csv_path = os.path.join(save_dir, 'metrics.csv')
 
-print("Testing... ") #use the val set
-logger.info("Testing...")
-start_time = time.time()
+# Write metrics to a CSV file
+with open(csv_path, mode='w', newline='') as file:
+    writer = csv.writer(file)
+    # Write the headers
+    writer.writerow(['Epoch', 'Train Loss', 'Validation Loss', 'mIOU'])
 
-with torch.no_grad():
-    for images, targets in tqdm(val_loader, dynamic_ncols=True):
-        images = images.to(device)
-        targets = targets.to(device)
-        outputs = model(images)['out']
-
-        _, predicted = torch.max(outputs, 1) # max is used to get the index of the class with the highest probability
-        # evaluate the mIOU in the validation set
-        total += targets.nelement() #
-        correct += (predicted == targets).sum().item()
-
-        iou_per_class = []
-        # calculate MIoU here:
-        for cls in range(num_classes):
-            predicted_cls = predicted == cls
-            target_cls = targets == cls
-            intersection = (predicted_cls & target_cls).sum().item()
-            union = (predicted_cls | target_cls).sum().item()
-            if union == 0:
-                iou_per_class.append(float('nan'))  # Avoid division by zero
-            else:
-                iou_per_class.append(intersection / union)
-
-        mean_iou = np.nanmean(iou_per_class)
-        total_mIou.append(mean_iou)
-
-        if counter % 10 == 0:
-            end_time = time.time()
-            duration = end_time - start_time
-            #print(f"Batch {counter}, Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
-            logger.info(f"Batch {counter}, Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
-        counter += 1
-end_time = time.time()
-duration = end_time - start_time
-avg_mIou = np.nanmean(total_mIou)
-print(f"Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * avg_mIou:.2f}%, Test Duration: {duration:.2f} s")
-logger.info(f"Test Accuracy: {100 * correct / total:.2f}%, Mean IoU: {100 * avg_mIou:.2f}%, Test Duration: {duration:.2f} s")
-
+    # Write the data
+    for epoch in range(num_epochs):
+        writer.writerow([
+            epoch + 1,
+            train_loss_list[epoch],
+            val_loss_list[epoch],
+            mIou_list[epoch]
+        ])
 
 # show segmentation example
 import matplotlib.pyplot as plt
@@ -293,16 +287,23 @@ with torch.no_grad():
     plt.savefig(save_dir + '/segmentation.png')
 
 plt.figure()
-plt.plot(train_loss_values)
+plt.plot(train_loss_list)
 plt.title('Training Loss')
-plt.xlabel('images')
+plt.xlabel('epochs')
 plt.ylabel('Loss')
 plt.savefig(save_dir + '/train_loss.png')
 
 # show val loss in plt
 plt.figure()
-plt.plot(loss_values)
+plt.plot(val_loss_list)
 plt.title('Validation Loss')
-plt.xlabel('images')
+plt.xlabel('epochs')
 plt.ylabel('Loss')
-plt.savefig(save_dir + '/loss.png')
+plt.savefig(save_dir + '/val_loss.png')
+
+plt.figure()
+plt.plot(mIou_list)
+plt.title('mIOU')
+plt.xlabel('epochs')
+plt.ylabel('mIOU')
+plt.savefig(save_dir + '/mIOU.png')

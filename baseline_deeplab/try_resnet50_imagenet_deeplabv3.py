@@ -77,7 +77,7 @@ target_transform = transforms.Compose([
 ])
 
 # Define the dataset with appropriate transforms for both images and targets
-dataset_path = './small_gtFine_trainvaltest'
+dataset_path = '../small_gtFine_trainvaltest'
 train_dataset = datasets.Cityscapes(root=dataset_path, split='train', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
 val_dataset = datasets.Cityscapes(root=dataset_path, split='val', mode='fine', target_type='semantic', transform=transform, target_transform=target_transform)
 

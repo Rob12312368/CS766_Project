@@ -1,8 +1,8 @@
 {
     "data_path": "/home/caxmirror/gtFine_trainvaltest",
     "save_dir": "/home/caxmirror",
-    "num_epochs": 10,
+    "num_epochs": 5,
     "batch_size": 2,
-    "num_workers": 4,
+    "num_workers": 1,
     "continue_training": false
 }
