@@ -47,6 +47,30 @@ os.mkdir(save_dir)
 logger = logging.getLogger()
 logging.basicConfig(filename=f'{save_dir}/run.log', encoding='utf-8', level=logging.INFO)
 
+
+normalization = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+def denormalize(tensor):
+    tensor = tensor.clone()  # Clone the tensor so as not to make changes to the original
+    for t, m, s in zip(tensor, normalization.mean, normalization.std):
+        t.mul_(s).add_(m)  # Multiply by std and add mean
+    tensor = torch.clamp(tensor, 0, 1)  # Clamp values to the range [0, 1]
+    return tensor
+
+def plot_segmentation(images, targets, preds, save_dir):
+    images = denormalize(images)  # Denormalize the image
+    images = images.cpu().numpy()  # Convert to numpy array
+    targets = targets.cpu().numpy()  # Convert to numpy array
+    preds = preds.cpu().numpy()  # Convert to numpy array
+    fig, axs = plt.subplots(1, 3, figsize=(15, 5))
+    axs[0].imshow(np.transpose(images[0], (1, 2, 0)))  # Original image
+    axs[0].set_title('Original Image')
+    axs[1].imshow(targets[0])  # True mask
+    axs[1].set_title('True Mask')
+    axs[2].imshow(preds[0])  # Predicted mask
+    axs[2].set_title('Predicted Mask')
+    plt.savefig(save_dir + '/segmentation.png')
+
+import matplotlib.pyplot as plt
 class CustomDeepLabV3(torch.nn.Module):
     def __init__(self, backbone, classifier):
         super().__init__()
@@ -154,6 +178,7 @@ for epoch in range(num_epochs):
 
         optimizer.zero_grad()
         outputs = model(images)['out']
+        _, preds = torch.max(outputs, 1)
 
         train_loss = criterion(outputs, targets)
         train_loss.backward()

@@ -189,6 +189,7 @@ for epoch in range(num_epochs):
         for images, targets in tqdm(val_loader, dynamic_ncols=True):
             images = images.to(device)
             targets = targets.to(device)
+
             outputs = model(images)['out']
             val_loss = criterion(outputs, targets)
             val_loss_total += val_loss.item()
@@ -213,13 +214,13 @@ for epoch in range(num_epochs):
             mean_iou = np.nanmean(iou_per_class)
             total_mIou.append(mean_iou)
 
-            if counter % 10 == 0:
-                end_time = time.time()
-                duration = end_time - start_time
-                print(f"Batch {counter}, validation loss: {val_loss.item():.2f}, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
-                logger.info( f"Batch {counter}, validation loss: {val_loss.item():.2f}, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
+        if counter % 10 == 0:
+            end_time = time.time()
+            duration = end_time - start_time
+            print(f"Batch {counter}, validation loss: {val_loss.item():.2f}, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
+            logger.info( f"Batch {counter}, validation loss: {val_loss.item():.2f}, Mean IoU: {100 * mean_iou:.2f}%, Test time: {duration:.2f} s")
 
-            counter += 1
+        counter += 1
 
     accuracy = correct / total
     accuracy_list.append(accuracy)
