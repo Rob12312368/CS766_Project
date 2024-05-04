@@ -4,4 +4,3 @@
 4. num_epches: 20
 Test Accuracy: 78.07%, Mean IoU: 26.38%, Test Duration: 118.67
 
-   
